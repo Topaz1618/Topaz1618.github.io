@@ -24,14 +24,14 @@ permalink: Learning-materials-collection
 
 <span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c1">github项目</span>
 
-[GitHub 热门的机器学习 人工智能和数据科学项目] https://zhuanlan.zhihu.com/p/35195885
+[GitHub 热门的机器学习 人工智能和数据科学项目]		https://zhuanlan.zhihu.com/p/35195885
 
 
 <span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c2">机器学习</span>
 
-[Google 机器学习速成课程] 	https://ai.google/education/#?modal_active=none
+[Google 机器学习速成课程]	https://ai.google/education/#?modal_active=none
 
-[Google 机器学习速成课程 中文版] 	https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
+[Google 机器学习速成课程 中文版]		https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
 
 [数据不足如何用深度学习]		https://www.youtube.com/watch?v=ilpFzOPznJk
 
