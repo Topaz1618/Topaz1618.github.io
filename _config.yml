@@ -93,6 +93,7 @@ gems:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-paginate
+  - posts
 
 #jekyll-mentions:
     #base_url: http://artiannaswamy.com
