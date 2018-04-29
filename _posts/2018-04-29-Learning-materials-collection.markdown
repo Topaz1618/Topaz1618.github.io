@@ -24,6 +24,8 @@ permalink: Learning-materials-collection
 
 
 
+<h2> github项目 </h2>
+
 <span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c1">github项目</span>
 
 [GitHub 热门的人工智能和数据科学项目] https://zhuanlan.zhihu.com/p/35195885
