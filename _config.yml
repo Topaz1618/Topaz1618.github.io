@@ -10,7 +10,7 @@ description: A blog about Physics and teaching science
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: https://topaz1618.github.io/
+url: https://topaz1618.github.io
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
