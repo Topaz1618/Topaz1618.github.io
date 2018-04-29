@@ -22,7 +22,7 @@ permalink: Learning-materials-collection
 
 
 
-<span style="font-size: 2rem;font-weight:700；color: #222" id="c1">github项目</span>
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c1">github项目</span>
 
 [GitHub 热门的机器学习和人工智能，数据科学项目] https://zhuanlan.zhihu.com/p/35195885
 
