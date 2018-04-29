@@ -1,5 +1,5 @@
 ---
-title: "MySQL ERROR 2003"
+title: "MySQL ERROR 2003 报错记录"
 layout: post
 date: 2017-02-24 22:48
 tag:
