@@ -24,7 +24,7 @@ permalink: Learning-materials-collection
 
 <span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c1">github项目</span>
 
-[GitHub 热门的机器学习 人工智能和数据科学项目]		https://zhuanlan.zhihu.com/p/35195885
+[GitHub 热门的人工智能和数据科学项目] https://zhuanlan.zhihu.com/p/35195885
 
 
 <span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c2">机器学习</span>
@@ -35,7 +35,8 @@ permalink: Learning-materials-collection
 
 [数据不足如何用深度学习]		https://www.youtube.com/watch?v=ilpFzOPznJk
 
-[2018年机器学习 15大领域 50篇文章]		https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad3f45394eefd12d943a4847f6&chksm=e99ed6ecdee95ffa99804c0afaa21a39a26c097591a2586b7ae205e81d6d9d711389b8c7aa6a&utm_source=tuicool&utm_medium=referral
+[2018年机器学习 15大领域 50篇文章]
+https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad3f45394eefd12d943a4847f6&chksm=e99ed6ecdee95ffa99804c0afaa21a39a26c097591a2586b7ae205e81d6d9d711389b8c7aa6a&utm_source=tuicool&utm_medium=referral
 
 [谷歌机器学习速成课学前预备书单]		https://weibo.com/ttarticle/p/show?id=2309404213172029491937
 
