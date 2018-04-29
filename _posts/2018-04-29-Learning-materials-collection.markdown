@@ -9,6 +9,8 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: Learning-materials-collection
 ---
+<h1 class="title"> Learning materials collection </h1>
+
 
 #### Contents
 - [github项目](#c1)
