@@ -24,14 +24,12 @@ permalink: Learning-materials-collection
 
 
 
-<h2> github项目 </h2>
-
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c1">github项目</span>
+<h2 id="c1"> github项目 </h2>
 
 [GitHub 热门的人工智能和数据科学项目] https://zhuanlan.zhihu.com/p/35195885
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c2">机器学习</span>
+<h2" id="c2">机器学习</h2>
 
 [Google 机器学习速成课程]	https://ai.google/education/#?modal_active=none
 
