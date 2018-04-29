@@ -45,7 +45,7 @@ https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad
 
 <h2 id="c3">理论知识</h2>
 
-<h6 href="https://courses.csail.mit.edu/6.042/spring18/mcs.pdf">[MIT 计算机科学的数学理论 教学课件] </h6> 
+<a href="https://courses.csail.mit.edu/6.042/spring18/mcs.pdf">[MIT 计算机科学的数学理论 教学课件] </a> 
 
 
 <h2 id="c4">书籍推荐</h2>
