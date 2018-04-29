@@ -38,15 +38,15 @@ ERROR 2003 (HY000): Can't connect to MySQL server (111)
 2.在另一台机器上ping
  {% highlight html %}
  [root@web ~]# ping 10.0.0.129
- PING 10.0.0.129 (10.0.0.129) 56(84) bytes of data.
- 64 bytes from 10.0.0.129: icmp_seq=1 ttl=64 time=4.14 ms
+ 	PING 10.0.0.129 (10.0.0.129) 56(84) bytes of data.
+ 	64 bytes from 10.0.0.129: icmp_seq=1 ttl=64 time=4.14 ms
  {% endhighlight %}
 能ping通
 
 3.telnet端口，oops连不上
  {% highlight html %}
  [root@web ~]# telnet 10.0.0.129 3306
- telnet: connect to address 10.0.0.129: No route to host
+ 	telnet: connect to address 10.0.0.129: No route to host
  {% endhighlight %}
 
 4.iptables -L 检查防火墙
