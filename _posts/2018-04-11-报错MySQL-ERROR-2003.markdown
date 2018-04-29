@@ -51,6 +51,6 @@ ERROR 2003 (HY000): Can't connect to MySQL server (111)
 
 4.iptables -L 检查防火墙
 
-5.最后确定是防火墙的问题
+5.最后确定是防火墙的问题，该删的删
 
 
