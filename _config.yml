@@ -81,9 +81,9 @@ show-author: true
 # do you want some animations?
 animation: true
 
-# sass:
-#     sass_dir: _sass
-#     style: :compressed
+sass:
+    sass_dir: _sass
+    style: :compressed
 
 gems:
   - jemoji
