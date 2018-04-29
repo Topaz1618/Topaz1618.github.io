@@ -1,8 +1,8 @@
 ---
 title: "Markdown Common Elements"
 layout: post
-date: 2018-02-24 22:44
- tag:
+date: 2016-02-24 22:44
+tag:
  - markdown
  - elements
 blog: true
@@ -11,6 +11,7 @@ summary: "A list of the most common markdown elements and how they look"
 permalink: markdown-common-elements
 
 ---
+
 
 ## Summary:
 
