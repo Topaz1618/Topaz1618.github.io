@@ -29,7 +29,7 @@ permalink: Learning-materials-collection
 [GitHub 热门的人工智能和数据科学项目] https://zhuanlan.zhihu.com/p/35195885
 
 
-<h2" id="c2">机器学习</h2>
+<h2 id="c2">机器学习</h2>
 
 [Google 机器学习速成课程]	https://ai.google/education/#?modal_active=none
 
@@ -43,28 +43,28 @@ https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad
 [谷歌机器学习速成课学前预备书单]		https://weibo.com/ttarticle/p/show?id=2309404213172029491937
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c3">理论知识</span>
+<h2 id="c3">理论知识</h2>
 
 [MIT 计算机科学的数学理论 教学课件]  https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c4">书籍推荐</span>
+<h2 id="c4">书籍推荐</h2>
 [每个程序员都该读的书]	https://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c5">Blog推荐</span>
+<h2 id="c5">Blog推荐</h2>
 
 [优秀的技术博客]	https://www.zhihu.com/question/27471510/answer/374935368
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c6">面试相关</span>
+<h2 id="c6">面试相关</h2>
 
 [tcp http面试指南]	https://juejin.im/post/5ad4094e6fb9a028d7011069
 
 [Google Interview University 学习手册] https://github.com/jwasham/coding-interview-university/blob/master/translations/README-cn.md
 
 
-<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c7">其它语言</span>
+<h2 id="c7">其它语言</h2>
 
 [Google的C++教程]  https://developers.google.com/edu/c++/getting-started
 
