@@ -12,7 +12,7 @@ permalink: Learning-materials-collection
 <h1 class="title"> Learning materials collection </h1>
 
 
-<h2> Contents </h2>
+<h3 style="color: #AED6F1"> Contents </h3>
 - [github项目](#c1)
 - [机器学习](#c2)
 - [理论知识](#c3)
