@@ -27,7 +27,7 @@ permalink: Learning-materials-collection
 [GitHub 热门的机器学习和人工智能，数据科学项目] https://zhuanlan.zhihu.com/p/35195885
 
 
-<span style="font-size: 30" id="c2">机器学习</span>
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c2">机器学习</span>
 
 [Google 机器学习速成课程] 	https://ai.google/education/#?modal_active=none
 
@@ -40,36 +40,34 @@ permalink: Learning-materials-collection
 [谷歌机器学习速成课学前预备书单]		https://weibo.com/ttarticle/p/show?id=2309404213172029491937
 
 
-### 理论知识
-<span id="c3">
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c3">理论知识</span>
+
 [MIT 计算机科学的数学理论 教学课件]  https://courses.csail.mit.edu/6.042/spring18/mcs.pdf
-</span>
 
-### 书籍推荐
-<span id="c4">
+
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c4">书籍推荐</span>
 [每个程序员都该读的书]	https://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read
-</span>
 
-### Blog推荐
-<span id="c5">
+
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c5">Blog推荐</span>
+
 [优秀的技术博客]	https://www.zhihu.com/question/27471510/answer/374935368
-</span>
 
-### 面试相关
-<span id="c6">
+
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c6">面试相关</span>
+
 [tcp http面试指南]	https://juejin.im/post/5ad4094e6fb9a028d7011069
 
 [Google Interview University 学习手册] https://github.com/jwasham/coding-interview-university/blob/master/translations/README-cn.md
-</span>
 
-### 其它语言
-<span id="c7">
+
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c7">其它语言</span>
+
 [Google的C++教程]  https://developers.google.com/edu/c++/getting-started
-</span>
 
-### Something interesting
-<span id="c8">
+<span style="font-size: 2rem;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;font-weight: bold;display: block;color: #222;" id="c8">Something interesting</span>
+
 [在线运行代码] http://rextester.com/l/python3_online_compiler
-</span>
+
 
 
