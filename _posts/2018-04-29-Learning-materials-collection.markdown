@@ -22,13 +22,13 @@ permalink: Learning-materials-collection
 
 
 
-###  github项目
-<div id="c1">
-[GitHub 热门的机器学习和人工智能，数据科学项目] https://zhuanlan.zhihu.com/p/35195885
-</div>
+<span style="font-size: 30" id="c1">github项目</span>
 
-### 机器学习
-<span id="c2">
+[GitHub 热门的机器学习和人工智能，数据科学项目] https://zhuanlan.zhihu.com/p/35195885
+
+
+<span style="font-size: 30" id="c2">机器学习</span>
+
 [Google 机器学习速成课程] 	https://ai.google/education/#?modal_active=none
 
 [Google 机器学习速成课程 中文版] 	https://developers.google.com/machine-learning/crash-course/prereqs-and-prework
@@ -38,7 +38,7 @@ permalink: Learning-materials-collection
 [2018年机器学习 15大领域 50篇文章]		https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad3f45394eefd12d943a4847f6&chksm=e99ed6ecdee95ffa99804c0afaa21a39a26c097591a2586b7ae205e81d6d9d711389b8c7aa6a&utm_source=tuicool&utm_medium=referral
 
 [谷歌机器学习速成课学前预备书单]		https://weibo.com/ttarticle/p/show?id=2309404213172029491937
-</span>
+
 
 ### 理论知识
 <span id="c3">
