@@ -10,7 +10,7 @@ description: A blog about Physics and teaching science
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-# url: http://artiannaswamy.com
+url: https://topaz1618.github.io/
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -38,9 +38,9 @@ github: Topaz1618
 email: topaz1618@163.com
 
 authors:
-    NivedithaRam:
+    Topaz:
         name: Topaz
-        bio: Physics, Reading, Teaching.
+        bio: Always keep learning.
         external-image: false
         picture: assets/images/profile.jpg
         twitter: None
@@ -49,7 +49,7 @@ authors:
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
 # normal = 560px / large = 810px
-width: large
+width: normal
 
 # if you don't need pagination, comment the *paginate* configs below
 # paginate: 5
@@ -58,7 +58,7 @@ width: large
 # if you don't need projects, comment the *projects* configs below
 # projects: true
 research: true
-teaching: false
+
 # if you don't need about or blog, comment them out below
 about: true
 blog: true
@@ -81,9 +81,9 @@ show-author: true
 # do you want some animations?
 animation: true
 
-sass:
-    sass_dir: _sass
-    style: :compressed
+# sass:
+#     sass_dir: _sass
+#     style: :compressed
 
 gems:
   - jemoji
