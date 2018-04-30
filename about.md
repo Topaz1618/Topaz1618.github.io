@@ -3,6 +3,7 @@ title: About
 layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
+<p><img src="https://koppl.in/indigo/assets/images/profile_about.jpg" alt="Profile About Image"></p>
 
 I am a PhD student in Nuclear Physics at [Stony Brook university](http://www.physics.sunysb.edu/Physics/) supervised by Prof. Thomas Hemmick and Prof. Abhay Deshpande. I did my undergraduate studies in Electrical and Elctronics Engineering at [SASTRA University](http://www.sastra.edu/), India. 
 
