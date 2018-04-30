@@ -10,10 +10,10 @@ layout: page
 	博客不经常更，平时本地sublime写文档，间歇性一波push过来，有问题发邮件给我
 
 
-
 ### Skills
+- MySQL/Redis/RabbitMQ
+- JavaScript/HTML/JQuery/CSS
+- Python/Shell
+- Django/Tornado
 - Linux
-- MySQL
-- Redis
-- Python
-- Nginx
+- sed/awk/grep
