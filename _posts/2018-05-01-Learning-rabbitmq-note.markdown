@@ -100,7 +100,7 @@ import pika
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 channel.queue_declare(queue='hello')    #声明一个队列，生产者和消费者都要声明一个相同的队列，用来防止万一某一方挂了，另一方能正常运行
-def callback(ch,method,properties,body):  #定义一个回调函数，用来接收生产者发送的消息
+def callback(ch,method,properties,body):  #定义一个回调函数
 	print(body.decode())
 	print("method.delivery_tag", method.delivery_tag)
 	ch.basic_ack(delivery_tag=method.delivery_tag)  #显式的发送确认消息,明确的告诉服务器消息被处理了
