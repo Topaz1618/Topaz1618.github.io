@@ -101,7 +101,7 @@ connection.close()
 {% endhighlight %}
 
 消费者
-{% highlight python %}
+{% highlight Python %}
 import pika
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
