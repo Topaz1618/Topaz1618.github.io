@@ -1,5 +1,5 @@
 ---
-title: [译]RabbitMQ 6种队列模式详解
+title: "[译]RabbitMQ 6种队列模式详解"
 layout: post
 date: 2018-04-24 22:48
 tag:
