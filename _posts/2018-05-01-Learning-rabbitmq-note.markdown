@@ -30,15 +30,16 @@ permalink: Learning-RabbitMQ-note
 
 
 <h4>特性</h4>
-<div style="color: #AED6F1">
-<p>异步消息:支持多种消息协议，消息队列，灵活的路由队列，交换类型</p>
-<p>方便部署：支持使用BOSH, Chef, Docker 和 Puppet等</p>
-<p>支持多种语言开发：Java, .NET, PHP, Python, JavaScript, Ruby, Go</p>
-<p>企业和云：轻量级，云上易部署，可插入身份验证，授权，支持TLS和LDAP</p>
-<p>管理监控：提供HTTP-API, command line tool 和 UI 来管理监控 RabbitMQ.</p>
-<p>支持分布式</p>
-<p>提供多种工具和插件</p>
-</div>
+{% highlight raw %}
+异步消息:支持多种消息协议，消息队列，灵活的路由队列，交换类型
+方便部署：支持使用BOSH, Chef, Docker 和 Puppet等
+支持多种语言开发：Java, .NET, PHP, Python, JavaScript, Ruby, Go
+企业和云：轻量级，云上易部署，可插入身份验证，授权，支持TLS和LDAP
+管理监控：提供HTTP-API, command line tool 和 UI 来管理监控 RabbitMQ.
+支持分布式
+提供多种工具和插件
+{% endhighlight %}
+
 
 
 <h4>术语</h4>
