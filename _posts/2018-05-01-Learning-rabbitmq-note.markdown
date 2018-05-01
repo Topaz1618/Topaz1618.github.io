@@ -7,7 +7,7 @@ tag:
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
-permalink: Learning-materials-collection
+permalink: Learning-RabbitMQ-note
 ---
 <h1 class="title"> [译]RabbitMQ 6种队列模式详解 </h1>
 
