@@ -65,17 +65,17 @@ permalink: Learning-RabbitMQ-note
 - RPC
 {% endhighlight %}
 
-> 先决条件：RabbitMQ 在本机的标准端口（5672）的上运行。如果使用不同的主机，端口记得调。
 
 
 <h2 id="c2">简单模式</h2>
+> 先决条件：RabbitMQ 在本机的标准端口（5672）的上运行。如果使用不同的主机，端口记得调。
 
 <a style="color: #AED6F1" href="https://ai.google/education/#?modal_active=none">pass</a>
 
 
 
 <h2 id="c3">Work模式</h2>
-Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过起多个消费者感受下这点。
+Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过运行多个消费者感受下这点。
 
 <h4>Demo </h4>
 生产者：
@@ -104,7 +104,7 @@ def callback(ch,method,properties,body):  #定义一个回调函数
 	print(body.decode())
 	print("method.delivery_tag", method.delivery_tag)
 	ch.basic_ack(delivery_tag=method.delivery_tag)  #显式的发送确认消息,明确的告诉服务器消息被处理了
-channel.basic_qos(prefetch_count=1)	 #如果消费者未进行ack确认的消息达到这个值，生产者就不再给它发消息了
+channel.basic_qos(prefetch_count=1)	 #消费者有未进行ack确认的消息，生产者会停止给它发任务
 channel.basic_consume(callback,      #调用回调函数
 	queue='hello',	 #指定取消息的队列
 	no_ack=False   	 #默认值False，意为开启acknowledge机制，取完一条消息后，给生产者发送确认消息
@@ -116,16 +116,19 @@ channel.start_consuming()       #循环取消息
 <h4>参数详解 </h4>
 上面demo里进行了注释，但还是详细说明下
 
-消息持久性:
+* 消息持久性:
+
 当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
 	{% highlight row %}
  	channel.queue_declare（queue = 'task_queue'，durable = True）
 	{% endhighlight %}
 
-##### 消息持久性：
+公平分发：
 
-
-
+RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消息的数量，盲目地将第n条消息分发给第n位消费者。所以会出现一个消费者很忙，另一个消费者空闲的状态，解决这个问题，通过basic.qos方法设置 prefetch_count = 1 
+	{% highlight row %}
+	channel.basic_qos（prefetch_count = 1）
+	{% endhighlight %}
 
 
 <h2 id="c3">Publish\Subscribe 模式</h2>
