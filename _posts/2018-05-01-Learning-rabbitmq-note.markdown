@@ -68,17 +68,15 @@ permalink: Learning-RabbitMQ-note
 {% endhighlight %}
 
 
+{% highlight raw %}
+先决条件：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
+{% endhighlight %}
 
 <h2 id="c2">简单模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
-
-<a style="color: #AED6F1" href="https://ai.google/education/#?modal_active=none">pass</a>
-
+<h4>Demo</h4>
 
 
 <h2 id="c3">Work模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
-
 Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过运行多个消费者感受下这点。
 
 <h4>Demo </h4>
@@ -118,7 +116,7 @@ channel.start_consuming()       #循环取消息
 {% endhighlight %}
 
 <h4>消息持久性</h4>
-当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
+当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，设置 durable = True，确保RabbitMQ不丢失队列，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以需要声明一个具有不同名称的队列，例如task_queue。
 {% highlight row %}
  channel.queue_declare（queue = 'task_queue'，durable = True）
 {% endhighlight %}
@@ -131,8 +129,6 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 
 <h2 id="c3">Publish\Subscribe 模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
-
 之前的教程中，work 队列中的每个任务只能传递给一个worker。在这一部分，我们学习的“发布/订阅”模式，能够向多个消费者传递信息。
 
 <h4>工作流程</h4>
@@ -197,12 +193,10 @@ result = channel.queue_declare(exclusive=True)
 {% endhighlight %}
 
 <h2 id="c5">Routing 模式</h2>
-上一部分实现了将所有消息广播给所有消费者，本节将在消息广播的基础上，添加一个新的功能：选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
+上一部分实现了将所有消息广播给所有消费者，本节将在消息广播的基础上，添加一个新的功能，选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
 
 <h4>Direct exchange 介绍</h4>
-使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key完全匹配的队列。
-
-PS：允许多个队列绑定相同的key。
+使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key完全匹配的队列。多个队列允许绑定相同的key。
 
 <h4>Demo</h4>
 生产者
@@ -251,7 +245,7 @@ channel.start_consuming()
 {% endhighlight %}
 
 <h2 id="c6">Topics 模式</h2>
-Direct exchange的改进仍有局限性：它不能根据多个标准进行路由，更复杂的Topic exchange可以实现这一点。
+Direct exchange的改进仍有局限性，它不能根据多个标准进行路由，更复杂的Topic exchange可以实现这一点。
 <h4>Topic exchange 规则</h4>
 {% highlight raw %}
 - 发送到 topaic exchange的消息不能有任意routing_key
@@ -345,7 +339,7 @@ AMQP 0-9-1 协议定义了14个消息属性，常用的只有以下几个：
 - reply_to：命名callback队列
 - correlation_id：用于将RPC响应与请求相关联，为每个rpc请求建立queue很低效，可以为每个客户端建立queue
 {% endhighlight %}
-这引发一个问题，在队列收到响应，会不清楚响应所属的请求，correlation_id可以解决这个问题，遇到未知的correlation_id值会丢弃消息
+这引发一个问题，在队列收到响应，会不清楚响应所属的请求，使用correlation_id解决这个问题，的correlation_id值会丢弃未知请求消息
 <h4>Demo</h4>
 Server
 
