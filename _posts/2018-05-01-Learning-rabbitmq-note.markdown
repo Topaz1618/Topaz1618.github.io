@@ -133,7 +133,7 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 <h2 id="c3">Publish\Subscribe 模式</h2>
 > 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
 
-Publish\Subscribe 模式能够向多个消费者传递信息
+之前的教程中，work 队列中的每个任务只能传递给一个worker。在这一部分，我们学习的“发布/订阅”模式，能够向多个消费者传递信息。
 
 <h4>工作流程</h4>
 1. 生产者将信息发送到exchange
@@ -200,8 +200,56 @@ result = channel.queue_declare(exclusive=True)
 <h2 id="c5">Routing 模式</h2>
 > 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
 
-<a style="color: #AED6F1" href="https://www.zhihu.com/question/27471510/answer/374935368">[优秀的技术博客]	</a>
+上一部分实现了将所有消息广播给所有消费者，本小节将在消息广播的基础上，添加一个新的功能：选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
 
+<h4>Direct exchange</h4>
+使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key 和 完全匹配的队列。
+PS：允许多个队列绑定相同的key。
+
+<h4>Demo</h4>
+生产者
+{% highlight python %}
+import pika
+import sys
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='topaz', exchange_type='direct')
+severity = sys.argv[1] if len(sys.argv) > 1 else 'info'
+message = ' '.join(sys.argv[1:]) or 'Hello World!'
+channel.basic_publish(exchange='topaz',
+					  routing_key=severity,
+					  body=message)
+print(severity, message)
+connection.close()
+{% endhighlight %}
+
+消费者
+{% highlight python %}
+import pika
+import sys
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='topaz',exchange_type='direct')
+result = channel.queue_declare(exclusive=True)
+queue_name = result.method.queue
+severities = sys.argv[1:]
+if not severities:
+    sys.stderr.write("Usage: %s [info] [warning] [error]\n" % sys.argv[0])
+    sys.exit(1)
+print('severities',severities)
+for severity in severities:
+    channel.queue_bind(exchange='topaz',
+                       queue=queue_name,
+                       routing_key=severity)
+print('等，接受绑定key值为 warning 的消息 ~~')
+# print('等，接受绑定key值为 error 的消息 ~~')
+def callback(ch, method, properties, body):
+    print(method.routing_key, body)
+channel.basic_consume(callback,
+                      queue=queue_name,
+                      no_ack=False)
+channel.start_consuming()
+{% endhighlight %}
 
 <h2 id="c6">Topics 模式</h2>
 > 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
