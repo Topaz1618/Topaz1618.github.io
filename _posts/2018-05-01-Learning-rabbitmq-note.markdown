@@ -69,7 +69,7 @@ permalink: Learning-RabbitMQ-note
 
 
 {% highlight raw %}
-先决条件：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
+PS：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
 {% endhighlight %}
 
 <h2 id="c2">简单模式</h2>
