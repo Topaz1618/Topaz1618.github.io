@@ -139,9 +139,9 @@ Publish\Subscribe 模式向多个消费者传递信息
 <h4>默认交换</h4>
 看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为用了默认exchange，如下： 
 {% highlight python %}
-channel.basic_publish（exchange = ''，
-    routing_key = 'hello'，
-    body = message）
+channel.basic_publish(exchange = '',
+    routing_key = 'hello',
+    body = message)
 {% endhighlight %}
 <h4>exchange 类型</h4>
 现有的几种 exchange 类型：direct，topic，headers 和 fanout，本节我们要使用的是fanout 类型，它会将收到的所有消息广播到所有已知队队列中。
@@ -166,7 +166,7 @@ channel = connection.channel()
 channel.exchange_declare(exchange='logs', exchange_type='fanout')
 result = channel.queue_declare(exclusive=True)
 queue_name = result.method.queue
-channel.queue_bind(exchange='logs', queue=queue_name)  #bind 关联exchange和队列
+channel.queue_bind(exchange='logs', queue=queue_name)  #关联exchange和队列
 print("等待中央空调的问候")
 
 def callback(ch, method, properties, body):
@@ -182,16 +182,14 @@ rabbitmqctl list_bindings
 {% endhighlight %}
 
 <h4>临时队列</h4>
-{% highlight row %}
-当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要创建临时队列啦~
-{% endhighlight %}
+当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要每次连接到Rabbit都有一个新的空队列，这点能够通过创建临时队列来实现。
 
-创建空队列
+1.创建空队列
 {% highlight python %}
 result = channel.queue_declare()	
 {% endhighlight %}
 
-设置 exclusive=True，消费者关闭连接后删除队列
+2.设置 exclusive=True，消费者关闭连接后删除队列
 {% highlight python %}
 result = channel.queue_declare(exclusive=True)
 {% endhighlight %}
