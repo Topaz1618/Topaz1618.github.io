@@ -13,11 +13,11 @@ permalink: Learning-RabbitMQ-note
 
 
 
-<h2> Contents </h2>
+<h2> Content </h2>
 - [RabbitMQ介绍](#c1)
-- [简单模式](#c2)
-- [Work模式](#c3)
-- [Publish\Subscribe模式](#c4)
+- [Hello World 模式](#c2)
+- [Work Queue 模式](#c3)
+- [Publish\Subscribe 模式](#c4)
 - [Routing 模式](#c5)
 - [Topics 模式](#c6)
 - [RPC 模式](#c7)
@@ -27,6 +27,44 @@ permalink: Learning-RabbitMQ-note
 
 
 <h2 id="c1"> RabbitMQ介绍 </h2>
+
+
+<h4>特性</h4>
+<div style="color: #AED6F1">
+- 异步消息:支持多种消息协议，消息队列，灵活的路由队列，交换类型
+- 方便部署：支持使用BOSH, Chef, Docker 和 Puppet等
+- 支持多种语言开发：Java, .NET, PHP, Python, JavaScript, Ruby, Go
+- 企业和云：轻量级，云上易部署，可插入身份验证，授权，支持TLS和LDAP
+- 管理监控：提供HTTP-API, command line tool 和 UI 来管理监控 RabbitMQ.
+- 支持分布式
+- 提供多种工具和插件
+</div>
+<h4>术语</h4>
+
+<div style="color: #AED6F1">
+- Server(Broker):接收客户端连接，实现AMQP协议的消息队列和路由功能的进程；
+- Virtual Host：虚拟主机的概念，类似权限控制组，一个Virtual Host里可以有多个Exchange和Queue,权限控制的最小丽都是Virtual Host；
+- Exchange:交换机，接收生产者发送的消息，并根据Routing Key将消息路由到服务器中的队列Queue。
+- ExchangeType:交换机类型决定了路由消息行为，RabbitMQ中有三种类型Exchange，分别是fanout、direct、topic；
+- Message Queue：消息队列，用于存储还未被消费者消费的消息；
+- Message：由Header和body组成，Header是由生产者添加的各种属性的集合，包括Message是否被持久化、优先级是多少、由哪个Message Queue接收等；body是真正需要发送的数据内容；
+- BindingKey：绑定关键字，将一个特定的Exchange和一个特定的Queue绑定起来。
+</div>
+
+<h4>RabbitMQ提供以下6种模式</h4>
+<div style="color: #AED6F1">
+- Hello World
+- Work Queue
+- Publish/Subscribe
+- Routing
+- Topics
+- RPC
+</div>
+
+
+
+
+
 
 <a style="color: #AED6F1" href="https://zhuanlan.zhihu.com/p/35195885">[GitHub 热门的人工智能和数据科学项目] </a>
 

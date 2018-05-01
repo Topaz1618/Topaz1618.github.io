@@ -14,7 +14,7 @@ permalink: Learning-materials-collection
 
 
 
-<h2> Contents </h2>
+<h2> Content </h2>
 - [github项目](#c1)
 - [机器学习](#c2)
 - [理论知识](#c3)
