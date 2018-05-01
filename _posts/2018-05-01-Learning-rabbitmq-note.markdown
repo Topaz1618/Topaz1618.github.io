@@ -64,25 +64,21 @@ permalink: Learning-RabbitMQ-note
 - Topics
 - RPC
 {% endhighlight %}
-下面对这六种模式进行介绍
+
+
+<span style="color: #AED6F1" >先决条件：假定RabbitMQ 在本机的标准端口（5672）的上运行。如果使用不同的主机，端口记得调。下面对这六种模式进行介绍</span>
+
 
 <h2 id="c2">简单模式</h2>
 
-<a style="color: #AED6F1" href="https://ai.google/education/#?modal_active=none">[Google 机器学习速成课程]	</a>
+<a style="color: #AED6F1" href="https://ai.google/education/#?modal_active=none">pass</a>
 
-<a style="color: #AED6F1" href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework">[Google 机器学习速成课程 中文版]</a>
-
-<a style="color: #AED6F1" href="https://www.youtube.com/watch?v=ilpFzOPznJk">[数据不足如何用深度学习]</a>
-
-<a style="color: #AED6F1" href="https://mp.weixin.qq.com/s?biz=MzI0ODcxODk5OA==&mid=2247492885&idx=1&sn=d41903ad3f45394eefd12d943a4847f6&chksm=e99ed6ecdee95ffa99804c0afaa21a39a26c097591a2586b7ae205e81d6d9d711389b8c7aa6a&utm_source=tuicool&utm_medium=referral">[2018年机器学习 15大领域 50篇文章]</a>
-
-<a style="color: #AED6F1" href="https://weibo.com/ttarticle/p/show?id=2309404213172029491937">[谷歌机器学习速成课学前预备书单]</a>
 
 
 <h2 id="c3">Work模式</h2>
-<h4>Work 模式 介绍</h4>
+Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过起多个消费者感受下这点。
 
-<h4><a style="color: #AED6F1"> Demo </a></h4>
+<h4>Demo </h4>
 生产者：
 {% highlight python %}
 import pika
@@ -90,13 +86,12 @@ import time
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 channel.queue_declare(queue='hello')
-msg = '好冷啊好冷啊 %s'%time.ctime()
+msg = '生产者发消息啦 %s'%time.ctime()
 channel.basic_publish(exchange='',
-					routing_key='hello',
-					body=msg,
-					properties=pika.BasicProperties(delivery_mode=2,)#消息持久化，重启server数据不消失
-					)
-print("生产者")
+	routing_key='hello',
+	body=msg,
+	properties=pika.BasicProperties(delivery_mode=2,)	#消息持久化，重启server数据不消失
+	)
 connection.close()
 {% endhighlight %}
 
@@ -108,17 +103,38 @@ channel = connection.channel()
 channel.queue_declare(queue='hello')    #声明一个队列，生产者和消费者都要声明一个相同的队列，用来防止万一某一方挂了，另一方能正常运行
 def callback(ch,method,properties,body):  #定义一个回调函数，用来接收生产者发送的消息
 	print(body.decode())
-	time.sleep(20)
 	print("method.delivery_tag", method.delivery_tag)
-	ch.basic_ack(delivery_tag=method.delivery_tag)  #要显式的发送确认消息,明确的告诉服务器消息被处理了
-channel.basic_qos(prefetch_count=1)	#消费者当前消息还没处理完的时候就不要再发新消息了（加上这条就公平分发，配置高的多干）
-channel.basic_consume(callback,      #调用回调函数，从队列里取消息
-					queue='hello',#指定取消息的队列名
-					no_ack=True   #取完一条消息后，不给生产者发送确认消息，默认是False的，即  默认给rabbitmq发送一个收到消息的确认，一般默认即可
+	ch.basic_ack(delivery_tag=method.delivery_tag)  #显式的发送确认消息,明确的告诉服务器消息被处理了
+channel.basic_qos(prefetch_count=1)	 #如果消费者未进行ack确认的消息达到这个值，生产者就不再给它发消息了
+channel.basic_consume(callback,      #调用回调函数
+					queue='hello',	 #指定取消息的队列
+					no_ack=False   	 #默认值False，意为开启acknowledge机制，取完一条消息后，给生产者发送确认消息
 					)
 print("等待消息")
-channel.start_consuming()       #开始循环取消息
+channel.start_consuming()       #循环取消息
 {% endhighlight %}
+
+<h4>参数详解 </h4>
+> 虽然上面demo里进行了注释，但还是详细说明下
+
+#### 消息持久性：
+当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
+{% highlight row %}
+ channel.queue_declare（queue = 'task_queue'，durable = True）
+{% endhighlight %}
+
+#### 消息持久性：
+
+
+
+
+
+<h2 id="c3">Publish\Subscribe 模式</h2>
+Publish\Subscribe 模式向多个消费者传递信息
+
+
+
+
 
 <h2 id="c5">Routing 模式</h2>
 
