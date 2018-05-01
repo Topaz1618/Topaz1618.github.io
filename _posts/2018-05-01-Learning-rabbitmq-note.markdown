@@ -133,14 +133,16 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 Publish\Subscribe 模式向多个消费者传递信息
 <h4>工作流程</h4>
-1.生产者将信息发送到exchange
-2.exchange接收来自生产者的消息，并将它们推送到队列
-3.echange必须准确知道接收到的消息如何处理，其规则由exchange类型定义
+1. 生产者将信息发送到exchange
+2. exchange接收来自生产者的消息，并将它们推送到队列
+3. echange必须准确知道接收到的消息如何处理，其规则由exchange类型定义
 
-<h7>PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h7>
+##### PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h10>
+<h11>PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h11>
+<h11 style="font-style:oblique">PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h11>
 
 
-
+style="font-size:22px"
 
 <h2 id="c5">Routing 模式</h2>
 > 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
