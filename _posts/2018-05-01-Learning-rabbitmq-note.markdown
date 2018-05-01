@@ -65,8 +65,7 @@ permalink: Learning-RabbitMQ-note
 - RPC
 {% endhighlight %}
 
-
-<span style="color: #AED6F1" >先决条件：假定RabbitMQ 在本机的标准端口（5672）的上运行。如果使用不同的主机，端口记得调。下面对这六种模式进行介绍</span>
+> 先决条件：假定RabbitMQ 在本机的标准端口（5672）的上运行。如果使用不同的主机，端口记得调。下面对这六种模式进行介绍
 
 
 <h2 id="c2">简单模式</h2>
