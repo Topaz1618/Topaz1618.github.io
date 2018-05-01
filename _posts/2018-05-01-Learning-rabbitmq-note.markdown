@@ -75,10 +75,12 @@ permalink: Learning-RabbitMQ-note
 
 
 <h2 id="c3">Work模式</h2>
+> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
+
 Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过运行多个消费者感受下这点。
 
 <h4>Demo </h4>
-生产者：
+生产者
 {% highlight python %}
 import pika
 import time
@@ -120,7 +122,7 @@ channel.start_consuming()       #循环取消息
 {% endhighlight %}
 
 <h4>公平分发</h4>
-RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消息的数量，盲目地将第n条消息分发给第n位消费者。所以会出现一个消费者很忙，另一个消费者空闲的状态，通过basic.qos方法设置 prefetch_count = 1 解决这个问题。
+RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消息的数量，盲目地将第n条消息分发给第n位消费者。所以会出现一个消费者很忙，另一个消费者空闲的状态，通过 basic.qos方法设置 prefetch_count = 1 解决这个问题。
 {% highlight row %}
  channel.basic_qos（prefetch_count = 1）
 {% endhighlight %}
@@ -128,7 +130,11 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 <h2 id="c3">Publish\Subscribe 模式</h2>
 Publish\Subscribe 模式向多个消费者传递信息
-
+<h4>工作流程</h4>
+1.生产者将信息发送到exchange
+2.exchange接收来自生产者的消息，并将它们推送到队列
+3.echange必须准确知道接收到的消息如何处理，其规则由exchange类型定义
+> PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。
 
 
 
