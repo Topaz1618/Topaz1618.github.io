@@ -117,7 +117,7 @@ channel.start_consuming()       #循环取消息
 <h4>参数详解 </h4>
 上面demo里进行了注释，但还是详细说明下
 
-<h6>消息持久性</h6>
+- 消息持久性:
 当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
 {% highlight row %}
  channel.queue_declare（queue = 'task_queue'，durable = True）
