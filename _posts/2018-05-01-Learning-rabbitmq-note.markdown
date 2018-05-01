@@ -135,14 +135,66 @@ Publish\Subscribe 模式向多个消费者传递信息
 <h4>工作流程</h4>
 1. 生产者将信息发送到exchange
 2. exchange接收来自生产者的消息，并将它们推送到队列
-3. echange必须准确知道接收到的消息如何处理，其规则由exchange类型定义
+3. echange 根据其定义的规则对接收到的消息处理
+<h4>默认交换</h4>
+看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为用了默认exchange，如下： 
+{% highlight python %}
+channel.basic_publish（exchange = ''，
+    routing_key = 'hello'，
+    body = message）
+{% endhighlight %}
+<h4>exchange 类型</h4>
+现有的几种 exchange 类型：direct，topic，headers 和 fanout，本节我们要使用的是fanout 类型，它会将收到的所有消息广播到所有已知队队列中。
+<h4>Demo </h4>
+生产者
+{% highlight python %}
+import pika
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='logs', exchange_type='fanout')	#指定类型
+message = "多喝热水"
+channel.basic_publish(exchange='logs', routing_key='', body=message)
+print(" [x] Sent %r" % message)
+connection.close()
+{% endhighlight %}
 
-##### PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h10>
-<h11>PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h11>
-<h11 style="font-style:oblique">PS: work模式下能成功将消息发送到队列，是因为用的默认exchange, exchange=''。</h11>
+消费者
+{% highlight python %}
+import pika
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='logs', exchange_type='fanout')
+result = channel.queue_declare(exclusive=True)
+queue_name = result.method.queue
+channel.queue_bind(exchange='logs', queue=queue_name)  #bind 关联exchange和队列
+print("等待中央空调的问候")
 
+def callback(ch, method, properties, body):
+    print('收到噜，看看他是怎么骚的\n ---- %s' %body.decode())
+channel.basic_consume(callback, queue=queue_name, no_ack=True)
+channel.start_consuming()
+{% endhighlight %}
 
-style="font-size:22px"
+<h4>列出绑定</h4>
+如果想要列出所有的 exchange，使用下面的命令
+{% highlight python %}
+rabbitmqctl list_bindings
+{% endhighlight %}
+
+<h4>临时队列</h4>
+{% highlight row %}
+当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要创建临时队列啦~
+{% endhighlight %}
+
+创建空队列
+{% highlight python %}
+result = channel.queue_declare()	
+{% endhighlight %}
+
+设置 exclusive=True，消费者关闭连接后删除队列
+{% highlight python %}
+result = channel.queue_declare(exclusive=True)
+{% endhighlight %}
 
 <h2 id="c5">Routing 模式</h2>
 > 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
