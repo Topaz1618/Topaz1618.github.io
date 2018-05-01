@@ -113,16 +113,16 @@ print("等待消息")
 channel.start_consuming()       #循环取消息
 {% endhighlight %}
 
-* 消息持久性:
+<h5>消息持久性</h5>
 
 当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
 {% highlight row %}
  channel.queue_declare（queue = 'task_queue'，durable = True）
 {% endhighlight %}
 
-* 公平分发：
+<h5>公平分发</h5>
 
-RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消息的数量，盲目地将第n条消息分发给第n位消费者。所以会出现一个消费者很忙，另一个消费者空闲的状态，解决这个问题，通过basic.qos方法设置 prefetch_count = 1 
+RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消息的数量，盲目地将第n条消息分发给第n位消费者。所以会出现一个消费者很忙，另一个消费者空闲的状态，解决这个问题，通过basic.qos方法设置 prefetch_count = 1 。
 {% highlight row %}
  channel.basic_qos（prefetch_count = 1）
 {% endhighlight %}
