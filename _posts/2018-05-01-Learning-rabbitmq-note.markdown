@@ -167,7 +167,7 @@ import pika
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 channel.exchange_declare(exchange='logs', exchange_type='fanout')
-result = channel.queue_declare(exclusive=True)
+result = channel.queue_declare(exclusive=True)	#临时队列
 queue_name = result.method.queue
 channel.queue_bind(exchange='logs', queue=queue_name)  #关联exchange和队列
 print("等待中央空调的问候")
@@ -185,8 +185,7 @@ rabbitmqctl list_bindings
 {% endhighlight %}
 
 <h4>临时队列</h4>
-当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要每次连接到Rabbit都有一个新的空队列，这点可以通过创建临时队列来实现。
-
+订阅发布模式需要监听所有的最新消息，而不是其中一部分或旧消息，需要每次连接到Rabbit都有一个新的空队列，这点可以通过创建临时队列来实现。
 1.创建空队列
 {% highlight python %}
 result = channel.queue_declare()	
@@ -198,12 +197,11 @@ result = channel.queue_declare(exclusive=True)
 {% endhighlight %}
 
 <h2 id="c5">Routing 模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
+上一部分实现了将所有消息广播给所有消费者，本节将在消息广播的基础上，添加一个新的功能：选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
 
-上一部分实现了将所有消息广播给所有消费者，本小节将在消息广播的基础上，添加一个新的功能：选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
+<h4>Direct exchange 介绍</h4>
+使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key完全匹配的队列。
 
-<h4>Direct exchange</h4>
-使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key 和 完全匹配的队列。
 PS：允许多个队列绑定相同的key。
 
 <h4>Demo</h4>
@@ -241,8 +239,9 @@ for severity in severities:
     channel.queue_bind(exchange='topaz',
                        queue=queue_name,
                        routing_key=severity)
-print('等，接受绑定key值为 warning 的消息 ~~')
-# print('等，接受绑定key值为 error 的消息 ~~')
+print('等，接收绑定key值为 warning 的消息 ~~')
+# print('等，接收绑定key值为 error 的消息 ~~')
+
 def callback(ch, method, properties, body):
     print(method.routing_key, body)
 channel.basic_consume(callback,
@@ -252,17 +251,95 @@ channel.start_consuming()
 {% endhighlight %}
 
 <h2 id="c6">Topics 模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
+Direct exchange的改进仍有局限性：它不能根据多个标准进行路由，更复杂的Topic exchange可以实现这一点。
+<h4>Topic exchange 规则</h4>
+{% highlight raw %}
+- 发送到 topaic exchange的消息不能有任意routing_key
+- 字符列表必须是由点来划分
+- 可以是任意字符，但一般命名都与消息相关，命名规范你懂的
+- 绑定key还是用熟悉的姿势
+- 违反规则的消息将不会匹配任何绑定，并被丢失
+- 队列绑定RoutingKey为"#"，topic exchange 接受所有消息，相当于fanout
+- 绑定中没有使用" * "和"#"时，topic exchange 和 direct exchange一样
+{% endhighlight %}
 
-<a style="color: #AED6F1" href="https://juejin.im/post/5ad4094e6fb9a028d7011069">[tcp http面试指南]</a>
+<h4>Topic exchange 的特殊字符</h4>
+{% highlight raw %}
+- " * " (star) 匹配一个字符
+- "#" (hash) 匹配0个或更多字符	(使用的时候不需要双引号，为了不注释)
+{% endhighlight %}
 
-<a style="color: #AED6F1" href="https://github.com/jwasham/coding-interview-university/blob/master/translations/README-cn.md">[Google Interview University 学习手册] </a>
+<h4>Demo</h4>
+生产者
+{% highlight python %}
+import pika
+import sys
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='topic_logs',exchange_type='topic')
+routing_key = sys.argv[1] if len(sys.argv) > 1 else 'anonymous.info'
+message = ' '.join(sys.argv[1:]) or 'Hello World!'
+channel.basic_publish(exchange='topic_logs',
+					routing_key=routing_key,
+					body=message)
+print("hello 发出一个key为[ %s ]的消息" %message)
+connection.close()
+{% endhighlight %}
 
+消费者
+{% highlight python %}
+import pika
+import sys
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.exchange_declare(exchange='topic_logs', exchange_type='topic')
+result = channel.queue_declare(exclusive=True)
+queue_name = result.method.queue
+binding_keys = sys.argv[1:]
+if not binding_keys:
+    sys.stderr.write("Usage: %s [binding_key]...\n" % sys.argv[0])
+    sys.exit(1)
+for binding_key in binding_keys:
+    channel.queue_bind(exchange='topic_logs',
+                       queue=queue_name,
+                       routing_key=binding_key)
+print('等符合key为[ %s ]的消息' %binding_key)
+
+def callback(ch, method, properties, body):
+    print('收到噜',method.routing_key, body)
+
+
+channel.basic_consume(callback,
+                      queue=queue_name,
+                      no_ack=True)
+channel.start_consuming()
+{% endhighlight %}
 
 <h2 id="c7">RPC 模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
 
-<a style="color: #AED6F1" href="https://developers.google.com/edu/c++/getting-started">[Google的C++教程] </a>
+<h4>使用rabbitmq构造的rpc system</h4>
+- 客户端和一个可以扩展的RPC服务器
+- 客户端发送rpc请求消息并阻塞，直到服务器回复响应消息。为了收到响应，客户端要设定reply_to = "随机queue名称"
+<h4>工作流程</h4>
+1. 当客户端启动时，它创建一个匿名callback队列
+2. 客户端发送消息包含：reply_to(callback 队列)和correlation_id(每个请求唯一值)，请求被发送到rpc_queue队列
+3. server端等待queue上的请求，请求出现时就工作，并使用reply_to字段中的队列将结果发回给客户端
+4. 客户端等待callback队列中的数据，收到消息检查correlation_id 值，与请求中的值correlation_id 相同，就返回对应用程序的响应
+<h4>A note of rpc</h4>
+当不知道函数调用是本地函数还是RPC时，会出现问题，滥用RPC可能导致代码不可维护，所以注意以下几点：
+- 确保显而易见哪个函数调用是本地的，哪个是远程的
+- 记录系统，清除组件之间的依赖关系
+- 错误事件处理：RPC服务器长时间停机时，客户端应该如何反应
+- 尽量使用异步管道，而不是类似RPC的阻塞，结果被异步推送到下一个计算阶段
+<h4>消息属性</h4>
+AMQP 0-9-1 协议定义了14个消息属性，常用的只有以下几个：
+- delivery_mode：标记为持久消息（value为2）或transient（任意值）
+- content_type：用于描述mime类型的编码 （例如：使用的JSON编码，将此属性设置为：application / json）
+- reply_to：命名callback队列
+- correlation_id：用于将RPC响应与请求相关联，为每个rpc请求建立queue很低效，可以为每个客户端建立queue
+这引发一个问题，在队列收到响应，会不清楚响应所属的请求，correlation_id可以解决这个问题，遇到未知的correlation_id值会丢弃消息
+
+
 
 <h2 id="c8">总结</h2>
 
