@@ -318,26 +318,43 @@ channel.start_consuming()
 <h2 id="c7">RPC 模式</h2>
 
 <h4>使用rabbitmq构造的rpc system</h4>
+{% highlight row %}
 - 客户端和一个可以扩展的RPC服务器
 - 客户端发送rpc请求消息并阻塞，直到服务器回复响应消息。为了收到响应，客户端要设定reply_to = "随机queue名称"
+{% endhighlight %}
 <h4>工作流程</h4>
+{% highlight row %}
 1. 当客户端启动时，它创建一个匿名callback队列
 2. 客户端发送消息包含：reply_to(callback 队列)和correlation_id(每个请求唯一值)，请求被发送到rpc_queue队列
 3. server端等待queue上的请求，请求出现时就工作，并使用reply_to字段中的队列将结果发回给客户端
 4. 客户端等待callback队列中的数据，收到消息检查correlation_id 值，与请求中的值correlation_id 相同，就返回对应用程序的响应
+{% endhighlight %}
 <h4>A note of rpc</h4>
 当不知道函数调用是本地函数还是RPC时，会出现问题，滥用RPC可能导致代码不可维护，所以注意以下几点：
+{% highlight row %}
 - 确保显而易见哪个函数调用是本地的，哪个是远程的
 - 记录系统，清除组件之间的依赖关系
 - 错误事件处理：RPC服务器长时间停机时，客户端应该如何反应
 - 尽量使用异步管道，而不是类似RPC的阻塞，结果被异步推送到下一个计算阶段
+{% endhighlight %}
 <h4>消息属性</h4>
 AMQP 0-9-1 协议定义了14个消息属性，常用的只有以下几个：
+{% highlight row %}
 - delivery_mode：标记为持久消息（value为2）或transient（任意值）
 - content_type：用于描述mime类型的编码 （例如：使用的JSON编码，将此属性设置为：application / json）
 - reply_to：命名callback队列
 - correlation_id：用于将RPC响应与请求相关联，为每个rpc请求建立queue很低效，可以为每个客户端建立queue
+{% endhighlight %}
 这引发一个问题，在队列收到响应，会不清楚响应所属的请求，correlation_id可以解决这个问题，遇到未知的correlation_id值会丢弃消息
+<h4>Demo</h4>
+Server
+
+
+Client
+
+
+
+
 
 
 
