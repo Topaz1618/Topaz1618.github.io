@@ -107,23 +107,23 @@ def callback(ch,method,properties,body):  #定义一个回调函数，用来接�
 	ch.basic_ack(delivery_tag=method.delivery_tag)  #显式的发送确认消息,明确的告诉服务器消息被处理了
 channel.basic_qos(prefetch_count=1)	 #如果消费者未进行ack确认的消息达到这个值，生产者就不再给它发消息了
 channel.basic_consume(callback,      #调用回调函数
-					queue='hello',	 #指定取消息的队列
-					no_ack=False   	 #默认值False，意为开启acknowledge机制，取完一条消息后，给生产者发送确认消息
-					)
+	queue='hello',	 #指定取消息的队列
+	no_ack=False   	 #默认值False，意为开启acknowledge机制，取完一条消息后，给生产者发送确认消息
+	)
 print("等待消息")
 channel.start_consuming()       #循环取消息
 {% endhighlight %}
 
 <h4>参数详解 </h4>
-> 虽然上面demo里进行了注释，但还是详细说明下
+上面demo里进行了注释，但还是详细说明下
 
-#### 消息持久性：
+<h6>消息持久性</h6>
 当 RabbitMQ 退出或崩溃时，队列和消息会被丢失，确保RabbitMQ不丢失队列，设置 durable = True，需要注意的是 RabbitMQ 不允许使用不同的参数重新定义现有的队列，所以声明一个具有不同名称的队列，例如task_queue。
 {% highlight row %}
  channel.queue_declare（queue = 'task_queue'，durable = True）
 {% endhighlight %}
 
-#### 消息持久性：
+##### 消息持久性：
 
 
 
