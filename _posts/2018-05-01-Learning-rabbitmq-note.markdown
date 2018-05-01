@@ -129,6 +129,8 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 
 <h2 id="c3">Publish\Subscribe 模式</h2>
+> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
+
 Publish\Subscribe 模式能够向多个消费者传递信息
 
 <h4>工作流程</h4>
