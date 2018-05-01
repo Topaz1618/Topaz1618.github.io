@@ -80,13 +80,45 @@ permalink: Learning-RabbitMQ-note
 
 
 <h2 id="c3">Work模式</h2>
+<h4>Work 模式 介绍</h4>
 
-<a style="color: #AED6F1" href="https://courses.csail.mit.edu/6.042/spring18/mcs.pdf">[MIT 计算机科学的数学理论 教学课件] </a> 
+<h4><a style="color: #AED6F1"> Demo </a></h4>
+生产者：
+{% highlight python %}
+import pika
+import time
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.queue_declare(queue='hello')
+msg = '好冷啊好冷啊 %s'%time.ctime()
+channel.basic_publish(exchange='',
+					routing_key='hello',
+					body=msg,
+					properties=pika.BasicProperties(delivery_mode=2,)#消息持久化，重启server数据不消失
+					)
+print("生产者")
+connection.close()
+{% endhighlight %}
 
-
-<h2 id="c4">Publish\Subscribe模式</h2>
-<a style="color: #AED6F1" href="https://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read">[每个程序员都该读的书]</a>
-
+消费者
+{% highlight python %}
+import pika
+connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+channel = connection.channel()
+channel.queue_declare(queue='hello')    #声明一个队列，生产者和消费者都要声明一个相同的队列，用来防止万一某一方挂了，另一方能正常运行
+def callback(ch,method,properties,body):  #定义一个回调函数，用来接收生产者发送的消息
+	print(body.decode())
+	time.sleep(20)
+	print("method.delivery_tag", method.delivery_tag)
+	ch.basic_ack(delivery_tag=method.delivery_tag)  #要显式的发送确认消息,明确的告诉服务器消息被处理了
+channel.basic_qos(prefetch_count=1)	#消费者当前消息还没处理完的时候就不要再发新消息了（加上这条就公平分发，配置高的多干）
+channel.basic_consume(callback,      #调用回调函数，从队列里取消息
+					queue='hello',#指定取消息的队列名
+					no_ack=True   #取完一条消息后，不给生产者发送确认消息，默认是False的，即  默认给rabbitmq发送一个收到消息的确认，一般默认即可
+					)
+print("等待消息")
+channel.start_consuming()       #开始循环取消息
+{% endhighlight %}
 
 <h2 id="c5">Routing 模式</h2>
 
