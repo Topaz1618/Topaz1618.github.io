@@ -129,15 +129,14 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 
 <h2 id="c3">Publish\Subscribe 模式</h2>
-> 先决条件：RabbitMQ 在本机的标准端口 5672 的上运行
+Publish\Subscribe 模式能够向多个消费者传递信息
 
 <h4>工作流程</h4>
 1. 生产者将信息发送到exchange
 2. exchange接收来自生产者的消息，并将它们推送到队列
 3. exchange 根据其定义的规则对接收到的消息处理
-Publish\Subscribe 模式能够向多个消费者传递信息
 <h4>默认交换</h4>
-看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为用了默认exchange，如下： 
+看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为它用了默认的exchange，如下： 
 {% highlight python %}
 channel.basic_publish(exchange = '',
     routing_key = 'hello',
@@ -182,7 +181,7 @@ rabbitmqctl list_bindings
 {% endhighlight %}
 
 <h4>临时队列</h4>
-当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要每次连接到Rabbit都有一个新的空队列，这点能够通过创建临时队列来实现。
+当队列有名字时，能够在生产者和消费者之间共享队列，将workers指向同一队列，当你想监听所有最新消息，而不是其中一部分或者旧消息时，就需要每次连接到Rabbit都有一个新的空队列，这点可以通过创建临时队列来实现。
 
 1.创建空队列
 {% highlight python %}
