@@ -341,7 +341,7 @@ AMQP 0-9-1 协议定义了14个消息属性，常用的只有以下几个：
 - reply_to：命名callback队列
 - correlation_id：用于将RPC响应与请求相关联，为每个rpc请求建立queue很低效，可以为每个客户端建立queue
 {% endhighlight %}
-这引发一个问题，在队列收到响应，会不清楚响应所属的请求，使用correlation_id解决这个问题，的correlation_id值会丢弃未知请求消息
+这引发一个问题，在队列收到响应，会不清楚响应所属的请求，使用correlation_id解决这个问题，correlation_id会丢弃未知请求消息
 <h4>Demo</h4>
 Server
 
