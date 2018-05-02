@@ -53,7 +53,7 @@ authors:
 width: normal
 
 # if you don't need pagination, comment the *paginate* configs below
-paginate: true
+paginate: 10
 paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
