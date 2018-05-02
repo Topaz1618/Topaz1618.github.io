@@ -72,9 +72,37 @@ permalink: Learning-RabbitMQ-note
 PS：确保 RabbitMQ 在本机的标准端口 5672 的上运行，如果使用主机端口不同注意调整代码。
 {% endhighlight %}
 
-<h2 id="c2">简单模式</h2>
+<h2 id="c2">Hello word模式</h2>
 <h4>Demo</h4>
+生产者
+{% highlight python %}
+import pika
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.queue_declare(queue = 'hello')
+channel.basic_publish(exchange = '',
+	routing_key = 'hello',
+	body = 'Hello World！' )
+print("[x]发送'Hello World！")
+connection.close()	#关闭连接,确保退出程序前网络缓冲区被刷新
+{% endhighlight %}
 
+消费者
+{% highlight python %}
+import pika
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.queue_declare(queue = 'hello')
+
+def  callback (ch,method,properties,body):
+    print(body.decode())
+
+channel.basic_consume(callback,
+    queue= 'hello',
+    no_ack = True)
+print('正在等待消息。要退出，请按CTRL + C')
+channel.start_consuming()
+{% endhighlight %}
 
 <h2 id="c3">Work模式</h2>
 Work Queues（又名Task Queues)，背后的主要思想是避免立即执行资源密集型任务，任务必须进行等待，被封装成消息后发送到队列，后台运行的工作进程将弹出任务并执行，当运行多个生产者时，任务将在他们之间共享。在这种模式下，RabbitMQ会默认把p发的消息依次分发给各个消费者(c),跟负载均衡差不多，可以通过运行多个消费者感受下这点。
@@ -133,7 +161,7 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 之前的教程中，work 队列中的每个任务只能传递给一个worker。在这一部分，我们学习的“发布/订阅”模式，能够向多个消费者传递信息。
 
 <h4>工作流程</h4>
-1.生产者将信息发送到exchange
+1.生产者将消息发送到exchange
 
 2.Exchange接收来自生产者的消息，并将它们推送到队列
 
