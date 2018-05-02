@@ -29,9 +29,9 @@ permalink: Learning-RabbitMQ-note
 
 
 <h2 id="c1"> RabbitMQ介绍 </h2>
+RabbitMQ是一个消息代理：它接受和转发消息，你可以把它想象成一个邮局：当你把你想要发布的邮件放在邮箱中时，你可以确定邮递员最终将邮件发送给你的收件人。在这个比喻中，邮箱，邮局和邮递员都是RabbitMQ，RabbitMQ和邮局的主要区别在于它不处理纸张，而是接受，存储和转发二进制数据的消息。
 
-
-<h4>特性</h4>
+<h4>RabbitMQ 特性</h4>
 {% highlight raw %}
 - 异步消息：支持多种消息协议，消息队列，灵活的路由队列，交换类型
 - 方便部署：支持使用BOSH, Chef, Docker 和 Puppet等
@@ -57,7 +57,7 @@ permalink: Learning-RabbitMQ-note
 {% endhighlight %}
 
 
-<h4>RabbitMQ提供以下6种模式</h4>
+<h4>RabbitMQ 提供以下6种队列模式</h4>
 {% highlight raw %}
 - Hello World
 - Work Queue
@@ -73,6 +73,8 @@ PS：确保 RabbitMQ 在本机的标准端口 5672 的上运行，如果使用�
 {% endhighlight %}
 
 <h2 id="c2">Hello word模式</h2>
+本教程的这一部分，我们将使用Python编写两个小程序; 发送单个消息的生产者，以及接收消息并将其打印出来的消费者。
+工作流程为生产者将消息发送到“hello”队列，消费者接收来自该队列的消息。
 <h4>Demo</h4>
 生产者
 {% highlight python %}
