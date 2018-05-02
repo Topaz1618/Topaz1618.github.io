@@ -344,7 +344,7 @@ channel.start_consuming()
 {% endhighlight %}
 
 <h2 id="c7">RPC 模式</h2>
-
+前面学习了如何使用work队列在多个worker之间分配任务，但是如果需要在远程机器上运行个函数并等待结果，就需要使用RPC(Remote Procedure Call)模式来实现。在本节中，我们将使用RabbitMQ构建一个RPC系统：包含一个客户端和一个可扩展的RPC服务器。
 <h4>使用RabbitMQ构造的rpc system</h4>
 {% highlight row %}
 - 客户端和一个可以扩展的RPC服务器
@@ -353,8 +353,8 @@ channel.start_consuming()
 <h4>工作流程</h4>
 {% highlight row %}
 1. 当客户端启动时，它创建一个匿名callback队列
-2. 客户端发送消息包含：reply_to(callback 队列)和correlation_id(每个请求唯一值)，请求被发送到rpc_queue队列
-3. server端等待queue上的请求，请求出现时就工作，并使用reply_to字段中的队列将结果发回给客户端
+2. 客户端发送消息包含：reply_to(设置 callback 队列)和correlation_id(设置每个请求唯一值)，请求被发送到rpc_queue队列
+3. Server端等待队列的请求，请求出现时就工作，并使用reply_to字段中的队列将结果发回给客户端
 4. 客户端等待callback队列中的数据，收到消息检查correlation_id 值，与请求中的值correlation_id 相同，就返回对应用程序的响应
 {% endhighlight %}
 <h4>A note of rpc</h4>
@@ -373,22 +373,77 @@ AMQP 0-9-1 协议定义了14个消息属性，常用的只有以下几个：
 - reply_to：命名callback队列
 - correlation_id：用于将RPC响应与请求相关联，为每个rpc请求建立queue很低效，可以为每个客户端建立queue
 {% endhighlight %}
-这引发一个问题，在队列收到响应，会不清楚响应所属的请求，使用correlation_id解决这个问题，correlation_id会丢弃未知请求消息
+<h4>Correlation id </h4>
+每个RPC请求创建一个回调队列非常低效,所以应该为每个客户端创建一个回调队列，但这引发一个问题，在队列收到响应，会不清楚响应所属的请求，使用correlation_id 为每个请求设置唯一值，回调队列中收到消息时，我们将查看此属性，并基于此属性，将响应与请求进行匹配，如果有未知的 correlation_id值，就会丢弃。
 <h4>Demo</h4>
-Server
+RPC Server
+{% highlight python %}
+import pika
 
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+channel = connection.channel()
+channel.queue_declare(queue='rpc_queue')
 
-Client
+def fib(n):
+    '''生成斐波那契'''
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+def on_request(ch, method, props, body):
+    '''回调函数'''
+    n = int(body)
+    print(" [.] fib(%s)" % n)
+    response = fib(n)
+    ch.basic_publish(exchange='',
+                     routing_key=props.reply_to,
+                     properties=pika.BasicProperties(correlation_id= props.correlation_id),
+                     body=str(response))
+    ch.basic_ack(delivery_tag=method.delivery_tag)
 
+channel.basic_qos(prefetch_count=1)
+channel.basic_consume(on_request, queue='rpc_queue')
+print(" [x] Awaiting RPC requests")
+channel.start_consuming()
+{% endhighlight %}
 
+RPC Client
+{% highlight python %}
+import pika
+import uuid
 
+class FibonacciRpcClient(object):
+    def __init__(self):
+        self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))  # 创建连接
+        self.channel = self.connection.channel()
+        result = self.channel.queue_declare(exclusive=True)
+        self.callback_queue = result.method.queue
+        self.channel.basic_consume(self.on_response, no_ack=True, queue=self.callback_queue)  # 订阅回调队列
+    def on_response(self, ch, method, props, body):
+        if self.corr_id == props.correlation_id:  # 检查correlation_id
+            self.response = body
+    def call(self, n):
+        '''执行rpc请求'''
+        self.response = None
+        self.corr_id = str(uuid.uuid4())
+        self.channel.basic_publish(exchange='',  # 发送包含correlation_id 和  reply_to的请求消息
+                                   routing_key='rpc_queue',
+                                   properties=pika.BasicProperties(
+                                       reply_to=self.callback_queue,
+                                       correlation_id=self.corr_id,
+                                   ),
+                                   body=str(n))
+        while self.response is None:  # 循环等数据
+            self.connection.process_data_events()
+        return int(self.response)
+fibonacci_rpc = FibonacciRpcClient()
+print(" [x] Requesting fib(30)")
+response = fibonacci_rpc.call(30)
+print(" [.] Got %r" % response)
+{% endhighlight %}
 
-
-
-
-<h2 id="c8">总结</h2>
-
-<a style="color: #AED6F1" href="http://rextester.com/l/python3_online_compiler">[在线运行代码] </a>
 
 
 
