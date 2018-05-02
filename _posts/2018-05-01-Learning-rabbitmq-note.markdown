@@ -166,6 +166,11 @@ channel.basic_publish(exchange = '',
 {% endhighlight %}
 <h4>Exchange 类型</h4>
 现有的几种 exchange 类型：direct，topic，headers 和 fanout，本节我们要学习的是fanout 类型，它会将收到的所有消息广播到所有已知队队列中。
+<h4>列出绑定</h4>
+如果想要列出所有的 exchange，使用下面的命令
+{% highlight python %}
+rabbitmqctl list_bindings
+{% endhighlight %}
 <h4>Demo </h4>
 生产者
 {% highlight python %}
@@ -196,13 +201,9 @@ channel.basic_consume(callback, queue=queue_name, no_ack=True)
 channel.start_consuming()
 {% endhighlight %}
 
-<h4>列出绑定</h4>
-如果想要列出所有的 exchange，使用下面的命令
-{% highlight python %}
-rabbitmqctl list_bindings
-{% endhighlight %}
+<h4>参数详解</h4>
 
-<h4>临时队列</h4>
+<h5>临时队列</h5>
 订阅发布模式需要监听所有的最新消息，而不是其中一部分或旧消息，需要每次连接到Rabbit都有一个新的空队列，这点可以通过创建临时队列来实现。
 
 1.创建空队列
