@@ -143,7 +143,7 @@ channel.basic_publish(exchange = '',
     routing_key = 'hello',
     body = message)
 {% endhighlight %}
-<h4>exchange 类型</h4>
+<h4>Exchange 类型</h4>
 现有的几种 exchange 类型：direct，topic，headers 和 fanout，本节我们要学习的是fanout 类型，它会将收到的所有消息广播到所有已知队队列中。
 <h4>Demo </h4>
 生产者
@@ -183,6 +183,7 @@ rabbitmqctl list_bindings
 
 <h4>临时队列</h4>
 订阅发布模式需要监听所有的最新消息，而不是其中一部分或旧消息，需要每次连接到Rabbit都有一个新的空队列，这点可以通过创建临时队列来实现。
+
 1.创建空队列
 {% highlight python %}
 result = channel.queue_declare()	
@@ -197,7 +198,7 @@ result = channel.queue_declare(exclusive=True)
 上一部分实现了将所有消息广播给所有消费者，本节将在消息广播的基础上，添加一个新的功能，选择性订阅，实现这点可以通过exchange类型中的Direct exchange。
 
 <h4>Direct exchange 介绍</h4>
-使用direct，我们可以仅订阅一部分内容，direct exchange根据routing Key 判定消息发到哪个队列,其背后的路由算法为：消息转发到自身绑定的key和routing key完全匹配的队列。多个队列允许绑定相同的key。
+Direct exchange根据routing Key 判定消息发到哪个队列，使用direct ，我们可以实现仅订阅一部分内容，其背后的路由算法为：消息转发到自身绑定的key和routing key完全匹配的队列。多个队列允许绑定相同的key。
 
 <h4>Demo</h4>
 生产者
@@ -246,7 +247,7 @@ channel.start_consuming()
 {% endhighlight %}
 
 <h2 id="c6">Topics 模式</h2>
-Direct exchange的改进仍有局限性，它不能根据多个标准进行路由，更复杂的Topic exchange可以实现这一点。
+Direct exchange 的改进仍有其局限性，就是不能根据多个标准进行路由，使用更复杂的Topic exchange可以实现这一点。
 <h4>Topic exchange 规则</h4>
 {% highlight raw %}
 - 发送到 topaic exchange的消息不能有任意routing_key
@@ -312,7 +313,7 @@ channel.start_consuming()
 
 <h2 id="c7">RPC 模式</h2>
 
-<h4>使用rabbitmq构造的rpc system</h4>
+<h4>使用RabbitMQ构造的rpc system</h4>
 {% highlight row %}
 - 客户端和一个可以扩展的RPC服务器
 - 客户端发送rpc请求消息并阻塞，直到服务器回复响应消息。为了收到响应，客户端要设定reply_to = "随机queue名称"
