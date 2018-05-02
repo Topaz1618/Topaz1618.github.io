@@ -11,7 +11,8 @@ title: Blog
 		{% for post in paginator.posts %}
 	        {% include blog-post.html %}
 	    {% endfor %}
-
+		{% include pagination.html%}
+		
 		{% if site.paginate %}
 			{% include pagination.html%}
 		{% endif %}
