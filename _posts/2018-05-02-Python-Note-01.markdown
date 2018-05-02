@@ -16,14 +16,6 @@ permalink: Python-Learn-note01
 
 <h2> Content </h2>
 - [编程语言的分类](#c1)
-- [机器学习](#c2)
-- [理论知识](#c3)
-- [书籍推荐](#c4)
-- [Blog推荐](#c5)
-- [面试相关](#c6)
-- [其它语言](#c7)
-- [Something interesting](#c8)
-
 
 <h2 id="c1">编程语言的分类（主要有以下几个角度）</h2>
 <h4>编译型和解释型</h4>
