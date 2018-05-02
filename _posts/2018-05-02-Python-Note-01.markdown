@@ -11,6 +11,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: Python-Learn-note01
 ---
+
 <h1 class="title"> Python 学习笔记01 </h1>
 
 <h2> Content </h2>
