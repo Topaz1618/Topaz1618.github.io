@@ -8,7 +8,6 @@ title: Blog
 	{% if site.posts.size == 0 %}
 		<p class="text-center">Nothing published yet!</p>
 	{% elsif site.paginate %}
-		<span>elseif</span>
 		{% for post in paginator.posts %}
 	        {% include blog-post.html %}
 	    {% endfor %}
@@ -22,6 +21,4 @@ title: Blog
 		{% endfor %}
 
 	{% endif %}
-	<span>test</span>
-	{% include pagination.html%}
 </section>
