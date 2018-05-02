@@ -11,8 +11,19 @@ title: Blog
 		{% for post in paginator.posts %}
 	        {% include blog-post.html %}
 	    {% endfor %}
+
+<!-- 		{% if site.paginate %}
+			{% include pagination.html%}
+		{% endif %} -->
+	{% else %}
+		{% for post in site.posts %}
+			{% include blog-post.html %}
+		{% endfor %}
+
+	{% endif %}
+</section>
 	<!-- 分页链接 -->
-	<div class="pagination">
+<div class="pagination">
   {% if paginator.previous_page %}
     <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
   {% else %}
@@ -25,14 +36,3 @@ title: Blog
     <span class="next ">Next</span>
   {% endif %}
 </div>
-
-<!-- 		{% if site.paginate %}
-			{% include pagination.html%}
-		{% endif %} -->
-	{% else %}
-		{% for post in site.posts %}
-			{% include blog-post.html %}
-		{% endfor %}
-
-	{% endif %}
-</section>
