@@ -4,22 +4,16 @@
 layout: page
 title: Blog
 ---
-<h1>开始</h1>
-<p>开始</p>
-{% include posts_paginator.html %}
-<p>结束</p>
-<h1>结束</h1>
 <section class="list">
 	{% if site.posts.size == 0 %}
 		<p class="text-center">Nothing published yet!</p>
 	{% elsif site.paginate %}
-		<p class="text-center">有文章</p>
 		{% for post in paginator.posts %}
 	        {% include blog-post.html %}
 	    {% endfor %}
 
 		{% if site.paginate %}
-			{% include pagination.html%}
+			{% include pagination.html %}
 		{% endif %}
 	{% else %}
 		{% for post in site.posts %}
