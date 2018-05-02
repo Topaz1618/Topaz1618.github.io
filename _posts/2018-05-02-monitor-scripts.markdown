@@ -12,7 +12,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: monitor-scripts
 ---
-<h1 class="title"> 监控脚本实例 </h1>
+<h1 class="title"> 监控脚本实例 (Python) </h1>
 
 
 <h2>Content </h2>
