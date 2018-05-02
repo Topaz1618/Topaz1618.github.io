@@ -69,7 +69,7 @@ permalink: Learning-RabbitMQ-note
 
 
 {% highlight raw %}
-PS：RabbitMQ 在本机的标准端口 5672 的上运行，如果主机端口不同注意设置。
+PS：确保 RabbitMQ 在本机的标准端口 5672 的上运行，如果使用主机端口不同注意调整代码。
 {% endhighlight %}
 
 <h2 id="c2">简单模式</h2>
@@ -133,9 +133,9 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 之前的教程中，work 队列中的每个任务只能传递给一个worker。在这一部分，我们学习的“发布/订阅”模式，能够向多个消费者传递信息。
 
 <h4>工作流程</h4>
-1. 生产者将信息发送到exchange
-2. exchange接收来自生产者的消息，并将它们推送到队列
-3. exchange 根据其定义的规则对接收到的消息处理
+1.生产者将信息发送到exchange
+2.Exchange接收来自生产者的消息，并将它们推送到队列
+3.Exchange 根据其定义的规则对接收到的消息处理
 <h4>默认交换</h4>
 看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为它用了默认的exchange，如下： 
 {% highlight python %}
