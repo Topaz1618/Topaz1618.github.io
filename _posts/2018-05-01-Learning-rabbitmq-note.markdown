@@ -29,7 +29,7 @@ permalink: Learning-RabbitMQ-note
 
 
 <h2 id="c1"> RabbitMQ介绍 </h2>
-RabbitMQ是一个消息代理：它接受和转发消息，你可以把它想象成一个邮局：当你把你想要发布的邮件放在邮箱中时，你可以确定邮递员最终将邮件发送给你的收件人。在这个比喻中，邮箱，邮局和邮递员都是RabbitMQ，RabbitMQ和邮局的主要区别在于它不处理纸张，而是接受，存储和转发二进制数据的消息。
+RabbitMQ是一个消息代理：它接受和转发消息，你可以把它想象成一个邮局：当你把你想要发布的邮件放在邮箱中时，你可以确定邮递员最终将邮件发送给你的收件人。在这个比喻中，邮箱，邮局和邮递员都是RabbitMQ，RabbitMQ和邮局的主要区别在于它处理的不是纸张，而是接收存储和转发二进制消息。
 
 <h4>RabbitMQ 特性</h4>
 {% highlight raw %}
@@ -43,7 +43,7 @@ RabbitMQ是一个消息代理：它接受和转发消息，你可以把它想象
 {% endhighlight %}
 
 
-<h4>术语</h4>
+<h4>RabbitMQ 术语</h4>
 {% highlight raw %}
 - Server(Broker)：接收客户端连接，实现AMQP协议的消息队列和路由功能的进程
 - Virtual Host：虚拟主机的概念，类似权限控制组，一个Virtual Host里可以有多个Exchange和Queue,权限控制的最小粒度是Virtual Host
@@ -57,19 +57,8 @@ RabbitMQ是一个消息代理：它接受和转发消息，你可以把它想象
 {% endhighlight %}
 
 
-<h4>RabbitMQ 提供以下6种队列模式</h4>
 {% highlight raw %}
-- Hello World
-- Work Queue
-- Publish/Subscribe
-- Routing
-- Topics
-- RPC
-{% endhighlight %}
-
-
-{% highlight raw %}
-PS：确保 RabbitMQ 在本机的标准端口 5672 的上运行，如果使用主机端口不同注意调整代码。
+PS：确保 RabbitMQ 在本机的标准端口 5672 的上运行，如果使用不同的主机和端口注意调整代码。
 {% endhighlight %}
 
 <h2 id="c2">Hello word模式</h2>
