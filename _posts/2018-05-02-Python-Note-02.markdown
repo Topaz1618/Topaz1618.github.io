@@ -15,159 +15,173 @@ permalink: Python-Learn-note02
 <h1 class="title"> Python 学习笔记 02 </h1>
 
 <h2> Table of Contents </h2>
-- [编程语言的分类](#c1)
-- [Python 优缺点](#c2)
-- [Python 解释器](#c3)
-- [简述 Python 运行过程](#c4)
-- [变量定义规则](#c5)
-- [数据类型](#c6)
+- [Python 基本 IO 操作](#c1)
+- [读取文件](#c2)
+- [写数据到文件](#c3)
+- [字符编码](#c4)
 
-<h2 id="c1">编程语言分类</h2>
+<h2 id="c1">Python 基本 IO 操作</h2>
+<h4>输出操作</h4>
+{% highlight python %} 
+>>> print "hello"
 
-<h4>编译型和解释型</h4>
-{% highlight raw %}
-编译型语言（c，c++，go，swift）
-- 优点：运行时不需要编译，执行效率高，可以脱离语言环境独立运行
-- 缺点：平台兼容性差，需要根据运行的操作系统环境编译成不同的可执行文件
+输出：
+>>> hello
 
-解释型语言（python，ruby，php，perl）
-- 优点：平台兼容性好，代码可以直接修改，不用停机维护
-- 缺点：每次运行都要解释，性能不如编译型语言
-
-编译器：把源程序的语句都编译成机器语言，保存成二进制文件，运行时直接运行机器语言，速度很快
-解释器：执行程序时，才一条条解释成机器语言给计算机执行，运行速度不如编译后的程序快
 {% endhighlight %}
 
-<h4>静态语言和动态语言</h4>
-{% highlight raw %}
-动态类型语言
- 运行期间才做数据类型检查的语言，第一次赋值给变量时，在内部将数据类型记录下来，python和ruby就是动态类型语言		
-静态类型语言
- 在编译期间检查数据类型的语言，写程序时要声明所有变量的数据类型，c/c++就静态类型语言代表
-{% endhighlight %}
+<h4>输入操作</h4>
+Python提供了input() 和 raw_input() 这两个内置函数从标准输入读入一行文本，这两个函数基本类似，但 input 可以接收一个Python表达式作为标准输入。开心的是Python3.x版本中raw_input()和input()进行了整合，去除了raw_input()，仅保留了input()函数，其接收任意任性输入，将所有输入默认为字符串处理，并返回字符串类型，我用的是3.x版本，所以这里只介绍input函数。
 
-<h4>强类型定义语言和弱类型定义语言</h4>
-{% highlight raw %}
-强类型定义语言
- 一个变量被指定了某个数据类型，需要强制转换才能更改类型，速度不如弱类型语言，但是严谨性能避免许多错误
-弱类型定义语言
- 数据类型可以被忽略的语言，与强类型语言相反，一个变量可以赋不同数据类型的值
-{% endhighlight %}
-
-因此 Python是一门解释型动态强类型语言
-
-
-<h2 id="c2">Python 优缺点</h2>
-
-<h4>优点</h4>
-{% highlight raw %}
-开发效率高
-高级语言（不需要考虑底层细节），
-可移植性（基本不需要修改就能运行在所有系统平台上），
-可扩展性（python里面加入c，c++），
-可嵌入性（可以把python嵌入到c，c++）
-{% endhighlight %}
-<h4>缺点</h4>
-{% highlight raw %}
-速度慢
-代码不能加密（因为是解释型语言，源码都是明文形式的）
-线程不能利用多CPU问题
-{% endhighlight %}
-
-<h2 id="c3">Python 解释器</h2>
-Python的解释器很多，但使用最广泛的还是CPython。如果要和Java或.Net平台交互，最好的办法不是用Jython或IronPython，而是通过网络调用来交互，确保各程序之间的独立性。
-
-<h2 id="c4">简述 Python 运行过程 </h2>
-{% highlight raw %}
-1.python程序首次运行时，编译结果保存在位于内存的pycodeobject中，当python程序运行结束时，python解释器则将pycodeobject写会pyc文件中
-2.python程序第二次运行时，首先程序会在硬盘中找pyc文件，找到就直接载入否则重复上面过程
-PS:pyc是pycodeobject的持久化保存方式
-{% endhighlight %}
-
-<h2 id="c5">变量定义规则</h2>
-{% highlight raw %}
-- 变量名只能是 字母、数字或下划线的任意组合
-- 变量名的第一个字符不能是数字
-- 以下关键字不能声明为变量名
-	['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
-{% endhighlight %}
-
-<h2 id="c6">数据类型</h2>
-<h4>数字</h4>
-- int（整型）	在32位机器上，整数的位数为32位，64位机器上，整数的位数为64位
-- long（长整型）
-- float（浮点型）
-- complex（复数）
-注意： Python3.x 去除了 long 类型，现在只有一种整型 int，表示为长整型。
 {% highlight python %}
->>> i = 5  # 整型
->>> type(i)
-<class 'int'>
->>> f = 2.5  # 浮点型
->>> type(f)
-<class 'float'>
->>> c = 1+2j  # 复数
->>> type(c)
-<class 'complex'>
+user = input("name >>>")
+print('user',user)
+
+输出：
+name >>>topaz
+user topaz
 {% endhighlight %}
 
-<h4>布尔值</h4>
-真或假/1或0
-<h4>字符串</h4>
-字符串是 Unicode 字符的序列
+<h2 id="c2">读取文件</h2>
+<h4>读取方式一</h4>
+{% highlight python %} 
+f = open('1.log')  #打开模式为默认的只读模式‘r’
+line = f.read()		#读取文件全部内容
+print(line)			#输出时在最后会多出一行,read()函数到达文件末会返回一个空字符，显示出空字符就是一个空行
+f.close()
+{% endhighlight %}
 
-常用操作：移除空白，分割，长度，索引，切片
+<h4>读取方式二</h4>
+使用 with 方式打开文件，完成文件操作后文件会自动关闭，无需调用close()，推荐使用，下面的内容打开文件都使用with
 {% highlight python %}
->>> s = 'Hello'
->>> type(s)	
-<class 'str'>
+with open('1.log') as f:
+    line = f.read()
+    print(line)
 {% endhighlight %}
 
-PS：格式化输出字符串是%s，整数%d，浮点数%f
-<h4>列表</h4>
-列表是有序的元素序列	
-
-常用操作：索引，切片，追加，删除，长度，切片，循环
+<h4>逐行读取文件</h4>
 {% highlight python %}
->>> l = [1, 5.5, 'Python']
->>> type(l)
-<class 'list'>
+with open('1.log') as f:
+    for line in f:
+        print(line.rstrip())	#rstrip方法去掉每行末尾的换行符
 {% endhighlight %}
 
-<h4>字典</h4>
-字典是键值对的无序集合
+上述代码相当于第一次读取完后关闭该文件又重新打开进行读取，可以用readline()函数进行逐行读取
+{% highlight python %}
+with open('1.log') as f:
+    line1 = f.readline()
+    line2 = f.readline()
+    print(line1.rstrip())
+    print(line2.rstrip())
+{% endhighlight %}
 
-常用操作：索引，新增，删除，键、值、键值对，循环，长度
+<h4>一次性读取全部数据</h4>
+{% highlight python %}
+with open('1.log') as f:
+    lines = f.readlines() #读取文本中所有内容，并保存在列表里，列表中每一个元素对应一行数据
+for line in lines:
+    print(line.rstrip())
+{% endhighlight %}
+
+
+<h2 id="c3">写数据到文件</h2>
+
+<h4>文件打开方式</h4>
+学习写文件前，先来了解下文件的打开方式
 {% highlight raw %}
-person = {"name": "mr.wu", 'age': 18} 或 person = dict({"name": "mr.wu", 'age': 18})
+- r，只读模式（默认）。
+- w，只写模式。不可读；不存在则创建；存在则删除内容
+- a，追加模式。不可读；不存在则创建；存在则只追加内容
+- "+" 同时读写某个文件
+	r+：读写文件（可读，可写，可追加）
+	w+：写读
+	a+：读写文件（可读，可写，可追加）
+- "U"表示在读取时，与 r 或 r+ 一起使用，可以将 \r \n \r\n自动转换成 \n 
+	rU
+	r+U
+- "b"表示处理二进制文件（Linux可忽略，Windows处理二进制文件时需标注如，比如FTP发送上传ISO镜像文件）
+	rb
+	wb
+	ab
 {% endhighlight %}
-<h4>元组</h4>
-元组与列表相同，也是有序序列，唯一的区别是元组是不可变的
+
+<h4>只读模式</h4>
+{% highlight raw %}
+###r，只读模式（默认）
+with open('1.log') as f:
+    lines = f.readlines() #读取文本中所有内容，并保存在列表里，列表中每一个元素对应一行数据
+    for line in lines:
+   		print(line.rstrip())
+    f.write('hello')
+ 输出：
+ 	1.hello
+	2.报错：io.UnsupportedOperation: not writable
+
+###w，只写模式。不可读；不存在则创建；存在则删除内容
+with open('1.log','w') as f:
+    lines = f.readlines() #读取文本中所有内容，并保存在列表里，列表中每一个元素对应一行数据
+    f.write('cat')
+for line in lines:
+    print(line.rstrip())
+输出：
+	1.“1.log”内容替换成cat
+	2.报错：io.UnsupportedOperation: not readable
+
+
+### a，追加模式。可读；不存在则创建；存在则只追加内容
+
+with open('1.log','a') as f:
+    f.write('dog')
+    lines = f.readlines() #读取文本中所有内容，并保存在列表里，列表中每一个元素对应一行数据
+for line in lines:
+    print(line.rstrip())
+输出：
+	1.catdog
+	2.报错：io.UnsupportedOperation: not readable
+
+### r+，可读，可写，可追加
+with open('1.log','r+') as f:
+    f.write('\ndog')
+    lines = f.readlines() 
+for line in lines:
+    print(line.rstrip())
+
+{% endhighlight %}
+
+
+<h2 id="c4">字符编码</h2>
+
+<h4>Python 2.x 版本</h4>
+{% highlight raw %}
+- py2里默认编码是ascii
+- 文件开头那个编码声明是告诉解释这个代码的程序以什么编码格式，把这段代码读入到内存，因为到了内存里，这段代码其实是以bytes二进制格式存的，不过即使是2进制流，也可以按不同的编码格式转成2进制流。
+- 如果在文件头声明了#_*_coding:utf-8*_，就可以写中文了，不声明的话，python在处理这段代码时按ascii，显然会出错， 加了这个声明后，里面的代码就全是utf-8格式了
+- 在有#_*_coding:utf-8*_的情况下，你在声明变量如果写成name=u"大保健"，那这个字符就是unicode格式，不加这个u,那你声明的字符串就是utf-8格式
+- utf-8 to gbk怎么转，utf8先decode成unicode,再encode成gbk
+{% endhighlight %}
+
+<h4>Python 3.x 版本</h4>
+{% highlight raw %}
+- py3里默认文件编码就是utf-8,所以可以直接写中文，也不需要文件头声明编码了
+- 你声明的变量默认是unicode编码，不是utf-8, 因为默认即是unicode了（不像在py2里，你想直接声明成unicode还得在变量前加个u）, 此时你想转成gbk的话，直接your_str.encode("gbk")即可以
+- 在py3里，str and bytes做了明确的区分，你在your_str.encode("gbk")时，encode的数据变成了bytes
+- 编码应用比较多的场景应该是爬虫了，互联网上很多网站用的编码格式很杂，虽然整体趋向都变成utf-8，但现在还是很杂，所以爬网页时就需要你进行各种编码的转换，不过生活正在变美好，期待一个不需要转码的世界。
+{% endhighlight %}
+
+<h4>Demo</h4>
 {% highlight python %}
-ages = (11, 22, 33, 44, 55) 或 ages = tuple((11, 22, 33, 44, 55))
+import sys
+print(sys.getdefaultencoding())
+msg = "我爱北京天安门"
+#msg_gb2312 = msg.decode("utf-8").encode("gb2312")
+msg_gb2312 = msg.encode("gb2312") #默认就是unicode,不用再decode,喜大普奔
+gb2312_to_unicode = msg_gb2312.decode("gb2312")
+gb2312_to_utf8 = msg_gb2312.decode("gb2312").encode("utf-8")
+print(msg)
+print(msg_gb2312)
+print(gb2312_to_unicode)
+print(gb2312_to_utf8)
 {% endhighlight %}
-
-<h4>集合</h4>
-集合是一个无序不重复元素集，用 {} 标识，内部元素用逗号分隔。
-{% highlight python %}
->>> s = {5, 'Python', 1+2j}
->>> type(s)
-<class 'set'>
-{% endhighlight %}
-
-<h4>运算</h4>
-- 算数运算：+ - * / % ** //
-- 比较运算： == != <> > < <= >=
-- 赋值运算：= += -= *= /= %= 
-- 逻辑运算：and，or，not
-- 成员运算：in ，not in
-- 身份运算：is ，is not
-- 位运算：& | ^ 
-- <a href="http://c.biancheng.net/cpp/html/1817.html">运算符优先级</a>
-
-
-
-
 
 
 
