@@ -222,7 +222,7 @@ KeyError: 'topaz1'
 
 >>> info.get('topaz')	#获取方法三
 'piupiu'
->>> info.get('topaz1')	#获取下字典里不存在的值，不会报错而是返回None，因此推荐使用
+>>> info.get('topaz1')	#此种方式获取下字典里不存在的值，不会报错而是返回None，因此推荐使用
 >>> a = info.get('topaz1')
 >>> print(a)
 None
@@ -271,10 +271,76 @@ s.copy()  			#返回 set “s”的一个浅复制
 - <a href="http://c.biancheng.net/cpp/html/1817.html">运算符优先级</a>
 
 
+<h2 id="c5">Demo</h2>
+根据上面的知识我们就可以写一个三级菜单啦~
+要求: 
+打印省、市、县三级菜单
+可返回上一级
+可随时退出程序
+{% highlight python %}
+menu = {
+	'北京':{
+		'海淀':{
+			'五道口':{
+				'soho':{},
+				'网易':{},
+				'google':{}
+			},
+			'中关村':{
+				'爱奇艺':{},
+				'汽车之家':{},
+				'youku':{},
+			},
+			'上地':{
+				'百度':{},
+			},
+		},
+		'昌平':{
+			'沙河':{
+				'':{},
+				'北航':{},
+			},
+			'天通苑':{},
+			'回龙观':{},
+		},
+		'朝阳':{},
+		'东城':{},
+	},
+	'上海':{
+		'闵行':{
+			"人民广场":{
+				'炸鸡店':{}
+			}
+		},
+		'闸北':{
+			'火车战':{
+				'携程':{}
+			}
+		},
+		'浦东':{},
+	},
+	'山东':{},
+}
+exit_flag = False
+# current_layer = menu
+layers = [menu]     #这个主要用于返回上一层用
 
-
-
-
+while not exit_flag:
+	# print('最初的起点',menu)
+	for k in menu:
+		print(k)        #打印出当前字典的key
+	choice = input(">>:").strip()
+	if choice == "b":           #回到上一层目录，第一次肯定走else，之后可以返回上一级
+		menu = layers[-1]       #取出最后一个就是上一层的目录
+		print("change to laster", menu)
+		layers.pop()           
+	elif choice not  in menu:
+		print("不正确选项")
+		continue   #没有选项，停留在当前目录
+	else:                                 #选择了（进入下一层目录）
+		layers.append(menu)
+		menu = menu[choice]                #保存起选择的值，返回到最初的起点
+{% endhighlight %}
 
 
 
