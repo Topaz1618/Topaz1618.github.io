@@ -20,8 +20,10 @@ permalink: Python-Learn-note01
 - [Python 解释器](#c3)
 - [简述 Python 运行过程](#c4)
 - [变量定义规则](#c5)
+- [数据类型](#c6)
 
-<h2 id="c1">编程语言的分类（主要有以下几个角度）</h2>
+<h2 id="c1">编程语言的分类</h2>
+主要有以下几个维度
 <h4>编译型和解释型</h4>
 {% highlight raw %}
 编译型语言（c，c++，go，swift）
@@ -52,7 +54,7 @@ permalink: Python-Learn-note01
  数据类型可以被忽略的语言，与强类型语言相反，一个变量可以赋不同数据类型的值
 {% endhighlight %}
 
->小结： Python是一门解释型动态强类型语言
+<span style="color: #AED6F1"> 小结：Python是一门解释型动态强类型语言</span>
 
 
 <h2 id="c2">Python 优缺点</h2>
@@ -116,11 +118,11 @@ ages = (11, 22, 33, 44, 55) 或 ages = tuple((11, 22, 33, 44, 55))
 - 算数运算：+ - * / % ** //
 - 比较运算： == != <> > < <= >=
 - 赋值运算：= += -= *= /= %= 
-- 逻辑运算：and or not
-- 成员运算：in,not in
-- 身份运算：is,is not
+- 逻辑运算：and，or，not
+- 成员运算：in ，not in
+- 身份运算：is ，is not
 - 位运算：& | ^ 
-- 运算符优先级：（自己查吧）
+- <a href="http://c.biancheng.net/cpp/html/1817.html">运算符优先级</a>
 
 
 
