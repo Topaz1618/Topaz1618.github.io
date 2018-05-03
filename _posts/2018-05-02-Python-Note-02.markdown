@@ -1,5 +1,5 @@
 ---
-title: "Python 学习笔记 01"
+title: "Python 学习笔记 02"
 layout: post
 date: 2016-01-11 22:48
 tag:
@@ -9,10 +9,10 @@ tag:
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
-permalink: Python-Learn-note01
+permalink: Python-Learn-note02
 ---
 
-<h1 class="title"> Python 学习笔记 01 </h1>
+<h1 class="title"> Python 学习笔记 02 </h1>
 
 <h2> Table of Contents </h2>
 - [编程语言的分类](#c1)
@@ -118,21 +118,9 @@ PS:pyc是pycodeobject的持久化保存方式
 
 常用操作：移除空白，分割，长度，索引，切片
 {% highlight python %}
->>> a = "topaz"				
->>> a.capitalize()		#首字母大写
-'Topaz'
->>> a = "Topaz"
->>> a.casefold()		#大写都变成小写
-'topaz'				
->>> a.count("t")		#统计t出现的次数
-1
->>> a.encode()			#将字符串编码成bytes格式
-b'topaz'	
->>> a.endswith("z")		#判断是不是以z为结尾
-True
->>> a.find("o")			#查找o，返回o的索引
-1
->>> a.center(50,"-")	#输出
+>>> s = 'Hello'
+>>> type(s)	
+<class 'str'>
 {% endhighlight %}
 
 PS：格式化输出字符串是%s，整数%d，浮点数%f
@@ -141,77 +129,17 @@ PS：格式化输出字符串是%s，整数%d，浮点数%f
 
 常用操作：索引，切片，追加，删除，长度，切片，循环
 {% highlight python %}
->>> a = ['youxi','baga','yamei','peipeipei']	#定义列表
->>> a
-['youxi', 'baga', 'yamei', 'peipeipei']
->>> a.insert(1,'nani')							#插入
->>> a
-['youxi', 'nani', 'baga', 'yamei', 'peipeipei']
->>> del a[4]									#删除
->>> a
-['youxi', 'nani', 'baga', 'yamei']
->>> a.remove('yamei')							#删除指定元素
->>> a
-['youxi', 'nani', 'baga']
->>> a.pop()										#删除最后一个
-'baga'
->>> a
-['youxi', 'nani']
->>> b = ['xixi','lala','bo']					#扩展
->>> a.extend(b)
->>> a
-['youxi', 'nani', 'xixi', 'lala', 'bo']
->>> a.count("nani")								#统计
-1
->>> a.sort()									#排序，3.0里不同类型不能放在一起排序了
->>> a
-['bo', 'lala', 'nani', 'xixi', 'youxi']
->>> a.reverse()									#反转
->>> a
-['youxi', 'xixi', 'nani', 'lala', 'bo']
->>> a.index("xixi")								#获取下标
-1
+>>> l = [1, 5.5, 'Python']
+>>> type(l)
+<class 'list'>
 {% endhighlight %}
 
 <h4>字典</h4>
-字典是键值对的无序集合 & key必须是唯一的,so 天生去重
+字典是键值对的无序集合
 
 常用操作：索引，新增，删除，键、值、键值对，循环，长度
 {% highlight raw %}
-info = {'你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
-###增加
->>> info['topaz']='socute'	#增加
->>> info
-{'topaz': 'socute','你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
-
-###修改
->>> info['topaz']= 'piupiu' #修改
->>> info
-{'topaz': 'piupiu','你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
-
-###两种删除方式
->>> info.pop("你大舅")		#删除
->>> info
-{'你二舅': '你舅', 'topaz': 'piupiu', '高板凳': '木头', '低板凳': '木头'}
->>> del info["你二舅"]
->>> info
-{'topaz': 'piupiu', '高板凳': '木头', '低板凳': '木头'}
-
-###三种获取方式
->>> 'topaz' in info		#获取方法一
-True
->>> info['topaz']		#获取方法二
-'piupiu'
->>> info['topaz1']		#此种方式获取下字典里不存在的值，会报错
-Traceback (most recent call last):
-File "<input>", line 1, in <module>
-KeyError: 'topaz1'
->>> info.get('topaz')	#获取方法三
-'piupiu'
->>> info.get('topaz1')	#获取下字典里不存在的值，不会报错而是返回None，因此推荐使用
->>> a = info.get('topaz1')
->>> print(a)
-None
+person = {"name": "mr.wu", 'age': 18} 或 person = dict({"name": "mr.wu", 'age': 18})
 {% endhighlight %}
 <h4>元组</h4>
 元组与列表相同，也是有序序列，唯一的区别是元组是不可变的
@@ -220,30 +148,11 @@ ages = (11, 22, 33, 44, 55) 或 ages = tuple((11, 22, 33, 44, 55))
 {% endhighlight %}
 
 <h4>集合</h4>
-集合是一个无序的，不重复的数据组合，用 {} 标识，内部元素用逗号分隔，它的主要作用如下：
-- 去重，把一个列表变成集合，就自动去重了
-- 关系测试，测试两组数据之前的交集、差集、并集等关系
-
+集合是一个无序不重复元素集，用 {} 标识，内部元素用逗号分隔。
 {% highlight python %}
-s = set([3,5,9,10])      #创建一个数值集合  
-t = set("Hello")         #创建一个唯一字符的集合  
-a = t | s          # t 和 s的并集  
-b = t & s          # t 和 s的交集  
-c = t – s          # 求差集（项在t中，但不在s中）    
-d = t ^ s          # 对称差集（项在t或s中，但不会同时出现在二者中）  
-t.add('x')            # 添加一项  
-s.update([10,37,42])  # 在s中添加多项  
-t.remove('H')  			#使用remove()可以删除一项
-len(s)  			#set 的长度  
-x in s  			#测试 x 是否是 s 的成员  
-x not in s  		#测试 x 是否不是 s 的成员  
-s.issubset(t) 	/ 	s <= t 	#测试是否 s 中的每一个元素都在 t 中  
-s.issuperset(t) / 	s >= t  #测试是否 t 中的每一个元素都在 s 中 
-s.union(t) 	/ 	s | t   	#返回一个新的 set 包含 s 和 t 中的每一个元素
-s.intersection(t)  /	s & t  #返回一个新的 set 包含 s 和 t 中的公共元素  
-s.difference(t)  /	s - t  	#返回一个新的 set 包含 s 中有但是 t 中没有的元素  
-s.symmetric_difference(t)  / s ^ t  #返回一个新的 set 包含 s 和 t 中不重复的元素    
-s.copy()  			#返回 set “s”的一个浅复制
+>>> s = {5, 'Python', 1+2j}
+>>> type(s)
+<class 'set'>
 {% endhighlight %}
 
 <h4>运算</h4>
