@@ -54,7 +54,7 @@ permalink: Python-Learn-note01
  数据类型可以被忽略的语言，与强类型语言相反，一个变量可以赋不同数据类型的值
 {% endhighlight %}
 
-<span style="color: #AED6F1"> 小结：Python是一门解释型动态强类型语言</span>
+> <span style="color: #BB8FCE;font-weight: 500;"> Python是一门解释型动态强类型语言</span>
 
 
 <h2 id="c2">Python 优缺点</h2>
