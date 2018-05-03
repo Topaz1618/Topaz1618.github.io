@@ -21,6 +21,7 @@ permalink: Python-Learn-note01
 - [简述 Python 运行过程](#c4)
 - [变量定义规则](#c5)
 - [数据类型](#c6)
+- [Demo](#c7)
 
 <h2 id="c1">编程语言分类</h2>
 
@@ -271,7 +272,7 @@ s.copy()  			#返回 set “s”的一个浅复制
 - <a href="http://c.biancheng.net/cpp/html/1817.html">运算符优先级</a>
 
 
-<h2 id="c5">Demo</h2>
+<h2 id="c7">Demo</h2>
 根据上面的知识我们就可以写一个三级菜单啦~
 要求: 
 打印省、市、县三级菜单
