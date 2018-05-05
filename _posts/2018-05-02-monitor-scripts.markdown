@@ -15,7 +15,7 @@ permalink: monitor-scripts
 <h1 class="title"> 监控脚本实例 (Python) </h1>
 
 
-<h2>Content </h2>
+<h2> Table of Contents</h2>
 - [CPU](#c1)
 - [Disk](#c2)
 - [Load](#c3)

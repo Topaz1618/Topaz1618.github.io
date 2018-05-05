@@ -14,7 +14,7 @@ permalink: shell-scripts
 <h1 class="title"> Shell 脚本汇总 </h1>
 
 
-<h2>Content </h2>
+<h2> Table of Contents </h2>
 - [服务一键启停脚本](#c1)
 - [Rsync 推送数据备份脚本](#c2)
 - [Zabbix agent 一键安装脚本](#c3)

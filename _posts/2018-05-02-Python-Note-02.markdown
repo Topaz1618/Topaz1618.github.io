@@ -16,8 +16,8 @@ permalink: Python-Learn-note02
 
 <h2> Table of Contents </h2>
 - [Python 基本 IO 操作](#c1)
-- [读取文件](#c2)
-- [写数据到文件](#c3)
+- [读文件](#c2)
+- [写文件](#c3)
 - [字符编码](#c4)
 
 <h2 id="c1">Python 基本 IO 操作</h2>
@@ -31,7 +31,7 @@ permalink: Python-Learn-note02
 {% endhighlight %}
 
 <h4>输入操作</h4>
-Python提供了input() 和 raw_input() 这两个内置函数从标准输入读入一行文本，这两个函数基本类似，但 input 可以接收一个Python表达式作为标准输入。开心的是Python3.x版本中raw_input()和input()进行了整合，去除了raw_input()，仅保留了input()函数，其接收任意任性输入，将所有输入默认为字符串处理，并返回字符串类型，我用的是3.x版本，所以这里只介绍input函数。
+Python提供了input() 和 raw_input() 两个内置函数从标准输入读入一行文本，这两个函数基本类似，但 input 可以接收一个 Python表达式作为标准输入。开心的是 Python3.x版本中 raw_input()和 input()进行了整合，去除了raw_input()，仅保留了input()函数，其接收任意任性输入，将所有输入默认为字符串处理，并返回字符串类型，我用的是3.x版本，所以这里只介绍input函数。
 
 {% highlight python %}
 user = input("name >>>")
@@ -42,7 +42,7 @@ name >>>topaz
 user topaz
 {% endhighlight %}
 
-<h2 id="c2">读取文件</h2>
+<h2 id="c2">读文件</h2>
 <h4>读取方式一</h4>
 {% highlight python %} 
 f = open('1.log')  #打开模式为默认的只读模式‘r’
@@ -84,7 +84,7 @@ for line in lines:
 {% endhighlight %}
 
 
-<h2 id="c3">写数据到文件</h2>
+<h2 id="c3">写文件</h2>
 
 <h4>文件打开方式</h4>
 学习写文件前，先来了解下文件的打开方式
@@ -105,7 +105,7 @@ for line in lines:
 	ab
 {% endhighlight %}
 
-<h4>只读模式</h4>
+<h4>Demo</h4>
 {% highlight raw %}
 ###r，只读模式（默认）
 with open('1.log') as f:

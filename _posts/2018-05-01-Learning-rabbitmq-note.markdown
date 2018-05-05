@@ -15,7 +15,7 @@ permalink: Learning-RabbitMQ-note
 
 
 
-<h2>Content </h2>
+<h2> Table of Contents</h2>
 - [RabbitMQ介绍](#c1)
 - [Hello World 模式](#c2)
 - [Work Queue 模式](#c3)
