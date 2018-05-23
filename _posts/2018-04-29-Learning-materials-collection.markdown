@@ -69,6 +69,11 @@ permalink: Learning-materials-collection
 
 <a style="color: #AED6F1" href="https://developers.google.com/edu/c++/getting-started">[Google的C++教程] </a>
 
+<a style="color: #AED6F1" href="https://www.gitbook.com/book/datartisan/begining-text-mining-with-python">[Python文本数据分析初学指南] </a>
+
+
+
+
 <h2 id="c8">Something interesting</h2>
 
 <a style="color: #AED6F1" href="http://rextester.com/l/python3_online_compiler">[在线运行代码] </a>
