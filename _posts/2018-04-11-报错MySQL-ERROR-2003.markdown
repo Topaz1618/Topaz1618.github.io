@@ -1,5 +1,5 @@
 ---
-title: "Linux 下 Python3 的安装"
+title: "MySQL ERROR 2003 报错记录"
 layout: post
 date: 2017-02-24 22:48
 tag:
@@ -10,7 +10,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: MySQL-ERROR-2003
 ---
-<h1 class="title"> Linux 下 Python3 的安装 </h1>
+<h1 class="title"> MySQL ERROR 2003 报错记录 </h1>
 ### 问题：
 MySQL 远程连接报错 
 {% highlight html %}

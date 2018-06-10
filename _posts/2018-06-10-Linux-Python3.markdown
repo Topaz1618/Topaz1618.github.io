@@ -1,5 +1,5 @@
 ---
-title: "Linux 下 Python3 的安装"
+title: "Linux 安装 Python3.6"
 layout: post
 date: 2017-02-24 22:48
 tag:
@@ -10,7 +10,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: Linux-Python3-Installation
 ---
-<h1 class="title"> Linux 下 Python3 的安装 </h1>
+<h1 class="title"> Linux 安装 Python3.6  </h1>
 
 1. 安装依赖
 {% highlight raw %}
