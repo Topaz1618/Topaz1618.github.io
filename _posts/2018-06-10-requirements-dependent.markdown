@@ -16,7 +16,7 @@ permalink: requirements-dependent
 - [Requirements.txt 简介](#c1)
 - [方式一： 使用 pip 命令生成](#c2)
 - [方式二： pipreqs 工具生成](#c3)
-- [Requirements.txt 依赖安装](#c4)
+- [安装 requirements.txt 依赖](#c4)
 
 
 
