@@ -31,6 +31,7 @@ permalink: reids-installation
 2.编译安装
  cd /application/redis-3.2.0/
  make && make install
+
 3. 修改配置文件
  cp redis.conf redis.conf.ori  #备份
  egrep -v "^$|^#" redis.conf.ori >redis.conf #去掉空行和注释行
@@ -45,7 +46,7 @@ permalink: reids-installation
 
 <h2 id="c3"> Redis 集群搭建 </h2>
 {% highlight bash %}
-1. 修改 redis.conf 
+1.修改 redis.conf 
  cluster-enabled yes
  cluster-config-file nodes.conf
  cluster-node-timeout 5000
@@ -64,7 +65,7 @@ permalink: reids-installation
  	sed -i "s/7000/$i/g"  data/$i/redis.conf  #替换端口
  done
 
-4.起服务，依然使用脚本
+4.使用脚本起服务
  #!/bin/bash
  ip = 'xxx.xxx.xxx'
  for i in {7000..7005};do
@@ -87,14 +88,15 @@ permalink: reids-installation
 
 - 单节点(没加到集群里的)检查，直接连就可以了，出现如下效果就没问题儿~~
  [root@Topaz src]# redis-cli -h 127.0.0.1 -p 7000
+ 127.0.0.1:7000> 
 
 - 节点node id，从属查看
- [root@Topaz src]# ./redis-cli -h 192.168.100.34 -p 7003 cluster nodes
- 2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 192.168.100.34:7000 master - 0 1471492700496 1 connected 0-5460
- f240c8229fc0ee044d42b03f5c4ce26d4c9517af 192.168.100.34:7004 slave 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  01471492699995 5 connected
- ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250 192.168.100.34:7002 master - 0 1471492700996 3 connected 	10923-16383
- 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 192.168.100.34:7001 master - 0 1471492700496 2 connected 5461-10922
- 2d053828d63cd96334b9140b408940520ba4bca6 192.168.100.34:7003 myself,slave 2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 00 4 connected
+ [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes
+ 2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 127.0.0.1:7000 master - 0 1471492700496 1 connected 0-5460
+ f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  01471492699995 5 connected
+ ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250 127.0.0.1:7002 master - 0 1471492700996 3 connected 	10923-16383
+ 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 127.0.0.1:7001 master - 0 1471492700496 2 connected 5461-10922
+ 2d053828d63cd96334b9140b408940520ba4bca6 127.0.0.1:7003 myself,slave 2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 00 4 connected
  1ebd5c8e0b4c36a9732c6e8082287f5e2a950045 :0 slave,fail,noaddr ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250  1471491985114 1471491983111 6 disconnected
  随便连个集群端口，就会显示出当前集群内所有节点的信息，出来了一堆是不是有点懵逼呢，其实很简单
  第一列：node id
@@ -102,13 +104,12 @@ permalink: reids-installation
  第三列：节点角色(master/slave)
  第四列：角色是slave的，后面接它所属主节点的 node id
  拿 7004 举例： 
-	f240c8229fc0ee044d42b03f5c4ce26d4c9517af 192.168.100.34:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
+	f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
  可以看到 7004角色是slave, 后面接的 id 和 7001 的节点id一样，所以7004是7001的从节点，晓得了伐？
  
-- 添加从节点
- /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 192.168.100.111:7002 [ master ip]:[port]
+- 添加从节点到集群
+ /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 127.0.0.1:7002 [ master ip]:[port]
  node id : 主节点的 node id。建议先执行上面的从属查看命令，防止有的主节点没有从节点，有的一堆从节点。
- master ip
  port：可以是集群内的任意端口
 
 {% endhighlight %}
