@@ -45,18 +45,24 @@ permalink: reids-installation
 
 
 <h2 id="c3"> Redis 集群搭建 </h2>
-{% highlight bash %}
-1.修改 redis.conf 
- cluster-enabled yes
- cluster-config-file nodes.conf
- cluster-node-timeout 5000
- appendonly yes
 
-2.安装依赖
+1.修改 redis.conf 
+{% highlight bash %}
+ vim redis.conf 
+ 	cluster-enabled yes
+ 	cluster-config-file nodes.conf
+ 	cluster-node-timeout 5000
+ 	appendonly yes
+{% endhighlight %}
+
+2. 安装依赖
+{% highlight bash %}
  yum install ruby ruby-devel rubygems rpm-build
  gem install redis
+{% endhighlight %}
 
 3. 创建节点目录，拷贝配置文件，修改端口(使用shell脚本完成)
+{% highlight bash %}
  #!/bin/bash
  for i in {7000..7005};do
  	[ ! -d data/$i ] && mkdir data/$i  #判断个节点目录是否存在，不在创建
@@ -64,8 +70,10 @@ permalink: reids-installation
  	sleep 1
  	sed -i "s/7000/$i/g"  data/$i/redis.conf  #替换端口
  done
+{% endhighlight %}
 
-4.起 Redis 集群(shell脚本完成)
+4. 起集群 (shell脚本完成)
+{% highlight bash %}
  #!/bin/bash
  ip = 'xxx.xxx.xxx'
  for i in {7000..7005};do
@@ -79,18 +87,24 @@ permalink: reids-installation
 
 <h2 id="c4"> Redis 集群命令 </h2>
 
+- 集群节点检查命令，俩ok就是没问题
 {% highlight bash %}
-- 集群节点检查命令，俩ok就是没毛病
  [root@Topaz src]# ./redis-trib.rb check 127.0.0.1:7000
  [OK] All nodes agree about slots configuration.
  [OK] All 16384 slots covered.
  注意：没加入集群的节点不能用redis-trib.rb检查，单节点检查看下面
+{% endhighlight %}
+
 
 - 单节点(没加到集群里的)检查，直接连就可以了，出现如下效果就没问题儿~~
+{% highlight bash %}
  [root@Topaz src]# redis-cli -h 127.0.0.1 -p 7000
  127.0.0.1:7000> 
+{% endhighlight %}
 
-- 节点node id，从属查看
+- 集群节点详细信息
+ 
+{% highlight bash %}
  [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes
  2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 127.0.0.1:7000 master - 0 1471492700496 1 connected 0-5460
  f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  01471492699995 5 connected
@@ -98,20 +112,31 @@ permalink: reids-installation
  2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 127.0.0.1:7001 master - 0 1471492700496 2 connected 5461-10922
  2d053828d63cd96334b9140b408940520ba4bca6 127.0.0.1:7003 myself,slave 2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 00 4 connected
  1ebd5c8e0b4c36a9732c6e8082287f5e2a950045 :0 slave,fail,noaddr ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250  1471491985114 1471491983111 6 disconnected
- 随便连个集群端口，就会显示出当前集群内所有节点的信息，出来了一堆是不是有点懵逼呢，其实很简单
+ {% endhighlight %}
+
+随便连个集群端口，就会显示出当前集群内所有节点的信息，出来了一堆是不是有点懵逼呢，其实很简单
+{% highlight row %}
  第一列：node id
  第二列：Ip Port
  第三列：节点角色(master/slave)
  第四列：角色是slave的，后面接它所属主节点的 node id
- 拿 7004 举例： 
-	f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
- 可以看到 7004角色是slave, 后面接的 id 和 7001 的节点id一样，所以7004是7001的从节点，晓得了伐？
- 
-- 添加从节点到集群
- /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 127.0.0.1:7002 [ master ip]:[port]
- node id : 主节点的 node id。建议先执行上面的从属查看命令，防止有的主节点没有从节点，有的一堆从节点。
- port：可以是集群内的任意端口
+{% endhighlight %}
 
+节点之间从属关系的查看
+{% highlight row %}
+ 拿 7001 和它的从节点 7004 举例：7004后面接的 id 和 7001的 node id一致，7004就是7001的从节点
+
+ 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 127.0.0.1:7001 master - 0 1471492700496 2 connected 5461-10922
+
+	f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
+{% endhighlight %}
+
+
+- 添加从节点到集群
+{% highlight row %}
+ /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 127.0.0.1:7002 [ master ip]:[port]
+
+ node id: 主节点的 node id，建议先执行上面的命令查看从属，防止有的主节点没有从节点，有的从节点过多。
 {% endhighlight %}
 
 
