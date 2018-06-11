@@ -19,7 +19,7 @@ permalink: reids-installation
 - [Redis 集群命令](#c4)
 
 <h2 id="c1"> 为什么选择redis </h2>
-<a style="color: #AED6F1" href="https://www.jianshu.com/p/238372c25669"> >>> 看这里</a>
+<a style="color: #AED6F1" href="https://www.jianshu.com/p/238372c25669"> ☞ 看这里</a>
 
 <h2 id="c2"> Redis 安装 </h2>
 
