@@ -48,11 +48,10 @@ permalink: reids-installation
 
 1.修改 redis.conf 
 {% highlight bash %}
- vim redis.conf 
- 	cluster-enabled yes
- 	cluster-config-file nodes.conf
- 	cluster-node-timeout 5000
- 	appendonly yes
+ cluster-enabled yes
+ cluster-config-file nodes.conf
+ cluster-node-timeout 5000
+ appendonly yes
 {% endhighlight %}
 
 2.安装依赖
@@ -72,7 +71,7 @@ permalink: reids-installation
  done
 {% endhighlight %}
 
-4.起集群 (shell脚本完成)
+4.起集群 (还是用 shell 脚本)
 {% highlight bash %}
  #!/bin/bash
  ip = 'xxx.xxx.xxx'
@@ -96,13 +95,13 @@ permalink: reids-installation
 {% endhighlight %}
 
 
-#### 单节点检查
+#### 单节点检查命令
 {% highlight bash %}
  [root@Topaz src]# redis-cli -h 127.0.0.1 -p 7000 #出现如下效果就没问题儿~~
  127.0.0.1:7000> 
 {% endhighlight %}
 
-#### 集群节点详细信息
+#### 查看集群节点详细信息命令
  
 {% highlight bash %}
  [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes #随意连个集群端口，就会显示出当前集群内所有节点的信息
@@ -115,7 +114,7 @@ permalink: reids-installation
  1ebd5c8e0b4c36a9732c6e8082287f5e2a950045 :0 slave,fail,noaddr ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250  1471491985114 1471491983111 6 disconnected
  {% endhighlight %}
 
-- 出来了一堆是不是有点懵逼呢，其实很简单
+- 显示信息介绍
 {% highlight row %}
  第一列：node id
  第二列：Ip Port
@@ -126,19 +125,15 @@ permalink: reids-installation
 - 节点之间从属关系的查看
 {% highlight row %}
  拿 7001 和它的从节点 7004 举例:
-
- 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 127.0.0.1:7001 master - 0 1471492700496 2 connected 5461-10922
-	f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
-
- 7004后面接的 id 和 7001的 node id一致，7004就是7001的从节点
+  2ebe9e2cb72b9103a190afa71e3ca290ad1b6573 127.0.0.1:7001 master - 0 1471492700496 2 connected 5461-10922
+  f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  0 1471492699995 5 connected
+ 可以看到7004后面接的 id 和 7001的 node id一致，7004就是7001的从节点。
 {% endhighlight %}
 
 
 #### 添加从节点到集群命令
 {% highlight row %}
- /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 127.0.0.1:7002 [ master ip]:[port]
-
- node id: 主节点的 node id，建议先执行上面的命令查看从属，防止有的主节点没有从节点，有的从节点过多。
+ /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [主节点node id] 127.0.0.1:7002 [ master ip]:[port]
 {% endhighlight %}
 
 
