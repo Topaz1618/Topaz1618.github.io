@@ -30,5 +30,5 @@ permalink: Django-Modles-TypeError
 
 原因：
 {% highlight raw %}
- 之前用的 django1.8 版本，升级后的2.0版本发生变化，需要设置 'on_delete'= models.CASCADE 才行。
+ 之前用的 django1.8 版本，升级后的2.0版本发生变化，需要设置 'on_delete'= models.CASCADE 才能正常使用。
 {% endhighlight %}
