@@ -1,7 +1,7 @@
 ---
 title: " Use one-to-one relationships in Django2.0 models"
 layout: post
-date: 2016-06-09 22:48
+date: 2018-06-09 22:48
 tag:
  - Django
  - TypeError
