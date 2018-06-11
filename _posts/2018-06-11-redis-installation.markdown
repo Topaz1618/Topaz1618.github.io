@@ -56,7 +56,7 @@ permalink: reids-installation
  yum install ruby ruby-devel rubygems rpm-build
  gem install redis
 
-3. 使用下面的 shell 脚本完成创建节点目录，拷贝配置文件，修改端口。
+3. 创建节点目录，拷贝配置文件，修改端口(使用shell脚本完成)
  #!/bin/bash
  for i in {7000..7005};do
  	[ ! -d data/$i ] && mkdir data/$i  #判断个节点目录是否存在，不在创建
@@ -65,7 +65,7 @@ permalink: reids-installation
  	sed -i "s/7000/$i/g"  data/$i/redis.conf  #替换端口
  done
 
-4.使用脚本起服务
+4.起 Redis 集群(shell脚本完成)
  #!/bin/bash
  ip = 'xxx.xxx.xxx'
  for i in {7000..7005};do
