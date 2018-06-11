@@ -1,5 +1,5 @@
 ---
-title: "Redis 搭建及使用"
+title: "Redis 集群搭建 "
 layout: post
 date: 2017-02-24 22:48
 tag:
@@ -10,7 +10,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: reids-installation
 ---
-<h1 class="title"> Redis 搭建及使用 </h1>
+<h1 class="title"> Redis 集群搭建 </h1>
 
 <h2> Table of Contents </h2>
 - [为什么选择redis](#c1)
