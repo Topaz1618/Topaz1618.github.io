@@ -1,7 +1,7 @@
 ---
 title: "Redis 集群搭建 "
 layout: post
-date: 2017-02-24 22:48
+date: 2017-05-09 22:48
 tag:
  - Installation
  - Redis

@@ -1,7 +1,7 @@
 ---
-title: " Django2.0 OneToOne 报错 "
+title: " Use one-to-one relationships in Django2.0 models"
 layout: post
-date: 2017-02-24 22:48
+date: 2016-06-09 22:48
 tag:
  - Django
  - TypeError
@@ -10,7 +10,7 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: Django-Modles-TypeError
 ---
-<h1 class="title"> Django2.0 OneToOne 报错 </h1>
+<h1 class="title"> Use one-to-one relationships in Django2.0 models </h1>
 
 报错信息
 {% highlight bash %}
@@ -28,4 +28,7 @@ permalink: Django-Modles-TypeError
  user = models.OneToOneField(User,models.CASCADE)
 {% endhighlight %}
 
-> 原因：之前用的 django1.8 版本，升级后的2.0版本需要设置 'on_delete'= models.CASCADE 才行。
+原因：
+{% highlight raw %}
+ 之前用的 django1.8 版本，升级后的2.0版本发生变化，需要设置 'on_delete'= models.CASCADE 才行。
+{% endhighlight %}
