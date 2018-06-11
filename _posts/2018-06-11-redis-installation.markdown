@@ -55,13 +55,13 @@ permalink: reids-installation
  	appendonly yes
 {% endhighlight %}
 
-2. 安装依赖
+2.安装依赖
 {% highlight bash %}
  yum install ruby ruby-devel rubygems rpm-build
  gem install redis
 {% endhighlight %}
 
-3. 创建节点目录，拷贝配置文件，修改端口(使用shell脚本完成)
+3.创建节点目录，拷贝配置文件，修改端口(使用shell脚本完成)
 {% highlight bash %}
  #!/bin/bash
  for i in {7000..7005};do
@@ -72,7 +72,7 @@ permalink: reids-installation
  done
 {% endhighlight %}
 
-4. 起集群 (shell脚本完成)
+4.起集群 (shell脚本完成)
 {% highlight bash %}
  #!/bin/bash
  ip = 'xxx.xxx.xxx'
@@ -87,7 +87,7 @@ permalink: reids-installation
 
 <h2 id="c4"> Redis 集群命令 </h2>
 
-- 集群节点检查命令，俩ok就是没问题
+#### 集群节点检查命令，俩ok就是没问题
 {% highlight bash %}
  [root@Topaz src]# ./redis-trib.rb check 127.0.0.1:7000
  [OK] All nodes agree about slots configuration.
@@ -96,16 +96,17 @@ permalink: reids-installation
 {% endhighlight %}
 
 
-- 单节点(没加到集群里的)检查，直接连就可以了，出现如下效果就没问题儿~~
+#### 单节点(没加到集群里的)检查，直接连就可以了，出现如下效果就没问题儿~~
 {% highlight bash %}
  [root@Topaz src]# redis-cli -h 127.0.0.1 -p 7000
  127.0.0.1:7000> 
 {% endhighlight %}
 
-- 集群节点详细信息
+#### 集群节点详细信息
  
 {% highlight bash %}
- [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes
+ [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes #随意连个集群端口，就会显示出当前集群内所有节点的信息
+
  2705c2ed7b4fdb54c114ccafea7d9daaa0926c56 127.0.0.1:7000 master - 0 1471492700496 1 connected 0-5460
  f240c8229fc0ee044d42b03f5c4ce26d4c9517af 127.0.0.1:7004 slave 	2ebe9e2cb72b9103a190afa71e3ca290ad1b6573  01471492699995 5 connected
  ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250 127.0.0.1:7002 master - 0 1471492700996 3 connected 	10923-16383
@@ -114,7 +115,7 @@ permalink: reids-installation
  1ebd5c8e0b4c36a9732c6e8082287f5e2a950045 :0 slave,fail,noaddr ba13cf3bde7f9540bc1531ad0cf803ffe0bf2250  1471491985114 1471491983111 6 disconnected
  {% endhighlight %}
 
-随便连个集群端口，就会显示出当前集群内所有节点的信息，出来了一堆是不是有点懵逼呢，其实很简单
+出来了一堆是不是有点懵逼呢，其实很简单
 {% highlight row %}
  第一列：node id
  第二列：Ip Port
@@ -132,7 +133,7 @@ permalink: reids-installation
 {% endhighlight %}
 
 
-- 添加从节点到集群
+#### 添加从节点到集群
 {% highlight row %}
  /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [node id] 127.0.0.1:7002 [ master ip]:[port]
 
