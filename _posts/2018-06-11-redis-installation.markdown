@@ -112,16 +112,6 @@ permalink: reids-installation
  master ip
  port：可以是集群内的任意端口
 
-- 查看所有的key
- [appmon@p2pshop1 ~]$ redis-cli -h 127.0.0.1 -p 7000
- 127.0.0.1:7000> keys *
-   1) "18910989688_myCart"
-   2) "P2P_AUTHORIZATION_KEY_18613858306"
-   3) "13811487255_myCart"
-   4) "AUTHORIZATION_KEY_13552728295"
-   5) "AUTHORIZATION_KEY_15811337930"
-   6) "SystemManager.newsCatalogs"
-   7) "SystemManager.P_bottom_right"
 {% endhighlight %}
 
 
