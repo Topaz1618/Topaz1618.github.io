@@ -130,7 +130,7 @@ permalink: Learning-materials-collection
 
 <h2 id="c10">压箱底的🐵看模板</h2>
 <a style="color: #AED6F1" href="https://colorlib.com/polygon/gentelella/index.html
-">Demo </a>|<a style="color: #AED6F1" href="https://github.com/puikinsh/gentelella"> github </a>
+">Demo </a> | <a style="color: #AED6F1" href="https://github.com/puikinsh/gentelella"> Github </a>
 
 
 <h2 id="c11">Something interesting</h2>
