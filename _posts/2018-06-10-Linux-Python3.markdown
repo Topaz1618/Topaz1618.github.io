@@ -73,7 +73,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 {% endhighlight %}
 
 #### 解决 pip3 不能使用
-加个软链指向 /usr/local/bin/ 下，就能够找到啦
+加软链指向 /usr/local/bin/ 
 {% highlight bash %}
  ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3  
 {% endhighlight %}

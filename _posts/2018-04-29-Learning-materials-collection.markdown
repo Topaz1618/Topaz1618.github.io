@@ -24,7 +24,8 @@ permalink: Learning-materials-collection
 - [其它语言](#c7)
 - [常用软件配置](#c8)
 - [有趣的 Python 项目](#c9)
-- [Something interesting](#c10)
+- [压箱底的🐵看模板](#c10)
+- [Something interesting](#c11)
 
 
 
@@ -127,7 +128,12 @@ permalink: Learning-materials-collection
 <a style="color: #AED6F1" href="https://github.com/rushter/MLAlgorithms">[Python 实现的机器学习常用算法] </a>
 
 
-<h2 id="c10">Something interesting</h2>
+<h2 id="c10">压箱底的🐵看模板</h2>
+<a style="color: #AED6F1" href="https://colorlib.com/polygon/gentelella/index.html
+">Demo </a>|<a style="color: #AED6F1" href="https://github.com/puikinsh/gentelella"> github </a>
+
+
+<h2 id="c11">Something interesting</h2>
 <a style="color: #AED6F1" href="http://rextester.com/l/python3_online_compiler">[在线运行代码] </a>
 
 <a style="color: #AED6F1" href="https://github.com/jaywcjlove/awesome-mac">[工具推荐] </a>
