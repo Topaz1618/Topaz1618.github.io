@@ -81,27 +81,29 @@ permalink: Spiders-basis-01
 
 <h2 id="c3"> 高级用法 </h2>
 基于以上的基础姿势，我们就可以做一些其它的骚操作啦 ~~
--上传文件
+
+上传文件
 {% highlight python %}
 files = {'picture': open('catty.png', 'rb')}
 response = requests.post('http://httpbin.org/post', files=files)
 {% endhighlight %}
 
--获取cookie
+获取cookie
 {% highlight python %}
  response = requests.get('https://www.baidu.com')
  for k, v in response.cookies.items():
      print(k,'',v)	# 这里根据需求保存
 {% endhighlight %}
 
--保持会话
+保持会话
+
 会话对象让你能够跨请求保持某些参数。它也会在同一个 Session 实例发出的所有请求之间保持 cookie， 期间使用 urllib3 的 connection pooling 功能。所以如果你向同一主机发送多个请求，底层的 TCP 连接将会被重用，从而带来显著的性能提升。
 {% highlight python %}
  session = requests.session()
  response = session.get('http://httpbin.org/cookies/set/number/123456')
 {% endhighlight %}
 
--保存图片
+保存图片
 {% highlight python %}
  response = requests.get('https://www.baidu.com/img/bd_logo1.png', headers=headers)#  从网上读取二进制数据，比如图片
  with open('baidu.png', 'wb') as f: 
