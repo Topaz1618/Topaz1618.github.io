@@ -68,8 +68,15 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
  	[root@Topaz tools]# yum -y install xxx
  	File "/usr/bin/yum", line 30
  解决：
+ 	#shangbang指向py2.7
+
 	[root@Topaz tools]# vim /usr/bin/yum 
-	#!/usr/bin/python2.7		#shangbang指向py2
+	#!/usr/bin/python2.7		
+
+	CentOS 7 /usr/libexec/urlgrabber-ext-down 也需要改
+
+	[root@Topaz tools]# vim /usr/libexec/urlgrabber-ext-down
+	#!/usr/bin/python2.7		
 {% endhighlight %}
 
 #### 解决 pip3 不能使用
