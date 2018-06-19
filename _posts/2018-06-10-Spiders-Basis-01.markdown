@@ -15,7 +15,8 @@ permalink: Spiders-basis-01
 - [Requests 库介绍](#c1)
 - [Requests 库常用方法](#c2)
 - [高级用法](#c3)
-- [参数示例](#c4)
+- [Demo](#c4)
+- [参数示例](#c5)
 
 <h2 id="c1"> Requests 库介绍 </h2>
 {% highlight raw %}
@@ -114,8 +115,49 @@ response = requests.post('http://httpbin.org/post', files=files)
 参考：http://docs.python-requests.org/zh_CN/latest/user/advanced.html
 {% endhighlight %}
 
-<h2 id="c4"> 参数示例 </h2>
+<h2 id="c4"> Demo </h2>
+
+#### 抽屉网点赞
 {% highlight python %}
+ import requests
+ - 方式一
+ #首先登陆任何页面，获取cookie
+ i1 = requests.get(url="http://dig.chouti.com/help/service")
+ i1_cookies = i1.cookies.get_dict()
+
+ #用户登陆，携带上一次的cookie，后台对cookie中的 gpsd 进行授权
+ i2 = requests.post(
+ 	url="http://dig.chouti.com/login",
+ 	data={
+ 		'phone': "8613217981270",
+ 		'password': "123456",
+ 		'oneMonth': ""
+ 		},
+ 
+ 	cookies=i1_cookies	)
+
+ #点赞（只需要携带已经被授权的gpsd即可）
+ gpsd = i1_cookies['gpsd']
+ i3 = requests.post(
+ 	url="http://dig.chouti.com/link/vote?linksId=14211711",
+ 	cookies={'gpsd': gpsd})
+ 
+
+ - 方式二 
+ session = requests.Session()
+ i1 = session.get(url="http://dig.chouti.com/help/service")
+ i2 = session.post(
+ 	url="http://dig.chouti.com/login",
+ 	data={
+ 		'phone': "8613217981270",
+ 		'password': "123456",
+ 		'oneMonth': ""})
+ i3 = session.post(url="http://dig.chouti.com/link/vote?linksId=14211711")
+ print(i3.text)
+{% endhighlight %}
+
+<h2 id="c5"> 参数示例 </h2>
+
  def param_method_url():
  	# requests.request(method='get', url='http://127.0.0.1:8000/test/')
  	# requests.request(method='post', url='http://127.0.0.1:8000/test/')
