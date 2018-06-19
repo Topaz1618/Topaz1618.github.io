@@ -1,5 +1,5 @@
 ---
-title: "爬虫之 Scrapy 框架文件详解"
+title: "Scrapy 文件详解"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -9,7 +9,7 @@ author: Topaz
 summary: "项目结构 中间件、pipelines.py、settings.py详解 "
 permalink: Spiders-Scrapy-02
 ---
-<h1 class="title"> 爬虫之 Scrapy 框架文件详解 </h1>
+<h1 class="title"> Scrapy 框架文件详解 </h1>
 
 <h2> Table of Contents </h2>
 - [爬虫中间件详解](#c1)

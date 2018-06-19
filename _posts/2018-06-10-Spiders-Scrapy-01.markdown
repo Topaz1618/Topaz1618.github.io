@@ -79,7 +79,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 <h2 id="c6"> HtmlXpathSelector </h2>
 
 #### 简介
- HtmlXpathSelector 是 Scrapy 自有的用于处理HTML文档的选择器，被称为XPath选择器（或简称为“选择器”），因为它们“选择”由XPath表达式指定的HTML文档的某些部分。
+ HtmlXpathSelector 是 Scrapy 自有的用于处理HTML文档的选择器，被称为XPath选择器（或简称为“选择器”），是因为它们“选择”由XPath表达式指定的HTML文档的某些部分。
 
 #### 其它选择器
 - BeautifulSoup：非常流行，缺点：速度很慢
@@ -299,7 +299,7 @@ Scrapy 默认使用 scrapy.dupefilter.RFPDupeFilter 进行去重，相关配置�
  JOBDIR = "保存范文记录的日志路径，如：/root/"  # 最终路径为 /root/requests.seen
 {% endhighlight %} 
 
-<a style="color: #AED6F1" href="https://topaz1618.github.io/Spiders-Scrapy-02"> ☞ Scrapy 框架项目结构及文件详解</a>
+<a style="color: #AED6F1" href="https://topaz1618.github.io/Spiders-Scrapy-02"> ☞ Scrapy 文件详解</a>
 
 
 
