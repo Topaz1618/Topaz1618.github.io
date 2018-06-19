@@ -85,8 +85,8 @@ permalink: Spiders-basis-01
 
 #### 上传文件
 {% highlight python %}
-files = {'picture': open('catty.png', 'rb')}
-response = requests.post('http://httpbin.org/post', files=files)
+ files = {'picture': open('catty.png', 'rb')}
+ response = requests.post('http://httpbin.org/post', files=files)
 {% endhighlight %}
 
 #### 获取cookie
@@ -157,7 +157,7 @@ response = requests.post('http://httpbin.org/post', files=files)
 {% endhighlight %}
 
 <h2 id="c5"> 参数示例 </h2>
-
+{% highlight python %}
  def param_method_url():
  	# requests.request(method='get', url='http://127.0.0.1:8000/test/')
  	# requests.request(method='post', url='http://127.0.0.1:8000/test/')
