@@ -6,7 +6,7 @@ tag:
  - 爬虫
 blog: true
 author: Topaz
-summary: "BeautifulSoup Xpath"
+summary: "单进程单线程 多线程 多进程 异步"
 permalink: Spiders-advanced-01
 ---
 <h1 class="title"> 爬虫性能之同步异步耗时对比 </h1>
@@ -18,7 +18,7 @@ permalink: Spiders-advanced-01
 <h2 id="c1"> 同步耗时 </h2>
 在编写爬虫时，性能的消耗主要在IO请求中，在单进程单线程模式下请求url必然会引起等待，从而使得请求整体变慢
 
-#### 单进程线程模式
+#### 单进程单线程模式
 {% highlight python %}
  实例1：耗时 ==> 19.061163187026978
  import requests,time
@@ -85,7 +85,6 @@ permalink: Spiders-advanced-01
  从Python3.2开始，标准库为我们提供了concurrent.futures模块，它提供了ThreadPoolExecutor和ProcessPoo
 lExecutor两个类，对编写线程池/进程池提供了直接的支持
 {% endhighlight %}
-	参考：https://www.ziwenxie.site/2016/12/24/python-concurrent-futures/		
 
 #### 多进程
 耗时 ==> 10.076193809509277
@@ -150,13 +149,13 @@ Demo：耗时 ==> 0.6783857345581055
  	print("header",header)
  	writer.write(header.encode('utf-8')) 
  	# yield from asyncio.sleep(5)    
- 	yield from writer.drain()   #循环调写操作并刷新buffer, 写入数据量大时用这个
+ 	yield from writer.drain()
  	text = yield from reader.read()
  	print(host, url, text.decode())
  	writer.close()
  tasks = [
  	wget('www.cnblogs.com', '/wupeiqi/'),
- 	wget('www.cnblogs.com', '/wupeiqi/articles/6229292.html')] #封装两个coroutine
+ 	wget('www.cnblogs.com', '/wupeiqi/articles/6229292.html')]
  time1 =time.time()
  loop = asyncio.get_event_loop()  #获取EventLoop
  results = loop.run_until_complete(asyncio.gather(*tasks)) #执行coroutine
