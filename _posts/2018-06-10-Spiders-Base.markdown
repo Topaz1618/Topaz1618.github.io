@@ -108,14 +108,9 @@ response = requests.post('http://httpbin.org/post', files=files)
  	f.write(response.content) 
 {% endhighlight %}
 
->> 参考：http://docs.python-requests.org/zh_CN/latest/user/advanced.html
-
-region { 这是折叠区标题的头
-这是折叠区中的文本
-ssssssss
-这还是折叠区中的文本
-} region 这是折叠区标题的尾
-
+{% highlight raw %}
+参考：http://docs.python-requests.org/zh_CN/latest/user/advanced.html
+{% endhighlight %}
 
 <h2 id="c4"> 参数示例 </h2>
 {% highlight python %}
