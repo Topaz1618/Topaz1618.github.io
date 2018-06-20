@@ -19,9 +19,7 @@ permalink: Spiders-basis-01
 - [参数示例](#c5)
 
 <h2 id="c1"> Requests 库介绍 </h2>
-{% highlight raw %}
  Requests 库是常用的http请求库，使用 requests 库可以模拟浏览器的请求，比起之前用到的urllib，requests模块的api更加便捷,更加人性化（本质就是封装了urllib3）
-{% endhighlight %}
 
 <h2 id="c2"> Requests 常用方法介绍 </h2>
 
