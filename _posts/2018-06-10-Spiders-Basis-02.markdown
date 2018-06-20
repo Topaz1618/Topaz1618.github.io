@@ -16,17 +16,17 @@ permalink: Spiders-basis-02
 - [BeautifulSoup](#c2)
 <h2 id="c2"> BeautifulSoup </h2>
 
-### 介绍
-Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python 库
+### 简介
+Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python 库。
 
 ### 安装
 {% highlight python %}
  pip3 install beautifulsoup4
 {% endhighlight %}
 
-### 文档传入 BeautifulSoup
+### 文档读取
 {% highlight python %}
- #传入 url 请求获取文档 
+ # url 请求获取文档 
  import requests
  from bs4 import BeautifulSoup
  response = requests.get("http://www.baidu.com")
@@ -39,7 +39,7 @@ Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python �
 {% endhighlight %}
 
 ### 常用方法
-{% highlight python %}
+{% highlight raw %}
  #根据 tag 查找
  soup.a 	#返回第一个 a 标签
 
@@ -63,7 +63,7 @@ Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python �
 
 <h2 id="c1"> Xpath </h2>
 
-### 介绍
+### 简介
 简单说，xpath就是选择XML文件中节点的方法。所谓节点（node），就是XML文件的最小构成单位，一共分成7种。
 {% highlight raw %}
  - element（元素节点）
@@ -78,7 +78,7 @@ Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python �
 ### xpath 表达式规则
 
 1.基本格式
-{% highlight python %}
+{% highlight raw %}
  - 斜杠（/）作为路径内部的分割符。
  - 同一个节点有绝对路径和相对路径两种写法。
  - 绝对路径（absolute path）必须用"/"起首，后面紧跟根节点，比如/step/step/...。
