@@ -21,6 +21,8 @@ permalink: Spiders-Scrapy-01
 - [写个基于 Scrapy 的爬虫项目](#c7)
 - [Scrapy 自定义](#c8)
 
+<a style="color: #AED6F1" href="https://topaz1618.github.io/Spiders-Scrapy-02"> ☞ Scrapy 文件详解</a>
+
 <h2 id="c1"> Scrapy 简介 </h2>
 Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架，使用Twisted异步网络库处理网络通讯,爬取网站数据，提取结构性数据的应用框架，可以应用在数据挖掘，信息处理，监测和自动化测试或存储历史数据等一系列的程序中	
 
@@ -48,30 +50,35 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 {% endhighlight %}
 
 <h2 id="c4"> 安装 </h2>
-{% highlight raw %}
- - Linux & Mac
-	pip3 install scrapy
 
- - Windows
-	1.pip3 install wheel
-	2.下载twisted http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
-	3.进入下载目录，执行 pip3 install Twisted-17.5.0-cp35-cp35m-win_amd64.whl
-	4.pip3 install scrapy
-	5.下载并安装pywin32：https://sourceforge.net/projects/pywin32/files/
+#### Linux & Mac
+{% highlight python %}
+ pip3 install scrapy
+{% endhighlight %}
+#### Windows
+{% highlight python %}
+ pip3 install wheel
+
+ - 下载twisted 
+ http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
+
+ - 进入下载目录
+ pip3 install Twisted-17.5.0-cp35-cp35m-win_amd64.whl
+
+ - 安装 scrapy
+ pip3 install scrapy
+
+ - 下载并安装pywin32
+ https://sourceforge.net/projects/pywin32/files/
 {% endhighlight %}
 
 <h2 id="c5"> 基本命令</h2>
 {% highlight python %}
  scrapy startproject [项目名称]		 # 创建项目
-
  scrapy genspider [-t template] <name> <domain>		 #创建爬虫应用
-
  scrapy list	 #展示爬虫应用列表
-
  scrapy crawl [爬虫应用名称]  #运行单独爬虫应用
-
  scrapy genspider -l	 #查看所有命令
-
  scrapy genspider -d [模板名称]  #查看模板命令
 {% endhighlight %}
 
@@ -299,7 +306,6 @@ Scrapy 默认使用 scrapy.dupefilter.RFPDupeFilter 进行去重，相关配置�
  JOBDIR = "保存范文记录的日志路径，如：/root/"  # 最终路径为 /root/requests.seen
 {% endhighlight %} 
 
-<a style="color: #AED6F1" href="https://topaz1618.github.io/Spiders-Scrapy-02"> ☞ Scrapy 文件详解</a>
 
 
 
