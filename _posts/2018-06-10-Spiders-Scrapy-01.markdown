@@ -55,6 +55,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 {% highlight python %}
  pip3 install scrapy
 {% endhighlight %}
+
 #### Windows
 {% highlight python %}
  pip3 install wheel
