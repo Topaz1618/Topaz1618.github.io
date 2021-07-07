@@ -9,8 +9,8 @@ layout: page
 ### Introduction
 - Email: topaz1668@gmail.com 
 - Website: <a href="http://topazaws.com/"> http://topazaws.com/ </a>
-- Blog: <a href="https://topaz1618.github.io/blog/"> https://topaz1618.github.io/blog/ </a>
-- Github: <a href="https://github.com/Topaz1618"> https://github.com/Topaz1618 </a>)
+- Blog: <a href="https://topaz1618.github.io/blog/"> https://topaz1618.github.io/blog </a>
+- Github: <a href="https://github.com/Topaz1618"> https://github.com/Topaz1618 </a>
 
 
 ### Skills
