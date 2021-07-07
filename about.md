@@ -8,26 +8,25 @@ layout: page
 
 ### Introduction
 - Name: Hang Yan
-- Phone Number: 008615600803270  (Such many numbers ~)
 - Email: topaz1668@gmail.com 
-- (<a href="http://topazaws.com/"> Website </a> | <a href="https://topaz1618.github.io/blog/"> Blog </a> | <a href="https://github.com/Topaz1618"> Github </a>)
+- Others: (<a href="http://topazaws.com/"> website </a> | <a href="https://topaz1618.github.io/blog/"> blog </a> | <a href="https://github.com/Topaz1618"> github </a>)
 
 
 ### Skills
-- Database: MySQL/Redis/SQLite/RabbitMQ
 - Web framework: Django/Tornado
-- Front end: HTML/CSS/JavaScript/JQuery/AJAX
+- Multiprocessing/Multithreading/Socket/WebSocket/Asynchronous
+- HTML/CSS/JavaScript/JQuery/AJAX
+- Database: MySQL/Redis/SQLite/RabbitMQ
 - Library: Numpy/Pandas/OpenCV
-- Socket/WebSocket/Multiprocessing/Multithreading/Asynchronous
 - Linux/Shell/aws/sed/awk/grep
 
 
 ### Projects
-- <a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; text-decoration: none;"> MeowFile </a> 
-- <a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222; text-decoration: none;"> Distributed Monitoring System</a> 
-- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; text-decoration: none;">OnlineTerminal</a> 
+- <a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; "> MeowFile </a> 
+- <a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222;"> Distributed Monitoring System</a> 
+- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; ">OnlineTerminal</a> 
 
-<a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More]</a>
+<a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More Projects]</a>
 
 ### Hobbies
 - 🏊 
