@@ -7,25 +7,27 @@ layout: page
 
 
 ### Introduction
-- 囤积癖，沉迷屯各种有趣项目，技术资源
-- 博客不经常更，平时本地写文档，攒个七八年一波push过来，所以评论回复不及时
-- 有问题发邮件给我,有问题发邮件给我,有问题发邮件给我
+- Website: <a href="http://topazaws.com/"> Topaz Shop </a>
+- Blog: <a href="https://topaz1618.github.io/blog/"> Topaz Blog </a>
+- Github:  <a href="https://github.com/Topaz1618"> Topaz1618 </a>
+- Phone Number: 008615600803270
+- Email: topaz1668@gmail.com 
+- Name: Hang Yan
 
 
 ### Skills
-- MySQL/Redis/RabbitMQ
-- JavaScript/HTML/JQuery/CSS
-- Python/Shell
-- Django/Tornado
-- Linux
-- sed/awk/grep
-
+- Database: MySQL/Redis/SQLite/RabbitMQ
+- Web framework: Django/Tornado
+- Front end: HTML/CSS/JavaScript/JQuery/AJAX
+- Library: Numpy/Pandas/OpenCV
+- Socket/WebSocket/Multiprocessing/Multithreading/Asynchronous
+- Linux/Shell/aws/sed/awk/grep
 
 
 ### Hobbies
-- 游泳
-- 路上凭自己的本事摸别人的狗
-- 玩游戏：五子棋，推箱子，泡泡龙
+- 🏊 
+- 🚲
 
 
- 																	 以上
+### Projects
+<a href="https://topaz1618.github.io/projects/"> https://topaz1618.github.io/projects/ </a>
