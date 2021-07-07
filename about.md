@@ -8,9 +8,9 @@ layout: page
 
 ### Introduction
 - Name: Hang Yan
-- Phone Number: 008615600803270 //  Such many numbers ~
+- Phone Number: 008615600803270  (Such many numbers ~)
 - Email: topaz1668@gmail.com 
-- (<a href="http://topazaws.com/"> Website </a>|<a href="https://topaz1618.github.io/blog/"> Blog </a>|<a href="https://github.com/Topaz1618"> Github </a>)
+- (<a href="http://topazaws.com/"> Website </a> | <a href="https://topaz1618.github.io/blog/"> Blog </a> | <a href="https://github.com/Topaz1618"> Github </a>)
 
 
 ### Skills
@@ -22,26 +22,13 @@ layout: page
 - Linux/Shell/aws/sed/awk/grep
 
 
+### Projects
+- <a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; text-decoration: none;"> MeowFile </a> 
+- <a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222; text-decoration: none;"> Distributed Monitoring System</a> 
+- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; text-decoration: none;">OnlineTerminal</a> 
+
+<a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More]</a>
+
 ### Hobbies
 - 🏊 
 - 🚲
-
-
-### Projects
-- <h2 > 
-	<a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; text-decoration: none;">
-	MeowFile
-	</a> 	
-
-</h2>
-- <h2> 	
-	<a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222; text-decoration: none;">
-	Distributed Monitoring System
-	</a> 
-	</h2>
-
-- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; text-decoration: none;">
-	OnlineTerminal
-	</a> 
-	
-<a class="link" style="font-size: 12px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More]</a>
