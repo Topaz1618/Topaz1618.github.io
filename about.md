@@ -25,7 +25,23 @@ layout: page
 ### Hobbies
 - 🏊 
 - 🚲
-- 
+
 
 ### Projects
-<a href="https://topaz1618.github.io/projects/"> https://topaz1618.github.io/projects/ </a>
+- <h2 > 
+	<a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; text-decoration: none;">
+	MeowFile
+	</a> 	
+
+</h2>
+- <h2> 	
+	<a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222; text-decoration: none;">
+	Distributed Monitoring System
+	</a> 
+	</h2>
+
+- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; text-decoration: none;">
+	OnlineTerminal
+	</a> 
+	
+<a class="link" style="font-size: 12px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More]</a>
