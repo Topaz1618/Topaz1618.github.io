@@ -30,5 +30,5 @@ layout: page
 <a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More Projects]</a>
 
 ### Hobbies
-- 🏊 
-- 🚲
+- Swimming  
+- Cycling 🚲🚲 
