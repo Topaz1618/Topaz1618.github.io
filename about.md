@@ -7,12 +7,10 @@ layout: page
 
 
 ### Introduction
-- Website: <a href="http://topazaws.com/"> Topaz Shop </a>
-- Blog: <a href="https://topaz1618.github.io/blog/"> Topaz Blog </a>
-- Github:  <a href="https://github.com/Topaz1618"> Topaz1618 </a>
-- Phone Number: 008615600803270
-- Email: topaz1668@gmail.com 
 - Name: Hang Yan
+- Phone Number: 008615600803270 //  Such many numbers ~
+- Email: topaz1668@gmail.com 
+- (<a href="http://topazaws.com/"> Website </a>|<a href="https://topaz1618.github.io/blog/"> Blog </a>|<a href="https://github.com/Topaz1618"> Github </a>)
 
 
 ### Skills
@@ -27,7 +25,7 @@ layout: page
 ### Hobbies
 - 🏊 
 - 🚲
-
+- 
 
 ### Projects
 <a href="https://topaz1618.github.io/projects/"> https://topaz1618.github.io/projects/ </a>
