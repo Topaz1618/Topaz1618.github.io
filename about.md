@@ -26,7 +26,7 @@ layout: page
 - <a href="https://github.com/Topaz1618/MeowFile" style="color: #222; "> MeowFile </a> 
 - <a href="https://github.com/Topaz1618/MeowShop" style="color: #222;"> MeowShop</a> 
 
-<a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More Projects]</a>
+<a class="link" style="font-size: 16px; font-weight: 200; margin-left: 10px" href="https://topaz1618.github.io/projects/">[More Projects]</a>
 
 ### Hobbies
 - Swimming  
