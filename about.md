@@ -23,9 +23,8 @@ layout: page
 
 
 ### Projects
-- <a href="https://github.com/Topaz1618/MeowFile/" style="color: #222; "> MeowFile </a> 
-- <a href="https://github.com/Topaz1618/FoxMonitor" style="color: #222;"> Distributed Monitoring System</a> 
-- <a href="https://github.com/Topaz1618/DonutsTerminal" style="color: #222; ">OnlineTerminal</a> 
+- <a href="https://github.com/Topaz1618/MeowFile" style="color: #222; "> MeowFile </a> 
+- <a href="https://github.com/Topaz1618/MeowShop" style="color: #222;"> MeowShop</a> 
 
 <a class="link" style="font-size: 16px; font-weight: 200" href="https://topaz1618.github.io/projects/">[More Projects]</a>
 
