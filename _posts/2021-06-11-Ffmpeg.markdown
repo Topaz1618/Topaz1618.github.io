@@ -8,15 +8,14 @@ tag:
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
-permalink: reids-installation
+permalink: ffmpeg-installation
 ---
 <h1 class="title"> Redis 集群搭建 </h1>
 
 <h2> Table of Contents </h2>
 - [为什么选择redis](#c1)
 - [Redis 安装](#c2)
-- [Redis 集群搭建](#c3)
-- [Redis 集群命令](#c4)
+
 
 <h2 id="c1"> 为什么选择redis </h2>
 <a style="color: #AED6F1" href="https://www.jianshu.com/p/238372c25669"> ☞ 看这里</a>
@@ -46,7 +45,7 @@ permalink: reids-installation
 
 <h2 id="c3"> Redis 集群搭建 </h2>
 
-1.修改 redis.conf 
+1.修改 redis.conf
 {% highlight bash %}
  cluster-enabled yes
  cluster-config-file nodes.conf
@@ -78,7 +77,7 @@ permalink: reids-installation
  for i in {7000..7005};do
 	cd /data/recluster/$i  #切到各节点目录，有必须这样做的理由(可能起不来)，anyway 切就完了。
 	rm -f appendonly.aof  dump.rdb  nodes.conf  #删除残留文件，否则集群100%起不来
-    /usr/local/redis-3.2.0/src/redis-server ./redis.conf 
+    /usr/local/redis-3.2.0/src/redis-server ./redis.conf
  done
  /usr/local/redis-3.2.0/src/redis-trib.rb create --replicas 1 $ip:7000 $ip:7001 $ip:7002  $ip:7003 $ip:7004 $ip:7005  #创建集群
 {% endhighlight %}
@@ -98,11 +97,11 @@ permalink: reids-installation
 #### 单节点检查命令
 {% highlight bash %}
  [root@Topaz src]# redis-cli -h 127.0.0.1 -p 7000 #出现如下效果就没问题儿~~
- 127.0.0.1:7000> 
+ 127.0.0.1:7000>
 {% endhighlight %}
 
 #### 查看集群节点详细信息命令
- 
+
 {% highlight bash %}
  [root@Topaz src]# ./redis-cli -h 127.0.0.1 -p 7003 cluster nodes #随意连个集群端口，就会显示出当前集群内所有节点的信息
 
@@ -135,11 +134,3 @@ permalink: reids-installation
 {% highlight row %}
  /usr/local/redis-3.2.0/src/redis-trib.rb add-node --slave --master-id [主节点node id] 127.0.0.1:7002 [ master ip]:[port]
 {% endhighlight %}
-
-
-
-
-
-
-
-
