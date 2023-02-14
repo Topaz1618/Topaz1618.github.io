@@ -1,5 +1,5 @@
 ---
-title: " Use one-to-one relationships in Django2.0 models [CN]"
+title: " Django2.0 models.OneToOneField Error 解决 [CN]"
 layout: post
 date: 2018-06-09 22:48
 tag:
