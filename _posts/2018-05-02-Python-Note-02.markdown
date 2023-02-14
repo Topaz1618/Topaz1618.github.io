@@ -1,5 +1,5 @@
 ---
-title: "Python 学习笔记 02 [Chinese Version]"
+title: "Python 学习笔记 02 [CN]"
 layout: post
 date: 2016-01-11 22:48
 tag:
