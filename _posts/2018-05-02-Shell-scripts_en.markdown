@@ -1,5 +1,5 @@
 ---
-title: "Bash Shell Scripts"
+title: "Bash Shell Scripts[English]"
 layout: post
 date: 2015-03-24 22:48
 tag:
@@ -9,18 +9,18 @@ tag:
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
-permalink: shell-scripts
+permalink: shell-scripts-en
 ---
-<h1 class="title"> Bash Shell Scripts </h1>
+<h1 class="title"> Bash Shell Scripts[English] </h1>
 
 
 <h2> Table of Contents </h2>
 - [Service one-click start and stop script](#c1)
-- [Rsync 推送数据备份脚本](#c2)
-- [Zabbix agent 一键安装脚本](#c3)
-- [Rsync 服务一键安装脚本](#c4)
-- [Tomcat 日志删除脚本](#c5)
-- [ssh批量分发脚本](#c6)
+- [Rsync remote server push data backup script](#c2)
+- [Zabbix agent One-click installation script](#c3)
+- [Rsync one-click installation script](#c4)
+- [Tomcat redundant log deletion script ](#c5)
+- [ssh distribute scripts in batches](#c6)
 
 
 <h2 id="c1"> Services one-click start and stop script </h2>
@@ -129,7 +129,7 @@ esac
 main $1 $2
 {% endhighlight %}
 
-<h2 id="c2">Rsync 推送数据备份脚本</h2>
+<h2 id="c2">Rsync remote server push data backup script</h2>
 {% highlight bash %}
 #!/bin/bash
 #create by Topaz
@@ -148,7 +148,7 @@ do
 done
 {% endhighlight %}
 
-<h2 id="c3">Zabbix agent 一键安装脚本 </h2>
+<h2 id="c3">Zabbix agent One-click installation script </h2>
 {% highlight bash %}
 #!/bin/bash
 reap -p "Enter host ip: " ip
@@ -178,7 +178,7 @@ chkconfig zabbix_agentd on
 /etc/init.d/zabbix_agentd start
 
 {% endhighlight %}
-<h2 id="c4">Rsync 一键安装脚本</h2>
+<h2 id="c4">Rsync one-click installation script</h2>
 {% highlight bash %}
 #!/bin/bash
 #this create bytopaz
@@ -262,7 +262,7 @@ action "Welcome to the Rsync!!" /bin/true
 {% endhighlight %}
 
 
-<h2 id="c5">Tomcat 日志删除 </h2>
+<h2 id="c5">Tomcat redundant log deletion script </h2>
 {% highlight bash %}
 #!/bin/bash
 for i in {p2p,shop}
@@ -272,22 +272,22 @@ do
 {% endhighlight %}
 
 
-<h2 id="c6">ssh批量分发脚本 </h2>
+<h2 id="c6">ssh distribute scripts in batches </h2>
 {% highlight bash %}
 #!/bin/bash
-. /etc/init.d/functions				#调用函数，在后面判断是否成功时会调用它里面的模块
+. /etc/init.d/functions			
 [ $# -ne 1 ] && {					
         echo "USAGE:sh $0 ARG"		
         exit 1						
 }
-for n in 138 139					#主机多的话也可以从文件里读取
+for n in 138 139					# Depends on the number of servers, Ip can also be read from the file
 do
         scp -P22 $1 dog@10.0.0.$i:~ &>/dev/null
 		if [ $? -eq 0 ]				
         then
-                action "10.0.0.$i fenfa $1 is ok" /bin/true		#成功的话提示，并调用成功提示模块
+                action "10.0.0.$i fenfa $1 is ok" /bin/true
         else
-                action "10.0.0.$i fenfa $1 is false" /bin/false	#失败的话提示，并调用失败提示模块
+                action "10.0.0.$i fenfa $1 is false" /bin/false
         fi
 done
 {% endhighlight %}
