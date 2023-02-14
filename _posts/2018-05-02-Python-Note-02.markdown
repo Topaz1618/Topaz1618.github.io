@@ -1,5 +1,5 @@
 ---
-title: "Python 学习笔记 02"
+title: "Python 学习笔记 02 [Chinese Version]"
 layout: post
 date: 2016-01-11 22:48
 tag:
@@ -22,7 +22,7 @@ permalink: Python-Learn-note02
 
 <h2 id="c1">Python 基本 IO 操作</h2>
 <h4>输出操作</h4>
-{% highlight python %} 
+{% highlight python %}
 >>> print "hello"
 
 输出：
@@ -44,7 +44,7 @@ user topaz
 
 <h2 id="c2">读文件</h2>
 <h4>读取方式一</h4>
-{% highlight python %} 
+{% highlight python %}
 f = open('1.log')  #打开模式为默认的只读模式‘r’
 line = f.read()		#读取文件全部内容
 print(line)			#输出时在最后会多出一行,read()函数到达文件末会返回一个空字符，显示出空字符就是一个空行
@@ -96,7 +96,7 @@ for line in lines:
 	r+：读写文件（可读，可写，可追加）
 	w+：写读
 	a+：读写文件（可读，可写，可追加）
-- "U"表示在读取时，与 r 或 r+ 一起使用，可以将 \r \n \r\n自动转换成 \n 
+- "U"表示在读取时，与 r 或 r+ 一起使用，可以将 \r \n \r\n自动转换成 \n
 	rU
 	r+U
 - "b"表示处理二进制文件（Linux可忽略，Windows处理二进制文件时需标注如，比如FTP发送上传ISO镜像文件）
@@ -142,7 +142,7 @@ for line in lines:
 ### r+，可读，可写，可追加
 with open('1.log','r+') as f:
     f.write('\ndog')
-    lines = f.readlines() 
+    lines = f.readlines()
 for line in lines:
     print(line.rstrip())
 
@@ -182,12 +182,3 @@ print(msg_gb2312)
 print(gb2312_to_unicode)
 print(gb2312_to_utf8)
 {% endhighlight %}
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,5 @@
 ---
-title: "爬虫基础之网页解析"
+title: "爬虫基础之网页解析 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -26,13 +26,13 @@ Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python �
 
 ### 文档读取
 {% highlight python %}
- # url 请求获取文档 
+ # url 请求获取文档
  import requests
  from bs4 import BeautifulSoup
  response = requests.get("http://www.baidu.com")
  content = response.content
  soup = BeautifulSoup(content, 'html.parser')
- 
+
  #本地文档
  soup = BeautifulSoup(open('index.html'))
  print(soup)
@@ -43,9 +43,9 @@ Beautiful Soup 是一个可以从 HTML 或 XML 文件中提取数据的 Python �
  #根据 tag 查找
  soup.a 	#返回第一个 a 标签
 
- #find() & find_all() 
+ #find() & find_all()
  soup.find('div', class_='cat')	# 查找第一个class='cat'的div
- soup.find_all('div', class_='cat') # 查找全部class='cat'的div 
+ soup.find_all('div', class_='cat') # 查找全部class='cat'的div
 
  #select 方法
  soup.select('div ul p') #查找 div 下 ul 下的多个 p 标签
@@ -115,6 +115,3 @@ html = etree.parse('index.html')
 a = html.xpath('//li/a')
 print(a[0].text)
 {% endhighlight %}
-
-
-

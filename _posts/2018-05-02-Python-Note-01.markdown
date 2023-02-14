@@ -1,5 +1,5 @@
 ---
-title: "Python 学习笔记 01"
+title: "Python 学习笔记 01 [Chinese Version]"
 layout: post
 date: 2016-01-11 22:48
 tag:
@@ -128,7 +128,7 @@ PS:pyc是pycodeobject的持久化保存方式
 >>> a.count("t")		#统计t出现的次数
 1
 >>> a.encode()			#将字符串编码成bytes格式
-b'topaz'	
+b'topaz'
 >>> a.endswith("z")		#判断是不是以z为结尾
 True
 >>> a.find("o")			#查找o，返回o的索引
@@ -138,7 +138,7 @@ True
 
 PS：格式化输出字符串是%s，整数%d，浮点数%f
 <h4>列表</h4>
-列表是有序的元素序列	
+列表是有序的元素序列
 
 常用操作：索引，切片，追加，删除，长度，切片，循环
 {% highlight python %}
@@ -192,17 +192,17 @@ PS：格式化输出字符串是%s，整数%d，浮点数%f
 {% highlight raw %}
 info = {'你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
 ###增加
->>> info['topaz']='socute'	
+>>> info['topaz']='socute'
 >>> info
 {'topaz': 'socute','你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
 
 ###修改
->>> info['topaz']= 'piupiu' 
+>>> info['topaz']= 'piupiu'
 >>> info
 {'topaz': 'piupiu','你大舅': '你舅', '你二舅': '你舅', '高板凳': '木头', '低板凳': '木头'}
 
 ###两种删除方式
->>> info.pop("你大舅")	
+>>> info.pop("你大舅")
 >>> info
 {'你二舅': '你舅', 'topaz': 'piupiu', '高板凳': '木头', '低板凳': '木头'}
 
@@ -253,7 +253,7 @@ len(s)  			#set 的长度
 x in s  			#测试 x 是否是 s 的成员  
 x not in s  		#测试 x 是否不是 s 的成员  
 s.issubset(t) 或 s <= t 	#测试是否 s 中的每一个元素都在 t 中  
-s.issuperset(t) 或 s >= t  #测试是否 t 中的每一个元素都在 s 中 
+s.issuperset(t) 或 s >= t  #测试是否 t 中的每一个元素都在 s 中
 s.union(t) 或 s | t   	#返回一个新的 set 包含 s 和 t 中的每一个元素
 s.intersection(t) 或 s & t  #返回一个新的 set 包含 s 和 t 中的公共元素  
 s.difference(t)  或	s - t  	#返回一个新的 set 包含 s 中有但是 t 中没有的元素  
@@ -264,17 +264,17 @@ s.copy()  			#返回 set “s”的一个浅复制
 <h4>运算</h4>
 - 算数运算：+ - * / % ** //
 - 比较运算： == != <> > < <= >=
-- 赋值运算：= += -= *= /= %= 
+- 赋值运算：= += -= *= /= %=
 - 逻辑运算：and，or，not
 - 成员运算：in ，not in
 - 身份运算：is ，is not
-- 位运算：& | ^ 
+- 位运算：& | ^
 - <a href="http://c.biancheng.net/cpp/html/1817.html">运算符优先级</a>
 
 
 <h2 id="c7">Demo</h2>
 根据上面的知识我们就可以写一个三级菜单啦~
-要求: 
+要求:
 打印省、市、县三级菜单
 可返回上一级
 可随时退出程序
@@ -342,10 +342,3 @@ while not exit_flag:
 		layers.append(menu)
 		menu = menu[choice]                #保存起选择的值，返回到最初的起点
 {% endhighlight %}
-
-
-
-
-
-
-

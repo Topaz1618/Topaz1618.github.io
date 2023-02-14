@@ -1,5 +1,5 @@
 ---
-title: "爬虫之 Scrapy 框架"
+title: "爬虫之 Scrapy 框架 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -24,14 +24,14 @@ permalink: Spiders-Scrapy-01
 <a style="color: #AED6F1" href="https://topaz1618.github.io/Spiders-Scrapy-02"> ☞ Scrapy 文件详解</a>
 
 <h2 id="c1"> Scrapy 简介 </h2>
-Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架，使用Twisted异步网络库处理网络通讯,爬取网站数据，提取结构性数据的应用框架，可以应用在数据挖掘，信息处理，监测和自动化测试或存储历史数据等一系列的程序中	
+Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架，使用Twisted异步网络库处理网络通讯,爬取网站数据，提取结构性数据的应用框架，可以应用在数据挖掘，信息处理，监测和自动化测试或存储历史数据等一系列的程序中
 
 
 <h2 id="c2"> 主要组件 </h2>
 {% highlight raw %}
  - 引擎(Scrapy)：用来处理整个系统的数据流处理, 触发事务(框架核心)
  - 调度器(Scheduler)：用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回.  可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址
- - 下载器(Downloader)：用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)	
+ - 下载器(Downloader)：用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)
  - 爬虫(Spiders)：爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 即所谓的实体(Item) 。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面
  - 项目管道(Pipeline)：负责处理爬虫从网页中抽取的实体，主要的功能是持久化实体、验证实体的有效性、清除不需要的信息。当页面被 爬虫解析后，将被发送到项目管道，并经过几个特定的次序处理数据
  - 下载器中间件(Downloader Middlewares) ：位于Scrapy引擎和下载器之间的框架，主要是处理Scrapy引擎与下载器之间的请求及响应
@@ -60,7 +60,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
 {% highlight python %}
  pip3 install wheel
 
- - 下载twisted 
+ - 下载twisted
  http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
 
  - 进入下载目录
@@ -118,7 +118,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  hxs = Selector(response)  
 
  #取出所有a标签
- hxs = Selector(response=response).xpath('//a') 
+ hxs = Selector(response=response).xpath('//a')
 
  #取出所有有id属性的a标签
  hxs = Selector(response=response).xpath('//a[@id]')  
@@ -133,8 +133,8 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  hxs = Selector(response=response).xpath('//a[re:test(@id, "i\d+")]')    
 
  hxs = Selector(response=response).xpath('//a[re:test(@id, "i\d+")]/text()').extract()
- hxs = Selector(response=response).xpath('//a[re:test(@id, "i\d+")]/@href').extract() 
- hxs = Selector(response=response).xpath('/html/body/ul/li/a/@href').extract() 
+ hxs = Selector(response=response).xpath('//a[re:test(@id, "i\d+")]/@href').extract()
+ hxs = Selector(response=response).xpath('/html/body/ul/li/a/@href').extract()
  hxs = Selector(response=response).xpath('//body/ul/li/a/@href').extract_first()
 
  #参考：https://doc.scrapy.org/en/0.12/topics/selectors.html
@@ -166,7 +166,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
   scrapy.http.cookies import CookieJar
   scrapy import FormRequest
   ..items import XiaoHuarItem
- 
+
  class XiaoHuarSpider(scrapy.Spider):
  	name = "hira"
  	allowed_domains = ["xiaohuar.com"]
@@ -177,7 +177,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  		items = hxs.select('//div[@class="item_list infinite_scroll"]/div')
  		for item in items:
  			src = item.xpath('.//div[@class="img"]/a/img/@src').extract_first()
- 			name = item.xpath('.//div[@class="img"]/span/text()').extract_first() 
+ 			name = item.xpath('.//div[@class="img"]/span/text()').extract_first()
  			school = item.xpath('.//div[@class="img"]/div[@class="btns"]/a/text()').extract_first()    	#==>广西大学
  			url = "http://www.xiaohuar.com%s" % src
  			obj = XiaoHuarItem(name=name,school=school, url=url)
@@ -209,11 +209,11 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  	# define the fields for your item here like:
  	# name = scrapy.Field()
  	pass
- 
+
  class XiaoHuarItem(scrapy.Item):
  	name = scrapy.Field()
  	school = scrapy.Field()
- 	url = scrapy.Field()	
+ 	url = scrapy.Field()
 {% endhighlight %}
 
 #### pipelines.py
@@ -241,7 +241,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  		file_name = '%s_%s.jpg' % (item['name'], item['school'])
  		with open(os.path.join('imgs', file_name), mode='wb') as f:
  			f.write(response.content)
- 		return item	
+ 		return item
 {% endhighlight %}
 
 #### settings.py
@@ -250,7 +250,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  	'cutetopaz.pipelines.JsonPipeline': 100,
  	'cutetopaz.pipelines.FilePipeline': 300,
  }
-{% endhighlight %} 
+{% endhighlight %}
 
 <h2 id="c8"> Scrapy 自定义 </h2>
 
@@ -260,7 +260,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  2.在其中创建 crawlall.py 文件 （此处文件名就是自定义的命令）
  3.settings.py 中添加配置 COMMANDS_MODULE = '项目名称.目录名称'
  4.项目目录中执行命令：scrapy crawlall
-{% endhighlight %} 
+{% endhighlight %}
 
 代码：
 {% highlight python %}
@@ -296,7 +296,7 @@ Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应�
  	def spider_opened(self, spider):
  		print('open')		
  	def spider_closed(self, spider):
- 		print('close')	
+ 		print('close')
 {% endhighlight %}
 
 #### 避免重复访问
@@ -305,16 +305,4 @@ Scrapy 默认使用 scrapy.dupefilter.RFPDupeFilter 进行去重，相关配置�
  DUPEFILTER_CLASS = 'scrapy.dupefilter.RFPDupeFilter'
  DUPEFILTER_DEBUG = False
  JOBDIR = "保存范文记录的日志路径，如：/root/"  # 最终路径为 /root/requests.seen
-{% endhighlight %} 
-
-
-
-
-
-
-
-
-
-
-
-
+{% endhighlight %}

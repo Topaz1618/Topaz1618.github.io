@@ -1,5 +1,5 @@
 ---
-title: "Bash Shell Scripts"
+title: "Shell 脚本实例 [CN]"
 layout: post
 date: 2015-03-24 22:48
 tag:
@@ -11,11 +11,11 @@ author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
 permalink: shell-scripts
 ---
-<h1 class="title"> Bash Shell Scripts </h1>
+<h1 class="title"> Shell 脚本汇总 </h1>
 
 
 <h2> Table of Contents </h2>
-- [Service one-click start and stop script](#c1)
+- [服务一键启停脚本](#c1)
 - [Rsync 推送数据备份脚本](#c2)
 - [Zabbix agent 一键安装脚本](#c3)
 - [Rsync 服务一键安装脚本](#c4)
@@ -23,7 +23,7 @@ permalink: shell-scripts
 - [ssh批量分发脚本](#c6)
 
 
-<h2 id="c1"> Services one-click start and stop script </h2>
+<h2 id="c1"> 服务一键启停脚本 </h2>
 
 {% highlight bash %}
 #!/bin/bash

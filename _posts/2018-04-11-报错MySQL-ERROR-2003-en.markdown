@@ -1,5 +1,5 @@
 ---
-title: "MySQL ERROR 2003 报错记录"
+title: "MySQL ERROR 2003 报错记录 [EN]"
 layout: post
 date: 2017-05-30 22:48
 tag:
@@ -12,7 +12,7 @@ permalink: MySQL-ERROR-2003
 ---
 <h1 class="title"> MySQL ERROR 2003 报错记录 </h1>
 ### 问题：
-MySQL 远程连接报错 
+MySQL 远程连接报错
 {% highlight html %}
 ERROR 2003 (HY000): Can't connect to MySQL server (111)
 {% endhighlight %}
@@ -27,13 +27,13 @@ ERROR 2003 (HY000): Can't connect to MySQL server (111)
 ### 排查
 1.查看配置文件
  {% highlight html %}
- [root@Topaz ~]# cat /etc/my.cnf	
+ [root@Topaz ~]# cat /etc/my.cnf
  port = 3306
  bind-address = 0.0.0.0
  #skip-networking
  {% endhighlight %}
 会导致远程连不上的几个参数都ok
-	
+
 
 2.在另一台机器上ping
  {% highlight html %}
@@ -52,5 +52,3 @@ ERROR 2003 (HY000): Can't connect to MySQL server (111)
 4.iptables -L 检查防火墙
 
 5.最后确定是防火墙的问题，该删的删
-
-

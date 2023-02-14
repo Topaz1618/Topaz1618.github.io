@@ -1,5 +1,5 @@
 ---
-title: "爬虫性能之同步异步耗时对比"
+title: "爬虫性能之同步异步耗时对比 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -27,7 +27,7 @@ permalink: Spiders-advanced-01
  b = requests.get('https://h5.qichedaquan.com/jike/?jkcx=0&channel=jingxiyuean')
  print(a.text)
  print(b.text)
- print(time.time()- current_time) 
+ print(time.time()- current_time)
 
  实例2：耗时 ==> 19.067904472351074
  import requests,time
@@ -40,7 +40,7 @@ permalink: Spiders-advanced-01
  for i in url_list:
  	mess = get_url(i)
  	print(mess)
- 	print(time.time()-time1) 
+ 	print(time.time()-time1)
 {% endhighlight %}
 
 #### 多线程
@@ -145,7 +145,7 @@ lExecutor两个类，对编写线程池/进程池提供了直接的支持
  	reader, writer = yield from asyncio.open_connection(host, 80)
  	header = """GET %s HTTP/1.0\r\nHost: %s\r\n\r\n""" % (url, host)
  	print("header",header)
- 	writer.write(header.encode('utf-8')) 
+ 	writer.write(header.encode('utf-8'))
  	# yield from asyncio.sleep(5)    
  	yield from writer.drain()
  	text = yield from reader.read()
@@ -160,10 +160,3 @@ lExecutor两个类，对编写线程池/进程池提供了直接的支持
  loop.close()
  print(time.time() - time1)
 {% endhighlight %}
-
-
-
-
-
-
-

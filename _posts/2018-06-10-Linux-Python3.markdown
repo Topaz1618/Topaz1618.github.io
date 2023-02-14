@@ -1,5 +1,5 @@
 ---
-title: "Linux 下安装 Python3.6"
+title: "Linux 下安装 Python3.6 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -70,7 +70,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
  解决：
  	#shangbang指向py2.7
 
-	[root@Topaz tools]# vim /usr/bin/yum 
+	[root@Topaz tools]# vim /usr/bin/yum
 	#!/usr/bin/python2.7		
 
 	CentOS 7 /usr/libexec/urlgrabber-ext-down 也需要改
@@ -80,29 +80,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 {% endhighlight %}
 
 #### 解决 pip3 不能使用
-加软链指向 /usr/local/bin/ 
+加软链指向 /usr/local/bin/
 {% highlight bash %}
  ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3  
 {% endhighlight %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

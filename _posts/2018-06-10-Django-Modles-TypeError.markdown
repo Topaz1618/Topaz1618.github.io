@@ -1,5 +1,5 @@
 ---
-title: " Use one-to-one relationships in Django2.0 models"
+title: " Use one-to-one relationships in Django2.0 models [CN]"
 layout: post
 date: 2018-06-09 22:48
 tag:
@@ -21,9 +21,9 @@ permalink: Django-Modles-TypeError
 
 解决
 {% highlight bash %}
- 1.找到报错行 
- user = models.OneToOneField(User) 
- 
+ 1.找到报错行
+ user = models.OneToOneField(User)
+
  2.添加 models.CASCADE
  user = models.OneToOneField(User,models.CASCADE)
 {% endhighlight %}

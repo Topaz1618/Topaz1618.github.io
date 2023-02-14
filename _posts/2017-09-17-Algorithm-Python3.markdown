@@ -1,5 +1,5 @@
 ---
-title: "Top 5 Algorithms"
+title: "Top 5 Algorithms [Chinese Version]""
 layout: post
 date: 2017-09-17 22:48
 tag:
@@ -47,7 +47,7 @@ permalink: Algorithm-Python
  	else:  
  		print("====== 第 %s 次循环，找到倒数第 %s 最小值 %s 最小值下标 %s ======" % (j + 1, j + 1, data_set[ smallest_num_index],smallest_num_index))
  		tmp = data_set[smallest_num_index]  
- 		data_set[smallest_num_index] = data_set[j] 
+ 		data_set[smallest_num_index] = data_set[j]
  		data_set[j] = tmp  
  	print(data_set)
 {% endhighlight %}
@@ -57,10 +57,10 @@ permalink: Algorithm-Python
  list = [99,89,38,77,23,16,9]
  print(len(list))
  for i1 in range(len(list)-1):    
- 	for i2 in range(i1+1,len(list)): 
+ 	for i2 in range(i1+1,len(list)):
  		if list[i2] < list[i1]:     
  			tmp = list[i2]      
- 			list[i2] = list[i1] 
+ 			list[i2] = list[i1]
  			list[i1] = tmp     
  print(list)
 {% endhighlight %}
@@ -73,7 +73,7 @@ permalink: Algorithm-Python
  	current_val = source[index]  
  	position = index    
  	print(source)
- 	while position > 0 and source[position - 1] > current_val: 
+ 	while position > 0 and source[position - 1] > current_val:
  		print("Position: %s  右边值>: %s  " % (position,source[position - 1] ))
  		source[position] = source[position - 1]  
  		position -= 1  
@@ -90,9 +90,9 @@ permalink: Algorithm-Python
  while interval > 0:
  	print("---interval ---", interval)  
  	for index in range(len(source)):   
- 		if index + interval < len(source): 
+ 		if index + interval < len(source):
  			current_val = source[index]  # 当前下标元素
- 			if current_val > source[index + interval]: 
+ 			if current_val > source[index + interval]:
  				source[index], source[index + interval] = source[index +interval], source[index]
  	interval = int(interval / 2)
  else:  
@@ -101,8 +101,8 @@ permalink: Algorithm-Python
  		position = index
  		while position > 0 and source[position - 1] > current_val:  
  			source[position] = source[position - 1]  
- 			position -= 1 
- 		source[position] = current_val 
+ 			position -= 1
+ 		source[position] = current_val
  	print(source)
 {% endhighlight %}
 
@@ -125,7 +125,7 @@ permalink: Algorithm-Python
          else:
              print("是他",mid)
              return (mid)
- 
+
  if __name__ == "__main__":
      list = [2, 1, 5, 3, 7]
      list.sort()	 
@@ -158,14 +158,10 @@ permalink: Algorithm-Python
 
 <h2 > 随机赠送斐波那契数列 </h2>
 {% highlight python %}
- def fab(max): 
- 	n, a, b = 0, 0, 1 
- 	while n < max: 
- 		print b 
- 		a, b = b, a + b 
+ def fab(max):
+ 	n, a, b = 0, 0, 1
+ 	while n < max:
+ 		print b
+ 		a, b = b, a + b
  		n = n + 1
 {% endhighlight %}
-
-
-
-
