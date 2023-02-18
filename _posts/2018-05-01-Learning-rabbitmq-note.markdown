@@ -6,6 +6,7 @@ tag:
  - Learn
  - RabbitMQ
  - 译
+ - CN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
@@ -158,7 +159,7 @@ RabbitMQ 在消息进入队列时调度消息，不考虑消费者未确认消�
 
 3.Exchange 根据其定义的规则对接收到的消息处理
 <h4>默认交换</h4>
-看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为它用了默认的exchange，如下： 
+看到这里你可能会有疑问，为虾米 work模式没有用exchange，队列也能收到消息，因为它用了默认的exchange，如下：
 {% highlight python %}
 channel.basic_publish(exchange = '',
     routing_key = 'hello',
@@ -208,7 +209,7 @@ channel.start_consuming()
 
 1.创建空队列
 {% highlight python %}
-result = channel.queue_declare()	
+result = channel.queue_declare()
 {% endhighlight %}
 
 2.设置 exclusive=True，消费者关闭连接后删除队列
@@ -433,7 +434,3 @@ print(" [x] Requesting fib(30)")
 response = fibonacci_rpc.call(30)
 print(" [.] Got %r" % response)
 {% endhighlight %}
-
-
-
-

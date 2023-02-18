@@ -4,6 +4,9 @@ layout: post
 date: 2018-02-24 22:48
 tag:
  - 爬虫
+ - Spider
+ - Asyncio
+ - CN
 blog: true
 author: Topaz
 summary: "单进程单线程 多线程 多进程 异步"

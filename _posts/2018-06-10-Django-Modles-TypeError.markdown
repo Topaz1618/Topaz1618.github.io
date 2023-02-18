@@ -1,10 +1,11 @@
 ---
-title: " Django2.0 models.OneToOneField Error 解决 [CN]"
+title: " Django2.0 models.OneToOneField 报错解决 [CN]"
 layout: post
 date: 2018-06-09 22:48
 tag:
  - Django
  - TypeError
+ - CN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"

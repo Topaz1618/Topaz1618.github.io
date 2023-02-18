@@ -1,5 +1,5 @@
 ---
-title: "Top 5 Algorithms [Chinese Version]""
+title: "Top 5 Algorithms [CN]""
 layout: post
 date: 2017-09-17 22:48
 tag:

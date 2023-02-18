@@ -4,6 +4,10 @@ layout: post
 date: 2018-02-24 22:48
 tag:
  - 爬虫
+ - Scrap
+ - Spider
+ - CN
+ - BeautifulSoup
 blog: true
 author: Topaz
 summary: "BeautifulSoup Xpath"

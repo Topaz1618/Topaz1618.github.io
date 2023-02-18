@@ -5,8 +5,10 @@ date: 2015-04-07 22:48
 tag:
  - Monitor
  - Script
- - 运维
+ - Bash
+ - DevOps
  - Python
+ - CN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"

@@ -5,6 +5,7 @@ date: 2018-02-24 22:48
 tag:
  - Python
  - Installation
+ - CN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"

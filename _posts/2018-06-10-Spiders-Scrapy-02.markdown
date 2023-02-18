@@ -4,6 +4,9 @@ layout: post
 date: 2018-02-24 22:48
 tag:
  - 爬虫
+ - Scrapy
+ - Spider
+ - CN
 blog: true
 author: Topaz
 summary: "项目结构 中间件、pipelines.py、settings.py详解 "

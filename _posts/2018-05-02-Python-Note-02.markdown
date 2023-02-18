@@ -5,7 +5,8 @@ date: 2016-01-11 22:48
 tag:
  - Python
  - Learn
- - 笔记
+ - Note
+ - CN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
