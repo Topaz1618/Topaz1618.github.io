@@ -5,6 +5,7 @@ date: 2018-03-07 22:48
 tag:
  - Python
  - Installation
+ - Deployment
  - CN
 blog: true
 author: Topaz

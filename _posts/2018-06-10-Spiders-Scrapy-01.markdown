@@ -6,6 +6,7 @@ tag:
  - Python
  - Web Scraping
  - BeautifulSoup
+ - Tutorial
  - CN
 blog: true
 author: Topaz
