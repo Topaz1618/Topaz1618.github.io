@@ -3,9 +3,8 @@ title: "Markdown Extra Components"
 layout: post
 date: 2016-02-24 22:48
 tag:
- - markdown
- - components
- - extra
+ - Markdown Sytax
+ - EN
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
@@ -164,6 +163,3 @@ Do you want some videos? Youtube, Vimeo or Vevo? Copy the embed code and paste o
 [4]: http://daringfireball.net/projects/markdown/basics
 [5]: http://daringfireball.net/projects/markdown/syntax
 [6]: http://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg
-
-
-

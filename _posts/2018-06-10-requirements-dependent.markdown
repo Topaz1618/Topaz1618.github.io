@@ -3,7 +3,7 @@ title: "自动生成和安装 requirements.txt 依赖 [CN]"
 layout: post
 date: 2018-03-07 22:48
 tag:
- - Redis
+ - Python
  - Installation
  - CN
 blog: true

@@ -3,11 +3,10 @@ title: "爬虫之 Scrapy 框架 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
- - 爬虫
- - Scrap
- - Spider
- - CN
+ - Python
+ - Web Scraping
  - BeautifulSoup
+ - CN
 blog: true
 author: Topaz
 summary: "BeautifulSoup Xpath"

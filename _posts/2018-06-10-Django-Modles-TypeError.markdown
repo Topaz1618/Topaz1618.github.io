@@ -4,7 +4,8 @@ layout: post
 date: 2018-06-09 22:48
 tag:
  - Django
- - TypeError
+ - Python
+ - Troubleshooting
  - CN
 blog: true
 author: Topaz

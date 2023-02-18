@@ -3,8 +3,9 @@ title: " Django2.0 models.OneToOneField Error troubleshooting [EN]"
 layout: post
 date: 2018-06-09 22:48
 tag:
+ - Python
  - Django
- - TypeError
+ - Troubleshooting
  - EN
 blog: true
 author: Topaz

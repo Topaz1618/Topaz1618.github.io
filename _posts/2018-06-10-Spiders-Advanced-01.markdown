@@ -3,8 +3,7 @@ title: "爬虫性能之同步异步耗时对比 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
- - 爬虫
- - Spider
+ - Web Scraping
  - Asyncio
  - CN
 blog: true

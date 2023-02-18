@@ -1,11 +1,10 @@
 ---
-title: "[译] RabbitMQ 6种队列模式详解"
+title: "[译][CN] RabbitMQ 6种队列模式详解"
 layout: post
 date: 2017-04-24 22:48
 tag:
- - Learn
  - RabbitMQ
- - 译
+ - Tutorial
  - CN
 blog: true
 author: Topaz

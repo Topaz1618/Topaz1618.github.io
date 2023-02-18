@@ -4,7 +4,6 @@ layout: post
 date: 2016-01-11 22:48
 tag:
  - Python
- - Learn
  - Note
  - CN
 blog: true

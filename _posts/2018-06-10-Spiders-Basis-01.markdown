@@ -3,10 +3,8 @@ title: "爬虫基础之 Requests 库 [CN]"
 layout: post
 date: 2018-02-24 22:48
 tag:
- - 爬虫
- - Web Crawler
- - Scraping
- - Spider
+ - Python
+ - Web Scraping
  - CN
 blog: true
 author: Topaz

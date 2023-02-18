@@ -4,6 +4,7 @@ layout: post
 date: 2018-02-24 22:48
 tag:
  - Python
+ - Linux
  - Installation
  - CN
 blog: true

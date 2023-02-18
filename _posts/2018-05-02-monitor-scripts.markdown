@@ -5,7 +5,7 @@ date: 2015-04-07 22:48
 tag:
  - Monitor
  - Script
- - Bash
+ - Bash Shell
  - DevOps
  - Python
  - CN

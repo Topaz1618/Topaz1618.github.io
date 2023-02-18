@@ -4,7 +4,7 @@ layout: post
 date: 2017-05-30 22:48
 tag:
  - MySQL
- - ERROR
+ - Troubleshooting
  - CN
 blog: true
 author: Topaz

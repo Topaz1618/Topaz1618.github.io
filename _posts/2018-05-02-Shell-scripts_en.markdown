@@ -16,15 +16,15 @@ permalink: shell-scripts-en
 
 
 <h2> Table of Contents </h2>
-- [Service one-click start and stop script](#c1)
-- [Rsync remote server push data backup script](#c2)
-- [Zabbix agent One-click installation script](#c3)
-- [Rsync one-click installation script](#c4)
-- [Tomcat redundant log deletion script ](#c5)
-- [ssh distribute scripts in batches](#c6)
+- [One-Click service manage Script](#c1)
+- [Remote server backup Script (Rsync)](#c2)
+- [One-Click Zabbix Agent installation Script](#c3)
+- [One-Click Rsync installation Script](#c4)
+- [Tomcat redundant log deletion Script](#c5)
+- [SSH batch distribute Script](#c6)
 
 
-<h2 id="c1"> Services one-click start and stop script </h2>
+<h2 id="c1"> One-Click service manage Script </h2>
 
 {% highlight bash %}
 #!/bin/bash
@@ -130,7 +130,7 @@ esac
 main $1 $2
 {% endhighlight %}
 
-<h2 id="c2">Rsync remote server push data backup script</h2>
+<h2 id="c2">Remote server backup Script (Rsync)</h2>
 {% highlight bash %}
 #!/bin/bash
 #create by Topaz
@@ -149,7 +149,7 @@ do
 done
 {% endhighlight %}
 
-<h2 id="c3">Zabbix agent One-click installation script </h2>
+<h2 id="c3">One-Click Zabbix Agent installation Script</h2>
 {% highlight bash %}
 #!/bin/bash
 reap -p "Enter host ip: " ip
@@ -179,7 +179,7 @@ chkconfig zabbix_agentd on
 /etc/init.d/zabbix_agentd start
 
 {% endhighlight %}
-<h2 id="c4">Rsync one-click installation script</h2>
+<h2 id="c4">One-Click Rsync installation Script</h2>
 {% highlight bash %}
 #!/bin/bash
 #this create bytopaz
@@ -263,7 +263,7 @@ action "Welcome to the Rsync!!" /bin/true
 {% endhighlight %}
 
 
-<h2 id="c5">Tomcat redundant log deletion script </h2>
+<h2 id="c5">Tomcat redundant log deletion Script </h2>
 {% highlight bash %}
 #!/bin/bash
 for i in {p2p,shop}
@@ -273,7 +273,7 @@ do
 {% endhighlight %}
 
 
-<h2 id="c6">ssh distribute scripts in batches </h2>
+<h2 id="c6">SSH batch distribute Script</h2>
 {% highlight bash %}
 #!/bin/bash
 . /etc/init.d/functions			

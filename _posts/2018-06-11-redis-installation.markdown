@@ -3,8 +3,9 @@ title: "Redis 集群搭建 [CN]"
 layout: post
 date: 2017-05-09 22:48
 tag:
- - Installation
+ - Deployment
  - Redis
+ - Installation
  - CN
 blog: true
 author: Topaz

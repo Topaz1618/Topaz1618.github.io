@@ -3,7 +3,7 @@ title: "Learning materials collection"
 layout: post
 date: 2018-04-24 22:48
 tag:
- - Learn
+ - Material Collection
 blog: true
 author: Topaz
 summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
@@ -49,11 +49,11 @@ permalink: Learning-materials-collection
 
 <h2 id="c3">理论知识</h2>
 <a style="color: #AED6F1" href="http://pythonguidecn.readthedocs.io/zh/latest/">[kennethreitz 写的 Python 教程]	</a>
-<a style="color: #AED6F1" href="https://courses.csail.mit.edu/6.042/spring18/mcs.pdf">[MIT 计算机科学的数学理论 教学课件] </a> 
+<a style="color: #AED6F1" href="https://courses.csail.mit.edu/6.042/spring18/mcs.pdf">[MIT 计算机科学的数学理论 教学课件] </a>
 
-<a style="color: #AED6F1" href="https://pyzh.readthedocs.io/en/latest/">[Python 经典技术文章收集] </a> 
+<a style="color: #AED6F1" href="https://pyzh.readthedocs.io/en/latest/">[Python 经典技术文章收集] </a>
 
-<a style="color: #AED6F1" href="https://tigerneil.gitbooks.io/neural-networks-and-deep-learning-zh/">[神经网络与深度学习] </a> 
+<a style="color: #AED6F1" href="https://tigerneil.gitbooks.io/neural-networks-and-deep-learning-zh/">[神经网络与深度学习] </a>
 
 
 
@@ -70,11 +70,11 @@ permalink: Learning-materials-collection
 
 <a style="color: #AED6F1" href="https://juejin.im/post/5ad4094e6fb9a028d7011069">[tcp http面试指南]</a>
 
-<a style="color: #AED6F1" href="https://github.com/paddingme/Front-end-Web-Development-Interview-Question">[前端面试题] </a> 
+<a style="color: #AED6F1" href="https://github.com/paddingme/Front-end-Web-Development-Interview-Question">[前端面试题] </a>
 
 <a style="color: #AED6F1" href="https://github.com/taizilongxu/interview_python">[Python 面试题]</a>
 
-<a style="color: #AED6F1" href="https://hit-alibaba.github.io/interview/">[笔试整理(有重叠)] </a> 
+<a style="color: #AED6F1" href="https://hit-alibaba.github.io/interview/">[笔试整理(有重叠)] </a>
 
 <a style="color: #AED6F1" href="https://github.com/jwasham/coding-interview-university/blob/master/translations/README-cn.md">[Google Interview University 学习手册] </a>
 
@@ -152,14 +152,3 @@ https://github.com/FallibleInc/security-guide-for-developers/blob/master/README-
 
 
 > 现在的分类其实很不科学哈，另外我又攒了不少资源，有空一起改哈10 ~~
-
-
-
-
-
-
-
-
-
-
-
