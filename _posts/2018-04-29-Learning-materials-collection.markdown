@@ -1,5 +1,5 @@
 ---
-title: "[CN] Learning materials collection"
+title: "[CN] GitHub 学习资料收藏"
 layout: post
 date: 2018-04-24 22:48
 tag:

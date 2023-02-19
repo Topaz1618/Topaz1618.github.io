@@ -1,5 +1,5 @@
 ---
-title: "[EN] Django2.0 models.OneToOneField TypeError troubleshooting"
+title: "Django2.0 models.OneToOneField TypeError troubleshooting"
 layout: post
 date: 2018-06-09 22:48
 tag:
