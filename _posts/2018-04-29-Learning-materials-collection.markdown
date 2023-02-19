@@ -1,5 +1,5 @@
 ---
-title: "Learning materials collection [CN]"
+title: "[CN] Learning materials collection"
 layout: post
 date: 2018-04-24 22:48
 tag:

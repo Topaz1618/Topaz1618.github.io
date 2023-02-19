@@ -1,5 +1,5 @@
 ---
-title: "Python 学习笔记 01 [CN]"
+title: "[CN] Python 学习笔记 01"
 layout: post
 date: 2016-01-11 22:48
 tag:

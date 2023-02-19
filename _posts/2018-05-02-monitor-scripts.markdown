@@ -1,5 +1,5 @@
 ---
-title: " Python 监控脚本实例 [CN]"
+title: "[CN] Python 监控脚本实例"
 layout: post
 date: 2015-04-07 22:48
 tag:

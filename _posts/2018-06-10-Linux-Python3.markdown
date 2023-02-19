@@ -1,5 +1,5 @@
 ---
-title: "Linux 下安装 Python3.6 [CN]"
+title: "[CN] Linux 下安装 Python3.6"
 layout: post
 date: 2018-02-24 22:48
 tag:

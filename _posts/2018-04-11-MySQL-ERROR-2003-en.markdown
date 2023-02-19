@@ -1,5 +1,5 @@
 ---
-title: "MySQL ERROR 2003 Troubleshooting [EN]"
+title: "[EN] MySQL ERROR 2003 Troubleshooting"
 layout: post
 date: 2017-05-30 22:48
 tag:

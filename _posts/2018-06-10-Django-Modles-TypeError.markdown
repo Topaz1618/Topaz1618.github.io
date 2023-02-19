@@ -1,5 +1,5 @@
 ---
-title: " Django2.0 models.OneToOneField 报错解决 [CN]"
+title: "[CN] Django2.0 models.OneToOneField 报错解决"
 layout: post
 date: 2018-06-09 22:48
 tag:

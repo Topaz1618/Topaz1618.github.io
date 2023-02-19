@@ -4,12 +4,13 @@ layout: post
 date: 2017-09-17 22:48
 tag:
  - Algorithms
+ - CN
 blog: true
 author: Topaz
 summary: "冒泡排序 选择排序 插入排序 希尔排序 二分法"
 permalink: Algorithm-Python
 ---
-<h1 class="title"> Top 5 Algorithms </h1>
+<h1 class="title">[CN] Top 5 Algorithms </h1>
 
 <h2> Table of Contents </h2>
 - [冒泡排序](#c1)

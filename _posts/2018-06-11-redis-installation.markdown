@@ -1,5 +1,5 @@
 ---
-title: "Redis 集群搭建 [CN]"
+title: "[CN] Redis 集群搭建"
 layout: post
 date: 2017-05-09 22:48
 tag:

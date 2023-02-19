@@ -1,5 +1,5 @@
 ---
-title: "Bash Shell Scripts [EN]"
+title: "[EN] Bash shell Scripts"
 layout: post
 date: 2015-03-24 22:48
 tag:
