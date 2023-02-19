@@ -1,5 +1,5 @@
 ---
-title: "[EN] Bash shell Scripts"
+title: "Bash shell Scripts"
 layout: post
 date: 2015-03-24 22:48
 tag:
@@ -12,7 +12,7 @@ author: Topaz
 summary: "Bash shell-based one-click installation scripts, service startup and shutdown scripts, remote distribution scripts, etc."
 permalink: shell-scripts-en
 ---
-<h1 class="title"> Bash Shell Scripts[English] </h1>
+<h1 class="title"> Bash Shell Scripts </h1>
 
 
 <h2> Table of Contents </h2>

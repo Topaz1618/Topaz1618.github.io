@@ -1,5 +1,5 @@
 ---
-title: "[CN] Linux 下安装 Python3.6"
+title: "Install Python3.6 under Linux"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -12,33 +12,33 @@ author: Topaz
 summary: "How to install Python3.6 under Linux"
 permalink: Linux-Python3-Installation
 ---
-<h1 class="title"> Linux 下安装 Python3.6  </h1>
+<h1 class="title"> Install Python3.6 under Linux  </h1>
 
 <h2> Table of Contents </h2>
-- [Python3.6 安装](#c1)
-- [问题解决](#c2)
+- [Python3.6 Installation](#c1)
+- [Problem Solving](#c2)
 
 
-<h2 id="c1"> Python3.6 安装 </h2>
+<h2 id="c1"> Python3.6 Installation </h2>
 
-#### 安装依赖
+#### Install Packages
 {% highlight bash %}
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 {% endhighlight %}
 
-#### 下载解压缩
+#### Download and unpack
 {% highlight bash %}
-1.官网下载所需 python3 的版本
+1. Download specific python3 version as needed
  wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 
-2.解压
+2.Unpack
  tar -xf Python-3.6.1.tgz
 
 3.进入目录
  cd Python-3.6.1/
 {% endhighlight %}
 
-#### 编译安装
+#### Compile
 {% highlight bash %}
  ./configure --prefix=/usr/local/python3
  make
@@ -46,41 +46,41 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 {% endhighlight %}
 
 
-#### 创建软链接
+#### Create symbolic link
 {% highlight bash %}
-1.移除旧版本
+1.Remove the symbolic link of old version Python
  mv /usr/bin/python /usr/bin/python_bak
 
-2.创建新版本
+2.Symlink /usr/local/python3/bin/python3 to /usr/bin/python
  ln -s /usr/local/python3/bin/python3 /usr/bin/python
 {% endhighlight %}
 
-#### 检查版本号
+#### Check version
 {% highlight bash %}
  python -V
 {% endhighlight %}
 
 
-<h2 id="c2"> 问题解决 </h2>
-系统默认版本切换成 py3 后会发生两个问题啦~ yum 和 pip3 无法使用，下面是解决方法
+<h2 id="c2"> Problem Solving </h2>
+After switching the default Python version of the system to Python3, There have two problems will occur~ yum and pip3 cannot be used, the solution is as follows
 
-#### yum 报错解决
+#### How to fix yum Error
 {% highlight bash %}
- 报错：
+ Error：
  	[root@Topaz tools]# yum -y install xxx
  	File "/usr/bin/yum", line 30
- 解决：
- 	// shangbang指向py2.7
+ Fixing：
+ 	//shangbang point to python2.7
 	[root@Topaz tools]# vim /usr/bin/yum
 	#!/usr/bin/python2.7		
 
-	// CentOS 7 /usr/libexec/urlgrabber-ext-down 也需要改
+	// CentOS7 need to modify /usr/libexec/urlgrabber-ext-down as well
 	[root@Topaz tools]# vim /usr/libexec/urlgrabber-ext-down
 	#!/usr/bin/python2.7		
 {% endhighlight %}
 
-#### 解决 pip3 不能使用
-加软链指向 /usr/local/bin/
+#### How to fix pip3 can not be used
+Symlink /usr/local/python3/bin/pip3 to /usr/bin
 {% highlight bash %}
  ln -s /usr/local/python3/bin/pip3 /usr/local/bin/pip3  
 {% endhighlight %}
