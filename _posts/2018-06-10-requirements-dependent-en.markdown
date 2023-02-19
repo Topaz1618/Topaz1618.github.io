@@ -15,14 +15,14 @@ permalink: requirements-dependent-en
 <h1 class="title"> Automatically generate requirements.txt and use it to install packages </h1>
 
 <h2> Table of Contents </h2>
-- [Introduction of requirements.txt](#c1)
+- [Introduction](#c1)
 - [Method 1: Use pip to generate requirements.txt](#c2)
 - [Method 2: pipreqs tool to generate requirements.txt](#c3)
 - [Use requirements.txt to install packages](#c4)
 
 
 
-<h2 id="c1"> Introduction of requirements.txt </h2>
+<h2 id="c1"> Introduction </h2>
  The requirements.txt record all the dependent packages of the current program and their version and is used to rebuild the operating environment dependencies required for the project on another PC.
 
 <h2 id="c2"> Method 1：Use pip to generate requirements.txt </h2>
