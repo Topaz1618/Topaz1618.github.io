@@ -1,5 +1,5 @@
 ---
-title: "Install Python3.6 under Linux"
+title: "Installing Python3.6 on Linux"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -10,9 +10,9 @@ tag:
 blog: true
 author: Topaz
 summary: "How to install Python3.6 under Linux"
-permalink: Linux-Python3-Installation
+permalink: Linux-Python3-Installation-en
 ---
-<h1 class="title"> Install Python3.6 under Linux  </h1>
+<h1 class="title"> Installing Python3.6 on Linux  </h1>
 
 <h2> Table of Contents </h2>
 - [Python3.6 Installation](#c1)
