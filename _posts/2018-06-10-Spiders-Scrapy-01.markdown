@@ -10,7 +10,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "BeautifulSoup Xpath"
+summary: "Scrapy 框架的介绍和使用"
 permalink: Spiders-Scrapy-01
 ---
 <h1 class="title"> 爬虫之 Scrapy 框架 </h1>

@@ -23,7 +23,7 @@ permalink: requirements-dependent-en
 
 
 <h2 id="c1"> Introduction of requirements.txt </h2>
- requirements.txt record all the dependent packages of the current program and their version and is used to rebuild the operating environment dependencies required for the project on another PC.
+ The requirements.txt record all the dependent packages of the current program and their version and is used to rebuild the operating environment dependencies required for the project on another PC.
 
 <h2 id="c2"> Method 1：Use pip to generate requirements.txt </h2>
 This method needs to cooperate with Virtualenv, otherwise the packages in the entire environment will be listed.
@@ -37,9 +37,10 @@ pip freeze > requirements.txt
 The advantage of this tool is that it can automatically discover which class libraries are used by scanning the project directory, and automatically generate a dependency list. The disadvantage is that there may be some deviations, which need to be checked and adjusted by yourself.
 
 {% highlight bash %}
-- Install pipreqs
+ // Install pipreqs
  pip install pipreqs
-- Generate requirements.txt
+
+ // Generate requirements.txt
  pipreqs ./
 {% endhighlight %}
 

@@ -9,7 +9,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "How to install Python3.6 under Linux"
 permalink: Linux-Python3-Installation
 ---
 <h1 class="title"> Linux 下安装 Python3.6  </h1>

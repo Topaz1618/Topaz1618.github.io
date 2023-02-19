@@ -9,7 +9,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Redis 安装，集群搭建和集群命令"
 permalink: reids-installation
 ---
 <h1 class="title"> Redis 集群搭建 </h1>
