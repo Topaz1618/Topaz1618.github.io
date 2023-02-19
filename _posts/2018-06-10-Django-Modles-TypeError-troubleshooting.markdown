@@ -9,7 +9,7 @@ tag:
  - EN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Troubleshooting steps of models.OneToOneField TypeError after migrating Django 1.8 to Django 2.0. "
 permalink: Django-Modles-TypeError-EN
 ---
 <h1 class="title"> Use one-to-one relationships in Django2.0 models </h1>
@@ -32,7 +32,5 @@ Troubleshooting
 
 Reason:
 {% highlight raw %}
- 之前用的 django1.8 版本，升级后的2.0版本发生变化，需要设置 'on_delete'= models.CASCADE 才能正常使用。
-
  The Django1.8 version was used for application before, the upgraded version Django2.0 has changed, need to set 'on_delete'= models.CASCADE.
 {% endhighlight %}

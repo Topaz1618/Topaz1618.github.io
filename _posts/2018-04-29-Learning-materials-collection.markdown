@@ -1,12 +1,13 @@
 ---
-title: "Learning materials collection"
+title: "Learning materials collection [CN]"
 layout: post
 date: 2018-04-24 22:48
 tag:
  - Material Collection
+ - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "学习资料收藏"
 permalink: Learning-materials-collection
 ---
 <h1 class="title"> Learning materials collection </h1>

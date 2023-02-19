@@ -9,7 +9,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Django 1.8迁移到Django 2.0后models.OneToOneField TypeError的排查步骤"
 permalink: Django-Modles-TypeError
 ---
 <h1 class="title"> Use one-to-one relationships in Django2.0 models </h1>

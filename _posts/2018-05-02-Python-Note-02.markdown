@@ -8,7 +8,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Python 学习笔记2"
 permalink: Python-Learn-note02
 ---
 

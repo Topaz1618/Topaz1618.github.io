@@ -9,7 +9,7 @@ tag:
  - EN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Bash shell-based one-click installation scripts, service startup and shutdown scripts, remote distribution scripts, etc."
 permalink: shell-scripts-en
 ---
 <h1 class="title"> Bash Shell Scripts[English] </h1>

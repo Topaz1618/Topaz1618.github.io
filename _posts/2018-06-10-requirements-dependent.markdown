@@ -9,7 +9,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "介绍了 requirements.txt 的生成和使用"
 permalink: requirements-dependent
 ---
 <h1 class="title"> 自动生成和安装 requirements.txt 依赖 </h1>

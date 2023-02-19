@@ -11,7 +11,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Python2 和 Python3两个版本的监控脚本，包含对CPU, Disk, Load, Memory, MySQL 和 Network 的监控"
 permalink: monitor-scripts
 ---
 <h1 class="title"> 监控脚本实例 (Python) </h1>

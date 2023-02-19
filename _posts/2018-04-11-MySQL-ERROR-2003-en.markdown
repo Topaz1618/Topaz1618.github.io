@@ -8,7 +8,7 @@ tag:
  - EN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "Troubleshooting steps of MySQL Error2003"
 permalink: MySQL-ERROR-2003-en
 ---
 <h1 class="title"> MySQL ERROR 2003 Troubleshooting </h1>

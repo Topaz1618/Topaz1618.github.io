@@ -9,7 +9,7 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "Extra markdown components like highlighted text, side-by-side items, starring/highlighting a blog or project, and embedding gists, videos etc"
+summary: "基于 Bash shell 的一键安装脚本，服务启停脚本，远程分发脚本等"
 permalink: shell-scripts
 ---
 <h1 class="title"> Shell 脚本汇总 </h1>
