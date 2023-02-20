@@ -1,5 +1,5 @@
 ---
-title: "Installing Python3.6 on Linux"
+title: "Installing Python 3.6 on Linux"
 layout: post
 date: 2018-02-24 22:48
 tag:
@@ -9,10 +9,10 @@ tag:
  - CN
 blog: true
 author: Topaz
-summary: "How to install Python3.6 under Linux"
+summary: "How to install Python 3.6 on Linux(Build from source code)"
 permalink: Linux-Python3-Installation-en
 ---
-<h1 class="title"> Installing Python3.6 on Linux  </h1>
+<h1 class="title"> Installing Python 3.6 on Linux  </h1>
 
 <h2> Table of Contents </h2>
 - [Python3.6 Installation](#c1)
@@ -28,7 +28,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 
 #### Download and unpack
 {% highlight bash %}
-1. Download specific python3 version as needed
+1. Download specific python 3 version as needed
  wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
 
 2.Unpack
@@ -38,7 +38,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
  cd Python-3.6.1/
 {% endhighlight %}
 
-#### Compile
+#### Configure
 {% highlight bash %}
  ./configure --prefix=/usr/local/python3
  make
@@ -62,7 +62,7 @@ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 
 
 <h2 id="c2"> Problem Solving </h2>
-After switching the default Python version of the system to Python3, There have two problems will occur~ yum and pip3 cannot be used, the solution is as follows
+After switching the default Python version of the system to Python 3, There have two problems will occur~ yum and pip3 cannot be used, the solution is as follows
 
 #### How to fix yum Error
 {% highlight bash %}
@@ -70,7 +70,7 @@ After switching the default Python version of the system to Python3, There have 
  	[root@Topaz tools]# yum -y install xxx
  	File "/usr/bin/yum", line 30
  Fixing：
- 	//shangbang point to python2.7
+ 	//shangbang point to python 2.7
 	[root@Topaz tools]# vim /usr/bin/yum
 	#!/usr/bin/python2.7		
 
