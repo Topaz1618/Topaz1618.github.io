@@ -8,7 +8,7 @@ tag:
 blog: true
 author: Topaz
 summary: "Bubble Sort, Selection Sort, Insertion Sort, Shell Sort, Binary search algorithm, Fibonacci"
-permalink: Algorithm-Python
+permalink: Algorithm-Python-en
 ---
 <h1 class="title">Top 5 Sorting Algorithms  </h1>
 
