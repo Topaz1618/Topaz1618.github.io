@@ -65,19 +65,19 @@ permalink: English-Conversion
 "Do you want me to make it bigger?"
 
 // 听不清
-Could you speak more slowly, please
+"Could you speak more slowly, please"
 
-Could you repeat/explain that again?
+"Could you repeat/explain that again?"
 
-Could you repeat that last bit, please?
+"Could you repeat that last bit, please?"
 
-Could you speak up please (a little louder)?
+"Could you speak up please (a little louder)?"
 
-I didn’t get that I am sorry could you say it again?
+"I didn’t get that I am sorry could you say it again?"
 
-Could you go through that again because I didn’t quite understand it?
+"Could you go through that again because I didn’t quite understand it?"
 
-I didn’t quite get it. Perhaps you could go through that again.
+"I didn’t quite get it. Perhaps you could go through that again."
 
 // 有问题
 "I am having trouble hearing you."
@@ -103,7 +103,7 @@ I didn’t quite get it. Perhaps you could go through that again.
 // 有个小问题
 "Sorry, would you mind if I asked a question?"
 
-”Just to clarify are you saying that…"
+"Just to clarify are you saying that…"
 
 "Could I interrupt you for a minute?"
 
