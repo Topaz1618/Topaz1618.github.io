@@ -23,109 +23,108 @@ permalink: English Conversion
 
 {% highlight python %}
 // 听不清
-“Sorry, you’re breaking up a bit.  Could you please say that again?”
+"Sorry, you’re breaking up a bit.  Could you please say that again?"
 
-“I’m sorry, I didn’t catch that.  Please say it again.”
+"I’m sorry, I didn’t catch that.  Please say it again."
 
-“Could you repeat that please?”
+"Could you repeat that please?"
 
-“Could you speak a little louder please?”
+"Could you speak a little louder please?"
 
-“The line is very bad.  Could I call you back?”
+"The line is very bad.  Could I call you back?"
 
-“I’m calling about…”   
+"I’m calling about…"
 
 
 // 等会儿
-“Would you mind holding for a minute while I check?”
+"Would you mind holding for a minute while I check?"
 
-“One moment please.”
+"One moment please."
 
-“One moment.  Please stay on the line.”
+"One moment.  Please stay on the line."
 
 {% endhighlight %}
 
 <h2 id="c2"> 视频会议 </h2>
 
 {% highlight python %}
-    "Ok, let’s get started"
+"Ok, let’s get started"
 
-    // 介绍
+// 介绍
 
-    "Today’s meeting is about…"
+"Today’s meeting is about…"
 
-    "These are the issues that we want to talk about. "
+"These are the issues that we want to talk about. "
 
-    // 开始吧
+// 开始吧
 
-    "Let me share my screen with you."
+"Let me share my screen with you."
 
-    "Can I share my screen with you?"
+"Can I share my screen with you?"
 
-    "Do you want me to make it bigger?"
+"Do you want me to make it bigger?"
 
-    // 听不清
-    Could you speak more slowly, please
+// 听不清
+Could you speak more slowly, please
 
-    Could you repeat/explain that again?
+Could you repeat/explain that again?
 
-    Could you repeat that last bit, please?
+Could you repeat that last bit, please?
 
-    Could you speak up please (a little louder)?
+Could you speak up please (a little louder)?
 
-    I didn’t get that I am sorry could you say it again?
+I didn’t get that I am sorry could you say it again?
 
-    Could you go through that again because I didn’t quite understand it?
+Could you go through that again because I didn’t quite understand it?
 
-    I didn’t quite get it. Perhaps you could go through that again.
+I didn’t quite get it. Perhaps you could go through that again.
 
-    // 有问题
-    "I am having trouble hearing you."
+// 有问题
+"I am having trouble hearing you."
 
-    "I think I may have a problem with the connection."
+"I think I may have a problem with the connection."
 
-    "The screen is blank."
+"The screen is blank."
 
-    "The screen is frozen / You’re frozen."
+"The screen is frozen / You’re frozen."
 
-    "The image and sound are out of sync."
+"The image and sound are out of sync."
 
-    "There’s a bit of an echo on the line."
+"There’s a bit of an echo on the line."
 
-    "I am having trouble hearing you. Would you mind unmuting it?"
-
-
-    // 来晚了，你们唠啥了
-    "What have we done so far?"
-
-    "What have we covered so far?"
-
-    // 有个小问题
-    "Sorry, would you mind if I asked a question?"
-
-    ”Just to clarify are you saying that…"
-
-    "Could I interrupt you for a minute?"
-
-    "Would you mind if I jumped in there, please?"
-
-    "Would you mind if I butted in? (American English)"
-
-    "Can I stop you for just one minute, please?"
-
-    "One minute please, it seems we haven’t discussed…"
-
-    "One minute, please. Could we go back over it because I’ve got some questions?"
+"I am having trouble hearing you. Would you mind unmuting it?"
 
 
-    // 到点了
-    "We’re running out of time. Let’s move on to the next meeting for next Wednesday."
-    "I think we can leave this here for today."
+// 来晚了，你们唠啥了
+"What have we done so far?"
+
+"What have we covered so far?"
+
+// 有个小问题
+"Sorry, would you mind if I asked a question?"
+
+”Just to clarify are you saying that…"
+
+"Could I interrupt you for a minute?"
+
+"Would you mind if I jumped in there, please?"
+
+"Would you mind if I butted in? (American English)"
+
+"Can I stop you for just one minute, please?"
+
+"One minute please, it seems we haven’t discussed…"
+
+"One minute, please. Could we go back over it because I’ve got some questions?"
 
 
-    // 再说吧
-    "We can pick this up again tomorrow/next week/on Wednesday."
+// 到点了
+"We’re running out of time. Let’s move on to the next meeting for next Wednesday."
+"I think we can leave this here for today."
 
+
+// 再说吧
+"We can pick this up again tomorrow/next week/on Wednesday."
 
 
 
