@@ -8,7 +8,7 @@ tag:
 blog: true
 author: Topaz
 summary: "电话，视频会议，邮件"
-permalink: English Conversion
+permalink: English-Conversion
 ---
 <h1 class="title"> 常用英文口语，持续收集 </h1>
 
