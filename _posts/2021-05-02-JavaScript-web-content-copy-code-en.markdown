@@ -1,5 +1,5 @@
 ---
-title: "How to Copy Text From a Blocked Site Using JavaScript Code"
+title: "How to copy text from a blocked site using JavaScript"
 layout: post
 date: 2021-05-02 22:48
 tag:
@@ -11,7 +11,7 @@ author: Topaz
 summary: "How to Copy and Paste on Sites that Won't Let You"
 permalink: shell-scripts-en
 ---
-<h1 class="title"> How to Copy Text From a Blocked Site Using JavaScript Code </h1>
+<h1 class="title"> How to copy text from a blocked site using JavaScript </h1>
 
 
 <h2> Table of Contents </h2>
@@ -33,4 +33,5 @@ document.addEventListener('paste', allowPaste, true);
 <h2 id="c1"> RUN </h2>
 
 F12 open web developer tool. Run and check if it works well!
-![Markdowm Image][/assets/images/posts/build-a-blog/frontend_dev.png]{: class="bigger-image" }
+
+<img class="max-wight=800px; left-image" src="/assets/images/posts/build-a-blog/frontend_dev.png" alt="Alt Text">
