@@ -1,7 +1,7 @@
 ---
 title: "Bash shell Scripts"
 layout: post
-date: 2015-03-24 22:48
+date: 2017-03-24 22:48
 tag:
  - Bash Shell
  - Script
