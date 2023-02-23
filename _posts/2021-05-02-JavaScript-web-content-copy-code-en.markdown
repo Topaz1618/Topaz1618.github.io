@@ -14,12 +14,13 @@ permalink: shell-scripts-en
 <h1 class="title"> How to copy text from a blocked site using JavaScript </h1>
 
 
-<h2> Table of Contents </h2>
-- [JavaScript Code](#c1)
-- [Usage](#c2)
+Let's get straight to the point!
 
+1. Copy the below code to the web developer tool
+2. RUN IT!
+3. DONE
 
-<h2 id="c1"> JavaScript Code </h2>
+<h2 id="c1"> Code </h2>
 
 {% highlight bash %}
 var allowPaste = function(e){
@@ -29,9 +30,3 @@ var allowPaste = function(e){
 document.addEventListener('copy', allowPaste, true);
 document.addEventListener('paste', allowPaste, true);
 {% endhighlight %}
-
-<h2 id="c1"> RUN </h2>
-
-F12 open web developer tool. Run and check if it works well!
-
-<img class="max-wight=800px; left-image" src="/assets/images/posts/build-a-blog/frontend_dev.png" alt="Alt Text">
