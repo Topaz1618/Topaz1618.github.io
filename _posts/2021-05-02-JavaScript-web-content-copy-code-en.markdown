@@ -4,7 +4,7 @@ layout: post
 date: 2021-05-02 22:48
 tag:
  - JavaScript
- - Fronend
+ - Frontend
  - EN
 blog: true
 author: Topaz
@@ -14,7 +14,7 @@ permalink: shell-scripts-en
 <h1 class="title"> How to copy text from a blocked site using JavaScript </h1>
 
 
-#### Let's get straight to the point!
+<h2 id="c1"> Let's get straight to the point! </h2>
 
 - Step 1: Copy the below code to the web developer tool
 - Step 2: Run it!
