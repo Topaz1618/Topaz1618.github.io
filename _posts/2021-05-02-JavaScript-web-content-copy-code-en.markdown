@@ -14,11 +14,11 @@ permalink: shell-scripts-en
 <h1 class="title"> How to copy text from a blocked site using JavaScript </h1>
 
 
-Let's get straight to the point!
+#### Let's get straight to the point!
 
-### Step 1: Copy the below code to the web developer tool
-### Step 2: Run it!
-### Step 3: Done
+- Step 1: Copy the below code to the web developer tool
+- Step 2: Run it!
+- Step 3: Done
 
 <h2 id="c1"> Code </h2>
 
