@@ -16,9 +16,9 @@ permalink: shell-scripts-en
 
 Let's get straight to the point!
 
-1. Copy the below code to the web developer tool
-2. RUN IT!
-3. DONE
+Step 1: Copy the below code to the web developer tool
+Step 2: Run it!
+Step 3: Done
 
 <h2 id="c1"> Code </h2>
 
