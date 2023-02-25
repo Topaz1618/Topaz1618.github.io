@@ -20,7 +20,7 @@ permalink: MySQL-ERROR-2003
 - [Redis 常见功能和应用场景](#c4)
 
 - [Redis持久化方式](#c6)
-- [保证缓存和数据库数据的一致性](#c6)
+- [Redis 缓存和数据库数据的一致性](#c6)
 - [Redis 内存淘汰策略及Redis过期键删除策略](#c7)
 - [Redis持久化方式](#c6)
 - [Redis持久化方式](#c6)
@@ -29,7 +29,12 @@ permalink: MySQL-ERROR-2003
 
 - [总结](#c8)
 
-
+var allowPaste = function(e){
+  e.stopImmediatePropagation();
+  return true;
+};
+document.addEventListener('copy', allowPaste, true);
+document.addEventListener('paste', allowPaste, true);
 
 
 <h2 id="c1"> RabbitMQ介绍 </h2>
