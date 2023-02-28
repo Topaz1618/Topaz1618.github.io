@@ -155,7 +155,7 @@ And finally, to create the deployment and service for your application, you woul
 {% endhighlight %}
 
 <h2 id="c3"> Automating Kubernetes YAML Generation </h2>
-1. Kompose: Kompose is a tool that can convert Docker Compose files to Kubernetes YAML files. This can save time and effort when migrating existing Docker-based applications to Kubernetes.  <a href="https://medium.com/">Converting Docker Compose YAML to Kubernetes YAML</a>
+1. Kompose: Kompose is a tool that can convert Docker Compose files to Kubernetes YAML files. This can save time and effort when migrating existing Docker-based applications to Kubernetes.  <a href="https://topaz1618.github.io/docker-compose-yml-to-kubernetes-guide">Converting Docker Compose YAML to Kubernetes YAML</a>
 
 2. Kustomize: Kustomize is a tool that enables you to customize Kubernetes YAML files without modifying the original files. It allows you to manage multiple environments and generate different YAML files for each environment.
 
