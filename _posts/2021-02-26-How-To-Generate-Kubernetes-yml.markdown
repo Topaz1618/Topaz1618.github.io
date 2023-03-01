@@ -21,7 +21,7 @@ permalink: docker-compose-yml-to-kubernetes-guide
 - [Understanding Generated Kubernetes YAML](#c3)
 
 
-<h2 id="c1"> Introduction to Kompose </h2>
+<h2 id="c1" href="#"> Introduction to Kompose </h2>
 Kompose is a tool that helps to convert docker-compose.yml to Kubernetes YML.
 
 <h2 id="c2"> Installing Kompose on Mac </h2>
@@ -96,7 +96,7 @@ All of these YAML files define the desired state of the various components of yo
 9.web-service.yaml: Kubernetes Service resource that provides a stable IP address and DNS name for the web pod. It allows other pods in the cluster to connect to the web pod using a well-known name and port, regardless of the pod's IP address.
 
 
-### docker-compose.yml 
+### docker-compose.yml
 
 It defines three services: Redis, MySQL, and web, and specifies the necessary configurations such as image, container name, port mapping, network, and environment variables for each service. It also defines a network called hubspot_net and specifies that it is external, which means that Docker Compose will not attempt to create it.
 
