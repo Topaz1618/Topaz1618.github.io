@@ -54,7 +54,7 @@ Using YAML files for your Kubernetes resources can offer a range of advantages, 
 
 <h2 id="c2"> 2. Kubernetes YAML Syntax, Examples, and Applications </h2>
 
-<h3 id="c21"> 2.1 Kubernetes YAML Syntax </h2>
+<h3 id="c21"> 2.1 Kubernetes YAML Syntax </h3>
 
 Common keywords used in Kubernetes YAML files and their explanations:
 
@@ -73,7 +73,7 @@ Common keywords used in Kubernetes YAML files and their explanations:
 -  annotations: Used to attach non-identifying metadata to resources, such as descriptions or version numbers.
 - imagePullPolicy: Specifies the policy to be used when pulling the container image, such as Always, IfNotPresent, or Never.
 
-<h3 id="c22"> 2.2 Kubernetes YAML Demo </h2>
+<h3 id="c22"> 2.2 Kubernetes YAML Demo </h3>
 
 {% highlight bash %}
 apiVersion: apps/v1
@@ -97,7 +97,7 @@ spec:
             - containerPort: 80
 {% endhighlight %}
 
-<h3 id="c23"> 2.3 Kubernetes YAML Application </h2>
+<h3 id="c23"> 2.3 Kubernetes YAML Application </h3>
 
 For example, to start an application written in Python, depending on Redis and MySQL, you would typically need to create Kubernetes YAML files for the following resources:
 
@@ -134,23 +134,23 @@ And finally, to create the deployment and service for your application, you woul
 - PersistentVolumeClaim (PVC) YAML
 - NetworkPolicy YAML
 
-<h3 id="c31"> 3.1 Deployment YAML </h2>
+<h3 id="c31"> 3.1 Deployment YAML </h3>
 
 This file defines the deployment of your service and specifies the Docker image to use, the number of replicas to run, and the ports to expose. You can also specify resource requirements, liveness and readiness probes, and other configurations in this file.
 
-<h3 id="c32"> 3.2 Service YAML </h2>
+<h3 id="c32"> 3.2 Service YAML </h3>
 
 This file defines a service for your deployment and specifies the type of service (ClusterIP, NodePort, LoadBalancer), the ports to expose, and the selector to use to match the pods.
 
-<h3 id="c33"> 3.3 ConfigMap YAML (Optional)</h2>
+<h3 id="c33"> 3.3 ConfigMap YAML (Optional)</h3>
 
 This file defines a ConfigMap object that holds configuration data in key-value pairs. You can use this file to separate the configuration data from the deployment and service YAML files.
 
-<h3 id="c34"> 3.4 Secret YAML (Optional)</h2>
+<h3 id="c34"> 3.4 Secret YAML (Optional)</h3>
 
 This file defines a Secret object that holds sensitive data such as passwords, access keys, and other credentials. You can use this file to separate the sensitive data from the deployment and service YAML files.
 
-<h3 id="c35"> 3.5 PersistentVolumeClaim(PVC) YAML (Optional)</h2>
+<h3 id="c35"> 3.5 PersistentVolumeClaim(PVC) YAML (Optional)</h3>
 
 This file is a Kubernetes resource used to request storage resources in a cluster. PVCs allow you to abstract the details of the storage away from your deployment and statefulset configurations. A PVC is essentially a request for storage, with the desired characteristics such as access mode, storage class, and size.
  {% highlight bash %}
@@ -166,7 +166,7 @@ This file is a Kubernetes resource used to request storage resources in a cluste
        storage: 1Gi
  {% endhighlight %}
 
-<h3 id="c36"> 3.6 NetworkPolicy YAML (Optional)</h2>
+<h3 id="c36"> 3.6 NetworkPolicy YAML (Optional)</h3>
 
 This file is a Kubernetes resource used to control network traffic in a cluster. Network policies allow you to specify how pods are allowed to communicate with each other and with other network endpoints. You can use network policies to block traffic or allow traffic only between certain pods or namespaces.
 {% highlight bash %}
@@ -190,22 +190,22 @@ You can automate the process of creating and updating your Kubernetes objects by
 - Kustomize
 - Skaffold
 
-<h3 id="c41"> 4.1 Kompose</h2>
+<h3 id="c41"> 4.1 Kompose</h3>
 
  Kompose is a tool that can convert Docker Compose files to Kubernetes YAML files. This can save time and effort when migrating existing Docker-based applications to Kubernetes.  
 
 [Check Here ☞ <a href="https://topaz1618.github.io/docker-compose-yml-to-kubernetes-guide">Converting Docker Compose YAML to Kubernetes YAML</a>]
 
 
-<h3 id="c42"> 4.2 Helm</h2>
+<h3 id="c42"> 4.2 Helm</h3>
 
 Helm is a package manager for Kubernetes that allows you to define, install, and upgrade applications using YAML files. It uses templates and variables to generate Kubernetes YAML files and can be used to manage complex deployments
 
-<h3 id="c43"> 4.3 Kustomize</h2>
+<h3 id="c43"> 4.3 Kustomize</h3>
 
 Kustomize is a tool that enables you to customize Kubernetes YAML files without modifying the original files. It allows you to manage multiple environments and generate different YAML files for each environment.
 .
 
-<h3 id="c44"> 4.4 Skaffold</h2>
+<h3 id="c44"> 4.4 Skaffold</h3>
 
 Skaffold is a tool that automates the development workflow for Kubernetes applications. It can automatically generate Kubernetes YAML files and deploy them to a local or remote Kubernetes cluster.
