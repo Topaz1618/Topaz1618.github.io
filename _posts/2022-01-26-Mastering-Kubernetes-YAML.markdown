@@ -1,5 +1,5 @@
 ---
-title: "Mastering Kubernetes YAML: A Complete Guide to Writing and Generating YAML Files for Your Applications"
+title: "Understanding Kubernetes YAML: Syntax, Types, and Automation"
 layout: post
 date: 2021-02-26 19:48
 tag:
@@ -13,7 +13,7 @@ author: Topaz
 summary: "This blog provides an introduction to Kubernetes YAML files, covering the basics of YAML syntax and the structure of Kubernetes YAML files."
 permalink: kubernetes-yml-guide
 ---
-<h1 class="title"> Mastering Kubernetes YAML: A Complete Guide to Writing and Generating YAML Files for Your Applications </h1>
+<h1 class="title"> Understanding Kubernetes YAML: Syntax, Types, and Automation </h1>
 
 
 <h2> Table of Contents </h2>
@@ -38,7 +38,7 @@ permalink: kubernetes-yml-guide
     - [4.1 Kompose](#c41)
     - [4.2 Helm](#c42)
     - [4.3 Kustomize](#c43)
-    - [Skaffold](#c44)      
+    - [4.4 Skaffold](#c44)      
 
 <h2 id="c1"> 1. Introduction </h2>
 
