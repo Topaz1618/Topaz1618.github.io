@@ -5,6 +5,7 @@ date: 2022-02-26 09:48
 tag:
  - Docker
  - DevOps
+ - Kubernetes
  - Deployment
  - EN
 blog: true
