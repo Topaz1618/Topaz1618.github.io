@@ -58,19 +58,19 @@ Using YAML files for your Kubernetes resources can offer a range of advantages, 
 
 Common keywords used in Kubernetes YAML files and their explanations:
 
-- 1. apiVersion: The version of the Kubernetes API that the YAML file is written against.
-- 2. kind: The type of Kubernetes resource that is being defined in the YAML file (e.g. Deployment, Service, Pod, etc.).
-- 3. metadata: The section of the YAML file that contains metadata about the resource, such as the name, labels, and annotations.
-- 4. spec: The section of the YAML file that contains the specification for the resource, including details such as the container image, ports, and volumes.
-- 5. selector: Used in Service and Deployment YAML files to specify which Pods the Service or Deployment should target.
-- 6.containers: The section of a Pod or Deployment YAML file that contains information about the containers that should be run, including the container image, ports, and environment variables.
-- 7. ports: The section of a Service or Pod YAML file that specifies which ports should be exposed and how they should be mapped.
-- 8. volumeMounts: Used in container specification sections to mount a volume inside the container.
-- 9. volumes: The section of a Pod or Deployment YAML file that specifies which volumes should be mounted inside the container.
-- 10. replicas: The number of replicas that should be created for a Deployment.
-- 11. labels: Used to attach key-value pairs to resources like Pods, Deployments, or Services. Labels can be used to filter resources by selectors.
-- 12. annotations: Used to attach non-identifying metadata to resources, such as descriptions or version numbers.
-- 13. imagePullPolicy: Specifies the policy to be used when pulling the container image, such as Always, IfNotPresent, or Never.
+- apiVersion: The version of the Kubernetes API that the YAML file is written against.
+- kind: The type of Kubernetes resource that is being defined in the YAML file (e.g. Deployment, Service, Pod, etc.).
+- metadata: The section of the YAML file that contains metadata about the resource, such as the name, labels, and annotations.
+- spec: The section of the YAML file that contains the specification for the resource, including details such as the container image, ports, and volumes.
+- selector: Used in Service and Deployment YAML files to specify which Pods the Service or Deployment should target.
+- containers: The section of a Pod or Deployment YAML file that contains information about the containers that should be run, including the container image, ports, and environment variables.
+- ports: The section of a Service or Pod YAML file that specifies which ports should be exposed and how they should be mapped.
+- volumeMounts: Used in container specification sections to mount a volume inside the container.
+- volumes: The section of a Pod or Deployment YAML file that specifies which volumes should be mounted inside the container.
+- replicas: The number of replicas that should be created for a Deployment.
+- labels: Used to attach key-value pairs to resources like Pods, Deployments, or Services. Labels can be used to filter resources by selectors.
+-  annotations: Used to attach non-identifying metadata to resources, such as descriptions or version numbers.
+- imagePullPolicy: Specifies the policy to be used when pulling the container image, such as Always, IfNotPresent, or Never.
 
 <h3 id="c22"> 2.2 Kubernetes YAML Demo </h3>
 
