@@ -1,17 +1,19 @@
 ---
 title: "Building a CI/CD Pipeline with Jenkins and GitHub"
 layout: post
-date: 2022-02-26 09:48
+date: 2022-01-16 10:21
 tag:
  - Docker
  - DevOps
- - Kubernetes
- - Deployment
+ - CICD
+ - Pipeline
+ - GitHub
+ - Jenkins
  - EN
 blog: true
 author: Topaz
-summary: "This blog provides a step-by-step guide for setting up a CI/CD pipeline using Jenkins, including how to create a pipeline, write unit tests, deploy an application with Docker, and monitor performance."
-permalink: docker-jenkins-cicd-guide
+summary: "This blog covers the basics of implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline using Jenkins and GitHub. It includes setting up necessary plugins, testing the pipeline, deploying the application, and implementing rollback strategies."
+permalink: jenkins-github-cicd-pipeline
 ---
 <h1 class="title"> Building a CI/CD Pipeline with Jenkins and GitHub </h1>
 
