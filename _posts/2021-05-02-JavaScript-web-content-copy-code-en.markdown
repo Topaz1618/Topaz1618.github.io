@@ -9,7 +9,7 @@ tag:
 blog: true
 author: Topaz
 summary: "How to Copy and Paste on Sites that Won't Let You"
-permalink: shell-scripts-en
+permalink: copy-with-javascript
 ---
 <h1 class="title"> How to copy text from a blocked site using JavaScript </h1>
 

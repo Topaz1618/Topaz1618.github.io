@@ -62,7 +62,7 @@ Generate a Kubernetes YAML file based on your Docker Compose file
  kompose convert -f docker-compose.yml
 {% endhighlight %}
 
-<h2 id="c2"> Docker Compose Demo for Converting to Kubernetes</h2>
+<h2 id="c2"> 2. Docker Compose Demo for Converting to Kubernetes</h2>
 
 
 It defines three services: Redis, MySQL, and Web applications, and specifies the necessary configurations such as image, container name, port mapping, network, and environment variables for each service. It also defines a network called hubspot_net and specifies that it is external, which means that Docker Compose will not attempt to create it.
@@ -126,7 +126,7 @@ It defines three services: Redis, MySQL, and Web applications, and specifies the
  #   external: true # If the network already exists, it will be used. If it doesn't exist, Docker Compose will not attempt to create it
 {% endhighlight %}
 
-<h2 id="c3"> Understanding Generated Kubernetes YAML</h2>
+<h2 id="c3"> 3. Understanding Generated Kubernetes YAML</h2>
 
 <h3 id="c31"> 3.1 Viewing all generated Kubernetes YAML files </h3>
 
