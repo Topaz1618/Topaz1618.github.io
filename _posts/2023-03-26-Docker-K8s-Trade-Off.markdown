@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Achieving Kubernetes-like Reliability, Scalability, and Availability with Docker"
 layout: post
 date: 2023-03-26 10:21
 tag:
@@ -38,7 +38,7 @@ However implementing Kubernetes may present certain challenges that need to be c
 - For smaller applications that run on a single server or a small number of servers, using shell scripts or Docker may be sufficient. a small Kubernetes cluster with 3-5 nodes may seem like overkill.
 
 
-As your application grows and becomes more complex, managing it with shell scripts or Docker can become challenging and time-consuming. However, there are several Docker features and tools available that existing developers can easily implement to achieve availability, scalability, and reliability, similar to what Kubernetes can provide.
+However as your application grows and becomes more complex, managing it with shell scripts or Docker can become challenging and time-consuming. However, there are several Docker features and tools available that existing developers can easily implement to achieve availability, scalability, and reliability, similar to what Kubernetes can provide.
 
 
 
