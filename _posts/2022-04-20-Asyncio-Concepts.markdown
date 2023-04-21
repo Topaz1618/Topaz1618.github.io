@@ -10,7 +10,7 @@ tag:
 blog: true
 author: Topaz
 summary: "Introduce some random thing of Flask"
-permalink: mac-tools
+permalink: asyncio-concepts
 ---
 
 

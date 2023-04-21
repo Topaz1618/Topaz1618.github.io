@@ -10,9 +10,9 @@ tag:
 blog: true
 author: Topaz
 summary: "Introduce some random thing of Flask"
-permalink: mac-tools
+permalink: ensure-your-website-permanence
 ---
-<h1 class="title"> Flask Development Tips </h1>
+<h1 class="title"> Ensuring Your Website Permanence: Techniques for Making Your Website Run Until the End of Time </h1>
 
 
 
