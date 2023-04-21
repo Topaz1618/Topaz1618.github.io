@@ -1,7 +1,7 @@
 ---
 title: "[CN] Django2.0 models.OneToOneField 报错解决"
 layout: post
-date: 2018-06-09 22:48
+date: 2018-06-09 10:10
 tag:
  - Django
  - Python

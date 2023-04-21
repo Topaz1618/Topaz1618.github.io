@@ -1,7 +1,7 @@
 ---
 title: "Automatically generate requirements.txt and use it to install packages"
 layout: post
-date: 2018-03-07 22:48
+date: 2018-03-07 20:13
 tag:
  - Python
  - Installation

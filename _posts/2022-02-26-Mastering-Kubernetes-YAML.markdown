@@ -1,7 +1,7 @@
 ---
 title: "Understanding Kubernetes YAML: Syntax, Types, and Automation"
 layout: post
-date: 2022-02-26 19:48
+date: 2022-02-26 19:45
 tag:
  - Docker Compose
  - Kubernetes

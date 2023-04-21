@@ -1,7 +1,7 @@
 ---
 title: "Converting Docker Compose YAML to Kubernetes YAML"
 layout: post
-date: 2022-02-26 09:48
+date: 2022-02-26 09:43
 tag:
  - Docker
  - DevOps

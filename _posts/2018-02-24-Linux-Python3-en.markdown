@@ -1,7 +1,7 @@
 ---
 title: "Installing Python 3.6 on Linux"
 layout: post
-date: 2018-02-24 22:48
+date: 2018-02-24 21:12
 tag:
  - Python
  - Linux

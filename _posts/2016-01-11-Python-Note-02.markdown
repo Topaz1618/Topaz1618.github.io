@@ -1,7 +1,7 @@
 ---
 title: "[CN] Python 学习笔记 02"
 layout: post
-date: 2016-01-11 22:48
+date: 2016-01-11 23:13
 tag:
  - Python
  - Note

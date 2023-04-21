@@ -1,30 +1,30 @@
 ---
-title: "Bash shell Scripts"
+title: "[CN] Shell 脚本实例"
 layout: post
-date: 2017-03-24 22:48
+date: 2017-03-24 19:41
 tag:
  - Bash Shell
  - Script
  - Linux
- - EN
+ - CN
 blog: true
 author: Topaz
-summary: "Bash shell-based one-click installation scripts, service startup and shutdown scripts, remote distribution scripts, etc."
-permalink: shell-scripts-en
+summary: "基于 Bash shell 的一键安装脚本，服务启停脚本，远程分发脚本等"
+permalink: shell-scripts
 ---
-<h1 class="title"> Bash Shell Scripts </h1>
+<h1 class="title"> Shell 脚本汇总 </h1>
 
 
 <h2> Table of Contents </h2>
-- [One-Click service manage Script](#c1)
-- [Remote server backup Script (Rsync)](#c2)
-- [One-Click Zabbix Agent installation Script](#c3)
-- [One-Click Rsync installation Script](#c4)
-- [Tomcat redundant log deletion Script](#c5)
-- [SSH batch distribute Script](#c6)
+- [服务一键启停脚本](#c1)
+- [Rsync 推送数据备份脚本](#c2)
+- [Zabbix agent 一键安装脚本](#c3)
+- [Rsync 服务一键安装脚本](#c4)
+- [Tomcat 日志删除脚本](#c5)
+- [ssh批量分发脚本](#c6)
 
 
-<h2 id="c1"> One-Click service manage Script </h2>
+<h2 id="c1"> 服务一键启停脚本 </h2>
 
 {% highlight bash %}
 #!/bin/bash
@@ -130,7 +130,7 @@ esac
 main $1 $2
 {% endhighlight %}
 
-<h2 id="c2">Remote server backup Script (Rsync)</h2>
+<h2 id="c2">Rsync 推送数据备份脚本</h2>
 {% highlight bash %}
 #!/bin/bash
 #create by Topaz
@@ -149,7 +149,7 @@ do
 done
 {% endhighlight %}
 
-<h2 id="c3">One-Click Zabbix Agent installation Script</h2>
+<h2 id="c3">Zabbix agent 一键安装脚本 </h2>
 {% highlight bash %}
 #!/bin/bash
 reap -p "Enter host ip: " ip
@@ -179,7 +179,7 @@ chkconfig zabbix_agentd on
 /etc/init.d/zabbix_agentd start
 
 {% endhighlight %}
-<h2 id="c4">One-Click Rsync installation Script</h2>
+<h2 id="c4">Rsync 一键安装脚本</h2>
 {% highlight bash %}
 #!/bin/bash
 #this create bytopaz
@@ -263,7 +263,7 @@ action "Welcome to the Rsync!!" /bin/true
 {% endhighlight %}
 
 
-<h2 id="c5">Tomcat redundant log deletion Script </h2>
+<h2 id="c5">Tomcat 日志删除 </h2>
 {% highlight bash %}
 #!/bin/bash
 for i in {p2p,shop}
@@ -273,22 +273,22 @@ do
 {% endhighlight %}
 
 
-<h2 id="c6">SSH batch distribute Script</h2>
+<h2 id="c6">ssh批量分发脚本 </h2>
 {% highlight bash %}
 #!/bin/bash
-. /etc/init.d/functions			
+. /etc/init.d/functions				#调用函数，在后面判断是否成功时会调用它里面的模块
 [ $# -ne 1 ] && {					
         echo "USAGE:sh $0 ARG"		
         exit 1						
 }
-for n in 138 139					# Depends on the number of servers, Ip can also be read from the file
+for n in 138 139					#主机多的话也可以从文件里读取
 do
         scp -P22 $1 dog@10.0.0.$i:~ &>/dev/null
 		if [ $? -eq 0 ]				
         then
-                action "10.0.0.$i fenfa $1 is ok" /bin/true
+                action "10.0.0.$i fenfa $1 is ok" /bin/true		#成功的话提示，并调用成功提示模块
         else
-                action "10.0.0.$i fenfa $1 is false" /bin/false
+                action "10.0.0.$i fenfa $1 is false" /bin/false	#失败的话提示，并调用失败提示模块
         fi
 done
 {% endhighlight %}

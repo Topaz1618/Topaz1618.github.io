@@ -1,0 +1,85 @@
+---
+title: "Mac Tools"
+layout: post
+date: 2023-03-26 10:21
+tag:
+ - macOS
+ - CN
+blog: true
+author: Topaz
+summary: "Explore how to use Docker's features and tools such as Swarm, NGINX, and Prometheus to achieve Kubernetes-like reliability, scalability, and availability for your applications."
+permalink: mac-tools
+---
+<h1 class="title"> Mac 配置工具 </h1>
+
+
+<h2> Table of Contents </h2>
+
+- [1. Benefits of Kubernetes](#c1)
+- [2. Docker Solutions for Achieving Kubernetes-like Features](#c2)
+
+
+<h2 id="c1" > 1. 工具 </h2>
+- 鼠标配置工具: Scroll Reverser
+
+
+<h2 id="c2"> 2. 快捷键配置 </h2>
+
+
+App Settings => Keyboard
+- Move focus to the next window: command + tab
+
+
+App Settings => Keyboard => Shortcuts => App Shortcuts => Click "+"
+
+Terminal:
+- Show Previous Tab: command + ↑
+- Show Next Tab: commabd + ↓
+
+
+Google Chrome:
+- Select Previous Tab: command + ↑
+- Select Next Tab: command + ↓
+
+
+
+<h2 id="c2"> 3. Terminal </h2>
+
+- Theme: Pro
+- Font: Courier
+- Text color: #00FDFF
+
+
+<h2 id="c2"> 3. 其它 </h2>
+
+临时更换 brew 源
+```
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+```
+
+临时更换 Python 源
+```
+ pip install -i package_name https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+设置 terminal 使用代理
+```
+ $ export http_proxy=http://127.0.0.1:8080
+ $ export https_proxy=http://127.0.0.1:8081
+ $ curl cip.cc
+```
+
+查看进程号 (和 Linux 一样)
+```
+$ ps -ef|grep 进程名
+```
+
+使用进程号查看进程监听的端口
+```
+sudo lsof -nP -p PORT|grep LISTEN
+```
+
+有端口号查看被哪个进程监听 (和 Linux 一样)
+```
+lsof -i :Port
+```

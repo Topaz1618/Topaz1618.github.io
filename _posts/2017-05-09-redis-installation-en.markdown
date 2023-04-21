@@ -1,54 +1,54 @@
 ---
-title: "[CN] Redis 集群搭建"
+title: "Redis Installation and Redis Cluster deployment"
 layout: post
-date: 2017-05-09 22:48
+date: 2017-05-09 18:12
 tag:
  - Deployment
  - Redis
  - Installation
- - CN
+ - EN
 blog: true
 author: Topaz
-summary: "Redis 安装，集群搭建和集群命令"
-permalink: reids-installation
+summary: "Redis Installation by source code，Redis Cluster deployment and Using Redis-CLI with a Redis Cluster "
+permalink: reids-installation-en
 ---
-<h1 class="title"> Redis 集群搭建 </h1>
+<h1 class="title"> Redis Installation and Redis Cluster deployment </h1>
 
 <h2> Table of Contents </h2>
-- [为什么选择redis](#c1)
-- [Redis 安装](#c2)
-- [Redis 集群搭建](#c3)
-- [Redis 集群命令](#c4)
+- [Why Redis](#c1)
+- [Install Redis from Source](#c2)
+- [Redis Cluster deployment](#c3)
+- [Using Redis-CLI with Redis Cluster](#c4)
 
-<h2 id="c1"> 为什么选择redis </h2>
+<h2 id="c1"> Why Redis </h2>
 <a style="color: #AED6F1" href="https://www.jianshu.com/p/238372c25669"> ☞ 看这里</a>
 
-<h2 id="c2"> Redis 安装 </h2>
+<h2 id="c2"> Install Redis from Source </h2>
 
 {% highlight bash %}
-1.下载解压
+1.Downloading the source files & Unpacking
  wget http://download.redis.io/releases/redis-3.2.0.tar.gz
  tar xf redis-3.2.0.tar.gz -C /application/
 
-2.编译安装
+2.Compiling Redis
  cd /application/redis-3.2.0/
  make && make install
 
-3. 修改配置文件
- cp redis.conf redis.conf.ori  #备份
- egrep -v "^$|^#" redis.conf.ori >redis.conf #去掉空行和注释行
- sed -i "s#daemonize no#daemonize yes#g" redis.conf #后台启动
- sed -i "s/127.0.0.1/0.0.0.0/g" redis.conf #远程连接
+3. Configuring
+ cp redis.conf redis.conf.ori  #Backup
+ egrep -v "^$|^#" redis.conf.ori >redis.conf #Remove empty lines and comment lines
+ sed -i "s#daemonize no#daemonize yes#g" redis.conf #For running in the background
+ sed -i "s/127.0.0.1/0.0.0.0/g" redis.conf #Support remote connection
 
-4.启动 & 检查进程
+4.Run & Check status
  ./src/redis-server redis.conf
  ps -ef|grep redis
 {% endhighlight %}
 
 
-<h2 id="c3"> Redis 集群搭建 </h2>
+<h2 id="c3"> Redis Cluster Deployment </h2>
 
-1.修改 redis.conf
+1.Change redis.conf
 {% highlight bash %}
  cluster-enabled yes
  cluster-config-file nodes.conf
@@ -56,20 +56,20 @@ permalink: reids-installation
  appendonly yes
 {% endhighlight %}
 
-2.安装依赖
+2.Installing dependencies
 {% highlight bash %}
  yum install ruby ruby-devel rubygems rpm-build
  gem install redis
 {% endhighlight %}
 
-3.创建节点目录，拷贝配置文件，修改端口(使用shell脚本完成)
+3.Createing path for nodes，Coping the configuration file，Changing port(Impelement by use bash shell)
 {% highlight bash %}
  #!/bin/bash
  for i in {7000..7005};do
- 	[ ! -d data/$i ] && mkdir data/$i  #判断个节点目录是否存在，不在创建
- 	cp /usr/local/redis-3.2.0/redis.conf  data/$i/ # redis.conf拷到各节点目录下
+ 	[ ! -d data/$i ] && mkdir data/$i  # Create directory if not existed
+ 	cp /usr/local/redis-3.2.0/redis.conf  data/$i/ # copy redis.conf to directory of new node
  	sleep 1
- 	sed -i "s/7000/$i/g"  data/$i/redis.conf  #替换端口
+ 	sed -i "s/7000/$i/g"  data/$i/redis.conf  #replace port
  done
 {% endhighlight %}
 
@@ -86,7 +86,7 @@ permalink: reids-installation
 {% endhighlight %}
 
 
-<h2 id="c4"> Redis 集群命令 </h2>
+<h2 id="c4"> Redis Cluster commands </h2>
 
 #### 集群节点检查命令
 {% highlight bash %}

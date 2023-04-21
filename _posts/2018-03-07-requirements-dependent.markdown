@@ -1,7 +1,7 @@
 ---
 title: "[CN] 自动生成和安装 requirements.txt 依赖"
 layout: post
-date: 2018-03-07 22:48
+date: 2018-03-07 19:45
 tag:
  - Python
  - Installation
