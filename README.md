@@ -1,51 +1,13 @@
-## Arti Annaswamy's Personal Website 
+# Topaz1618.github.io
 
-See it here - [artiannaswamy.com](http://artiannaswamy.com)
+This is my personal blog, built using Jekyll and GitHub Pages. The theme for the blog is based on [Indigo Minimalist Jekyll Template](https://github.com/sergiokopplin/indigo).
 
-Based on the [Indigo Minimalist Jekyll Template](https://github.com/sergiokopplin/indigo) by Sérgio Kopplin @sergiokopplin - [Theme Demo](http://sergiokopplin.github.io/indigo/)
+## 📝 Latest Blog Posts
+<!-- BLOG-POST-LIST:START -->
+- [Achieving Kubernetes-like Reliability, Scalability, and Availability with Docker](https://topaz1618.github.io/achieving-kubernetes-like-features-with-docker/)
+- [Ensuring Your Website Permanence: Techniques for Making Your Website Run Until the End of Time](https://topaz1618.github.io/ensure-your-website-permanence/)
+- [Understanding Kubernetes YAML: Syntax, Types, and Automation](https://topaz1618.github.io/kubernetes-yml-guide/)
+- [Converting Docker Compose YAML to Kubernetes YAML](https://topaz1618.github.io/docker-compose-yml-to-kubernetes-guide/)
+<!-- BLOG-POST-LIST:END -->
 
-***
-
-<p align="center">
-    <b><a href="README.md#base-theme-features">Base Theme Features</a></b>
-    |
-    <b><a href="README.md#added-customizations">Customizations</a></b>
-    |
-    <b><a href="README.md#tutorials">Tutorials</a></b>
-    |
-    <b><a href="README.md#license">License</a></b>
-</p>
-
-![Screenshot](https://raw.githubusercontent.com/aannasw/aannasw.github.io/master/screen-shot.png)
-
----
-
-## Base Theme Features
-
-- Home Page
-- Blog
-- Projects
-- About
-- Responsive layout with option for narrow/wide
-- Tagging
-- Animated header
-- Social links
-
-## Added customizations
-- Custom Permalinks for blog posts and projects
-- Minimal header for pages other than Home
-- Hidden drafts
-- Individual tag pages
-
-## Tutorials
-
-Here's a couple of blog posts I've written on how I got the site setup - from acquiring the domain to adding customizations to the [Indigo](https://github.com/sergiokopplin/indigo) theme by @sergiokopplin.
-
-- [Build a Blog with Github - Part 1](http://artiannaswamy.com/build-a-github-blog-part-1)
-- [Build a Blog with Github - Part 2](http://artiannaswamy.com/build-a-github-blog-part-2)
-
----
-
-## License
-
-[MIT](http://kopplin.mit-license.org/) License © Sérgio Kopplin
+You can find more blog posts on my website [Topaz1618.github.io](https://topaz1618.github.io/blog).
