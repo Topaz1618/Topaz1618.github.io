@@ -1,5 +1,5 @@
 ---
-title: "Ensuring Your Website Permanence: Techniques for Making Your Website Run Until the End of Time 😉"
+title: "Ensuring Your Website Permanence: Techniques for Making Your Website Run Until the End of Time "
 layout: post
 date: 2022-04-20 18:59
 tag:
@@ -19,9 +19,11 @@ permalink: ensure-your-website-permanence
 <h2> Table of Contents </h2>
 - [1. Different levels for improving website performance](#c0)
 - [2. Bottleneck Detection](#c1)
-- [1. Code Techniques Level](#c1)
+
+
+<!-- - [3. Code Techniques Level](#c3)
 - [2. Web Framework Level](#c2)
-- [3. Architecture Level](#c3)
+- [3. Architecture Level](#c3) -->
 
 
 <h2 id="c1"> 1. Different levels for improving website performance </h2>
@@ -279,13 +281,375 @@ There are a few ways to check the server load on a Linux-based system. Here are 
 - vmstat: The vmstat command is a tool that provides information about system memory usage, CPU usage, and other system statistics. To check the server load with vmstat, run the command with the -n flag to disable the header, and look at the r column in the output, which shows the number of processes waiting for CPU time. If the r value is consistently high, it may indicate that the server is under heavy load and may be experiencing performance issues.
 
 
+
+### Database Bottleneck Detection
+
+To check for database bottlenecks on Linux, you can use a variety of tools and techniques. Here are some steps you can take to identify and resolve database performance issues:
+
+- Check the database logs: The database logs can provide valuable information about any errors or performance issues that are occurring. Check the logs to see if there are any error messages or warnings that indicate a problem.
+
+- Monitor system resources: Use system monitoring tools like top, htop, or vmstat to check the CPU, memory, and disk usage of the system. If the database is using an excessive amount of resources, it could be causing performance issues.
+
+- Use database profiling tools: Many databases have built-in profiling tools that can help you identify performance bottlenecks. For example, MySQL has the slow query log and the performance_schema database that can provide insights into slow queries and resource usage.
+
+- Use database performance monitoring tools: There are many third-party tools available that can help you monitor and diagnose database performance issues. Some popular options include Percona Monitoring and Management (PMM), Datadog, and New Relic.
+
+- Optimize database configuration: Check the database configuration to make sure it is optimized for your workload. Adjusting parameters like cache size and query timeouts can often improve performance.
+
+- Optimize queries: Poorly written or inefficient queries can cause database bottlenecks. Use a query profiler like EXPLAIN to identify slow queries, and optimize them for better performance.
+
+- Increase hardware resources: If all else fails, increasing the resources available to the database server (e.g. CPU, memory, disk space) can help alleviate performance issues.
+
+By following these steps, you should be able to identify and resolve database bottlenecks on your Linux system.
+
+
+#### SQL Queries Type
+
+There are several types of SQL queries that can cause slow query performance, including:
+
+- Queries that return a large number of rows: If a query returns a large number of rows, it can take longer to execute and can impact the performance of other queries running on the same database server.
+
+- Queries that join multiple tables: Joining multiple tables can be slow, especially if the tables contain a large number of rows or if there are no indexes on the columns being joined.
+
+- Queries that use subqueries or nested queries: Subqueries and nested queries can be slow, especially if the subquery is executed for every row in the outer query.
+
+- Queries that use complex or inefficient WHERE clauses: WHERE clauses that use complex logic, nested conditions, or functions can be slow, especially if the columns being searched are not indexed.
+
+- Queries that use ORDER BY or GROUP BY clauses: Sorting or grouping large result sets can be slow, especially if the columns being sorted or grouped are not indexed.
+
+- Queries that use unoptimized or inefficient SQL code: SQL code that is not optimized or uses inefficient techniques can be slow, even if the query itself is relatively simple.
+
+To improve query performance, it's important to optimize the database schema, use indexes, and analyze slow queries using tools like the MySQL slow query log or performance monitoring tools. Additionally, it's important to write efficient SQL code, use proper indexing techniques, and avoid unnecessary joins, subqueries, and other complex SQL constructs when possible.
+
+
+#### Add index for slow SQL
+- Queries that return a large number of rows: If a query returns a large number of rows, adding an index on the columns used in the WHERE clause can help improve performance. For example, if you have a table with a timestamp column and you want to retrieve all rows from the last hour, you could use the following query:
+```
+// Adding an index on the `timestamp` column can help improve the performance of this query.
+SELECT * FROM mytable WHERE timestamp >= NOW() - INTERVAL 1 HOUR;
+
+// This will add an index on the `timestamp` column in the `mytable` table, which can help improve the performance of queries that filter data based on this column.
+ALTER TABLE mytable ADD INDEX idx_timestamp (timestamp);
+```
+
+- Queries that join multiple tables: Adding indexes on the columns used in the join condition can help improve the performance of join queries. For example, if you have a users table and an orders table that are joined on the user_id column, you could use the following query:
+```
+// Adding an index on the `user_id` column in the `orders` table can help improve the performance of this query.
+SELECT * FROM users JOIN orders ON users.id = orders.user_id;
+
+// This will add an index on the `user_id` column in the `orders` table, which can help improve the performance of join queries that join the `orders` and `users` tables on this column.
+ALTER TABLE orders ADD INDEX idx_user_id (user_id);
+```
+
+- Queries that use subqueries or nested queries: Adding indexes on the columns used in the subquery or nested query can help improve the performance of these types of queries. For example, if you have a products table and you want to retrieve all products that have a higher price than the average price of all products, you could use the following query:
+```
+// Adding an index on the `price` column can help improve the performance of this query.
+SELECT * FROM products WHERE price > (SELECT AVG(price) FROM products);
+
+// This will add an index on the `price` column in the `products` table, which can help improve the performance of queries that use subqueries or [nested queries](poe://www.poe.com/_api/key_phrase?phrase=nested%20queries&prompt=Tell%20me%20more%20about%20nested%20queries.) to filter data based on this column.
+ALTER TABLE products ADD INDEX idx_price (price);
+```
+
+- Queries that use complex or inefficient WHERE clauses: Adding indexes on the columns used in the WHERE clause can help improve the performance of these types of queries. For example, if you have a users table and you want to retrieve all users who are older than 30 and live in a specific city, you could use the following query:
+```
+// Adding indexes on the `age` and `city` columns can help improve the performance of this query.
+SELECT * FROM users WHERE age > 30 AND city = 'New York';
+
+
+// These commands will add indexes on the `age` and `city` columns in the `users` table, which can help improve the performance of queries that filter data based on these columns.
+ALTER TABLE users ADD INDEX idx_age (age);
+ALTER TABLE users ADD INDEX idx_city (city);
+```
+
+- Queries that use ORDER BY or GROUP BY clauses: Adding indexes on the columns used in the ORDER BY or GROUP BY clause can help improve the performance of these types of queries. For example, if you have a users table and you want to retrieve all users grouped by city, you could use the following query:
+```
+// Adding an index on the `city` column can help improve the performance of this query.
+SELECT city, COUNT(*) FROM users GROUP BY city;
+
+// This will add an index on the `city` column in the `users` table, which can help improve the performance of queries that group or sort data based on this column.
+ALTER TABLE users ADD INDEX idx_city (city);
+```
+
+- Queries that use unoptimized or inefficient SQL code: Rewriting the SQL code to be more efficient or optimized can help improve the performance of these types of queries. Adding indexes on the columns used in the optimized query can further improve performance.
+
+
+#### Tips
+
+
+##### Composite index
+Composite index  is an index that includes multiple columns. Here's an example of how to create a composite index on the col1 and col2 columns in the mytable table:
+
+```
+ALTER TABLE mytable ADD INDEX idx_col1_col2 (col1, col2);
+```
+This will create a composite index on the col1 and col2 columns, which means that the index will be used to optimize queries that filter, sort, or group data based on these columns. For example, the following query will benefit from the composite index:
+
+```
+SELECT * FROM mytable WHERE col1 = 'value' AND col2 = 'other_value';
+```
+
+In this case, the database engine will use the composite index to quickly find the rows that match the filter condition on col1 and col2.
+
+In general, the database engine will choose the most efficient index to use for a given query based on the available indexes and the query's filtering, sorting, and grouping requirements. However, there may be cases where the database engine chooses an inefficient index or no index at all, in which case you can use the USE INDEX clause to specify a different index to use.
+
+For example, consider a table with a composite index on columns col1 and col2, and a query that filters data based on col1 only:
+
+```
+SELECT * FROM mytable WHERE col1 = 'value';
+```
+In this case, the database engine will automatically use the composite index to optimize the query, as the index includes the col1 column. You do not need to specify the index name in the query.
+
+However, if you have a different index on col1 alone that you know to be more efficient for this query, you could use the USE INDEX clause to force the database engine to use that index instead:
+
+```
+SELECT * FROM mytable USE INDEX (idx_col1) WHERE col1 = 'value';
+```
+
+This will force the database engine to use the idx_col1 index instead of the composite index on col1 and col2.
+
+
+##### using index in Python
+hen you use the filter method in SQLAlchemy, the database engine will automatically choose the most efficient index to use for the query based on the available indexes and the query conditions.
+
+If you want to specify a specific index to use in the query, you can use the with_index method in SQLAlchemy. Here's an example:
+
+```
+results = session.query(MyModel).with_index(MyModel.idx_age).filter(MyModel.age > 30).all()
+```
+
+
+
+##### Show index of ur table
+```
+SHOW INDEX FROM mytable;
+```
+
+##### checking index for our table
+
+Demo1
+```
+mysql> Explain SELECT * FROM mytable USE INDEX (idx_id) WHERE id <1000;
++----+-------------+---------+------------+-------+---------------+--------+---------+------+------+----------+-----------------------+
+| id | select_type | table   | partitions | type  | possible_keys | key    | key_len | ref  | rows | filtered | Extra                 |
++----+-------------+---------+------------+-------+---------------+--------+---------+------+------+----------+-----------------------+
+|  1 | SIMPLE      | mytable | NULL       | range | idx_id        | idx_id | 4       | NULL |  999 |   100.00 | Using index condition |
++----+-------------+---------+------------+-------+---------------+--------+---------+------+------+----------+-----------------------+
+1 row in set, 1 warning (0.00 sec)
+```
+
+Demo2
+
+```
+mysql> EXPLAIN SELECT * FROM mytable WHERE id >1;
++----+-------------+---------+------------+-------+----------------+---------+---------+------+---------+----------+-------------+
+| id | select_type | table   | partitions | type  | possible_keys  | key     | key_len | ref  | rows    | filtered | Extra       |
++----+-------------+---------+------------+-------+----------------+---------+---------+------+---------+----------+-------------+
+|  1 | SIMPLE      | mytable | NULL       | range | PRIMARY,idx_id | PRIMARY | 4       | NULL | 1588125 |   100.00 | Using where |
++----+-------------+---------+------------+-------+----------------+---------+---------+------+---------+----------+-------------+
+1 row in set, 1 warning (0.00 sec)
+
+```
+Here's a breakdown of the output from the EXPLAIN statement above:
+
+- id column: shows the sequence in which MySQL is executing the query. In this case, there is only one row in the output, so the value is 1.
+- select_type column: shows the type of query being executed. In this case, the query type is SIMPLE, which means that it's a simple SELECT statement with no subqueries or UNIONs.
+- table column: shows the name of the table being queried. In this case, the table name is mytable.
+- partitions column: shows whether the query is accessing a specific partition of a partitioned table. In this case, the value is NULL, which means that the query is not accessing a partitioned table.
+- type column: shows the type of access method being used to retrieve the data. In this case, the access method is range, which means that MySQL is using an index to retrieve a range of rows that match the query conditions.
+- possible_keys column: shows which indexes MySQL could potentially use to optimize the query. In this case, the possible keys are PRIMARY and idx_id, which are the primary key and a non-unique index on the id column, respectively.
+- key column: shows which index MySQL is actually using to optimize the query. In this case, MySQL is using the PRIMARY index to optimize the query, as indicated by the value PRIMARY.
+- key_len column: shows the length of the index being used, in bytes. In this case, the PRIMARY index is using 4 bytes to store the value of the id column.
+- ref column: shows which columns or constants are being used with the index to retrieve the data. In this case, the value is NULL, which means that no columns or constants are being used with the index.
+- rows column: shows the estimated number of rows that MySQL needs to examine to execute the query. In this case, MySQL estimates that it will need to examine 999 rows to retrieve the data.
+- filtered column:  shows the percentage of rows that MySQL expects to examine, based on the query conditions and the available statistics. In
+- Extra column: Using where, whichWHERE clause to filter the data
+
+
+
+
+
+Slow query log: The slow query log is a MySQL feature that logs all queries that take longer than a specified amount of time to execute. By default, the slow query log is not enabled, so you'll need to enable it by modifying your MySQL configuration file (my.cnf or my.ini). Once the slow query log is enabled, you can review it periodically to identify queries that are taking too long to execute.
+To enable the slow query log, add the following lines to your my.cnf or my.ini file:
+
+
+
+
+
+```
+slow_query_log = 1
+slow_query_log_file = /path/to/slow-query.log
+long_query_time = 1
+```
+
+This will enable the slow query log, specify the log file location, and set the threshold for a "slow" query to 1 second. You can adjust the long_query_time value to a different threshold as needed.
+
+Once the slow query log is enabled, you can review it by opening the log file and looking for queries that took longer than the specified threshold to execute. You can then optimize these queries or adjust your MySQL configuration to improve performance.
+
+Performance_schema database: The performance_schema database is a MySQL feature that provides detailed information about MySQL server performance. It contains tables that track events such as query execution, table access, and resource usage.
+To use the performance_schema database, you'll need to enable it by modifying your MySQL configuration file. Here's an example of how to enable the performance_schema database:
+```
+performance_schema = ON
+```
+
+Once the performance_schema database is enabled, you can use SQL queries to query the various tables in the database to gather detailed information about MySQL server performance. For example, you can use the performance_schema.events_statements_summary_by_digest table to view statistics about query execution, such as the total number of queries executed, the total execution time, and the average execution time.
+
+By using the slow query log and performance_schema database together, you can gain a comprehensive understanding of your MySQL server performance and identify bottlenecks that may be affecting performance.
+
+
+
+```
+# Time: 2022-05-01T12:34:56.789012Z
+# User@Host: myuser[123.45.67.89:12345]
+# Query_time: 5.123456  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1651439696;
+SELECT * FROM mytable WHERE id = 123456;
+In this example, the slow query log entry shows that a SELECT query took 5.123456 seconds to execute, with no lock time and no rows sent or examined. The log entry also shows the user and host that executed the query, the timestamp of the query, and the query itself.
+
+```
+
+When analyzing the slow query log, there are several values that you should pay attention to:
+
+- Query execution time
+    - This is the amount of time it takes for the query to execute, as measured by the MySQL server.
+    - Threshold: Any query that takes longer than a few seconds to execute may be a candidate for optimization.
+
+- Lock time
+    - This is the amount of time that the query holds locks on tables or rows, which can impact the performance of other queries running on the same database server.
+    - Threshold: Queries that hold locks on tables or rows for more than a few seconds can impact the performance of other queries running on the same database server.
+
+- Rows examined
+    - This is the number of rows that the query examines to retrieve the result set. Queries that examine a large number of rows can be slower than queries that examine a smaller number of rows.
+    - Threshold: Queries that examine a large number of rows can be slower than queries that examine a smaller number of rows. You should pay attention to queries that examine more than a few thousand rows and consider optimizing them to reduce the number of examined rows.
+
+- Index usage
+    - This indicates whether the query is using indexes to retrieve the data, which can help improve performance.
+    - Queries that do not use indexes or use indexes inefficiently can be slower than queries that use indexes efficiently. You should pay attention to queries that do not use indexes or have low index efficiency and consider optimizing them by adding or modifying indexes.
+
+Regarding the performance_schema database, there are several tables and columns that you can use to identify database bottlenecks. Here are a few examples:
+
+- performance_schema.events_statements_summary_by_digest: This table provides a summary of query execution statistics, including the number of queries executed, the total execution time, and the average execution time. You can use this table to identify queries that are taking a long time to execute and may be causing performance issues.
+    - SUM_TIMER_WAIT: This column shows the total execution time for each query in microseconds. You should monitor this column to identify queries that are taking a long time to execute, as these queries may be causing performance issues. This column shows the total execution time for each query in microseconds. You might want to start paying attention to queries with a SUM_TIMER_WAIT value that exceeds a few seconds, as these queries may be taking a long time to execute and may be causing performance issues. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+    - EXECUTIONS: This column shows the total number of times each query has been executed. You should monitor this column to identify queries that are executed frequently, as these queries may be a good target for optimization. This column shows the total number of times each query has been executed. You might want to start paying attention to queries with a high EXECUTIONS value, as these queries may be executed frequently and may be a good target for optimization. However, the specific threshold will depend on the available CPU and memory resources on your server, as well as the performance requirements of your application.
+
+    - AVG_TIMER_WAIT: This column shows the average execution time for each query in microseconds. You should monitor this column to identify queries that are consistently slow, as these queries may be a good target for optimization.This column shows the average execution time for each query in microseconds. You might want to start paying attention to queries with an AVG_TIMER_WAIT value that exceeds a few hundred milliseconds, as these queries may be consistently slow and may be a good target for optimization. However, the specific threshold will depend on the performance requirements of your application and the acceptable response time for your users.
+
+    performance_schema.events_statements_summary_by_digest table with some sample content:
+```
++------------------------------------------------------------------------------------------------------------------------+-------------+------------+----------------+-----------------------+-----------------------+------------------------+------------------------+
+| DIGEST                                                                                                                 | SCHEMA_NAME | EXEC_COUNT | SUM_TIMER_WAIT | SUM_LOCK_TIME         | SUM_ROWS_SENT         | SUM_ROWS_EXAMINED      | SUM_CREATED_TMP_DISK_TABLES |
++------------------------------------------------------------------------------------------------------------------------+-------------+------------+----------------+-----------------------+-----------------------+------------------------+------------------------+
+| 5c5e5d5e5c5d5e5d5c5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5e5c5d5e5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5e5c5d5e5d5c5d5e              | test        |          1 |          30000 | 0                     |                     10 |                   1000 |                          0 |
+| 5d5e5c5d5e5c5d5e5c5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5e5c5d5e5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5c5d5e5d5c5d5e              | test        |          2 |          40000 | 0                     |                     20 |                   2000 |                          0 |
+| 5e5c5d5e5c5d5e5d5c5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5e5c5d5e5d5e5c5d5e5d5e5c5d5e5d5c5d5e5d5c5d5e5d5c5d5e              | test        |          3 |          50000 | 0                     |                     30 |                   3000 |                          0 |
++------------------------------------------------------------------------------------------------------------------------+-------------+------------+----------------+-----------------------+-----------------------+------------------------+------------------------+
+```
+In this example, the performance_schema.events_statements_summary_by_digest table includes the following columns:
+
+- DIGEST: This column contains a hash value or fingerprint of the SQL statement.
+
+- SCHEMA_NAME: This column contains the name of the schema where the query was executed.
+
+- EXEC_COUNT: This column contains the number of times the query was executed.
+
+- SUM_TIMER_WAIT: This column contains the total execution time of the query, in microseconds.
+
+- SUM_LOCK_TIME: This column contains the total time the query spent waiting for locks, in microseconds.
+
+- SUM_ROWS_SENT: This column contains the total number of rows sent by the query.
+
+- SUM_ROWS_EXAMINED: This column contains the total number of rows examined by the query.
+
+- SUM_CREATED_TMP_DISK_TABLES: This column contains the total number of temporary disk tables created by the query.
+
+The DIGEST column in the performance_schema.events_statements_summary_by_digest table contains a hash value or fingerprint of the SQL statement, which can be difficult for humans to read and understand. However, you can use other tables in the performance_schema database, such as performance_schema.events_statements_history, to retrieve the actual SQL statements that correspond to each DIGEST value.
+
+For example, you can use the following query to retrieve the SQL statements for the top 10 queries with the highest SUM_TIMER_WAIT value:
+```
+SELECT DIGEST, SCHEMA_NAME, EXEC_COUNT, SUM_TIMER_WAIT, LEFT(DIGEST_TEXT, 100) AS SQL_STATEMENT
+FROM performance_schema.events_statements_summary_by_digest
+JOIN performance_schema.events_statements_history ON events_statements_history.digest = events_statements_summary_by_digest.digest
+ORDER BY SUM_TIMER_WAIT DESC
+LIMIT 10;
+```
+In this query, the LEFT function is used to retrieve only the first 100 characters of the DIGEST_TEXT column, which contains the actual SQL statement.
+
+
+To determine the appropriate thresholds for your environment, you should monitor the performance_schema.events_statements_summary_by_digest table over time, and use the data to identify trends and potential bottlenecks.
+
+- performance_schema.file_summary_by_instance: This table provides information about disk I/O usage, including the number of reads and writes and the amount of data read and written. You can use this table to identify queries that are causing excessive disk I/O and may be causing performance issues.
+
+Here are some general guidelines for the values you might want to pay attention to in this table:
+
+- COUNT_READ: This column shows the number of read operations performed on each file handle. You might want to start paying attention to file handles with a COUNT_READ value that exceeds a few thousand, as these file handles may be experiencing a high volume of read operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_NUMBER_OF_BYTES_READ: This column shows the total number of bytes read from each file handle. You might want to start paying attention to file handles with a SUM_NUMBER_OF_BYTES_READ value that exceeds a few gigabytes, as these file handles may be experiencing a high volume of read operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- COUNT_WRITE: This column shows the number of write operations performed on each file handle. You might want to start paying attention to file handles with a COUNT_WRITE value that exceeds a few thousand, as these file handles may be experiencing a high volume of write operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_NUMBER_OF_BYTES_WRITE: This column shows the total number of bytes written to each file handle. You might want to start paying attention to file handles with a SUM_NUMBER_OF_BYTES_WRITE value that exceeds a few gigabytes, as these file handles may be experiencing a high volume of write operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_TIMER_WAIT: This column shows the total wait time in microseconds for each file handle. You might want to start paying attention to file handles with a SUM_TIMER_WAIT value that exceeds a few seconds, as these file handles may be experiencing long wait times and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+To determine the appropriate thresholds for your environment, you should monitor the performance_schema.file_summary_by_instance table over time
+
+
+
+- performance_schema.table_io_waits_summary_by_index_usage: This table provides information about table I/O waits, including the number of waits and the wait time. You can use this table to identify tables that are causing I/O bottlenecks and may be causing performance issues.
+
+Here are some general guidelines for the values you might want to pay attention to in this table:
+
+- COUNT_FETCH: This column shows the number of times each index was used to fetch data from disk. You might want to start paying attention to indexes with a COUNT_FETCH value that exceeds a few thousand, as these indexes may be experiencing a high volume of fetch operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_TIMER_FETCH: This column shows the total wait time in microseconds for each index used to fetch data from disk. You might want to start paying attention to indexes with a SUM_TIMER_FETCH value that exceeds a few seconds, as these indexes may be experiencing long wait times and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- COUNT_INSERT: This column shows the number of times each index was used to insert data into the table. You might want to start paying attention to indexes with a COUNT_INSERT value that exceeds a few thousand, as these indexes may be experiencing a high volume of insert operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_TIMER_INSERT: This column shows the total wait time in microseconds for each index used to insert data into the table. You might want to start paying attention to indexes with a SUM_TIMER_INSERT value that exceeds a few seconds, as these indexes may be experiencing long wait times and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- COUNT_UPDATE: This column shows the number of times each index was used to update data in the table. You might want to start paying attention to indexes with a COUNT_UPDATE value that exceeds a few thousand, as these indexes may be experiencing a high volume of update operations and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+- SUM_TIMER_UPDATE: This column shows the total wait time in microseconds for each index used to update data in the table. You might want to start paying attention to indexes with a SUM_TIMER_UPDATE value that exceeds a few seconds, as these indexes may be experiencing long wait times and may be causing I/O bottlenecks. However, the specific threshold will depend on the performance requirements of your application and the resources available on your server.
+
+To determine the appropriate thresholds for your environment, you should monitor the performance_schema.table_io_waits_summary_by_index_usage table over time, and use the data to identify trends and potential bottlenecks.
+
+- performance_schema.memory_summary_by_instance: This table provides information about memory usage, including the amount of memory allocated and the amount of memory used. You can use this table to identify queries or processes that are using excessive memory and may be causing performance issues.
+Here are some general guidelines for the values you might want to pay attention to in this table:
+
+- CURRENT_COUNT_USED: This column shows the current number of memory blocks used by each component. You might want to start paying attention to components with a CURRENT_COUNT_USED value that exceeds a few thousand, as these components may be using a large amount of memory and may be causing memory pressure. However, the specific threshold will depend on the available memory on your server and the performance requirements of your application.
+
+- CURRENT_NUMBER_OF_BYTES_USED: This column shows the current amount of memory used by each component, in bytes. You might want to start paying attention to components with a CURRENT_NUMBER_OF_BYTES_USED value that exceeds a few gigabytes, as these components may be using a large amount of memory and may be causing memory pressure. However, the specific threshold will depend on the available memory on your server and the performance requirements of your application.
+
+- SUM_NUMBER_OF_BYTES_ALLOC: This column shows the total amount of memory allocated by each component, in bytes. You might want to start paying attention to components with a SUM_NUMBER_OF_BYTES_ALLOC value that exceeds a few gigabytes, as these components may be allocating a large amount of memory and may be causing memory pressure. However, the specific threshold will depend on the available memory on your server and the performance requirements of your application.
+
+- SUM_NUMBER_OF_BYTES_FREE: This column shows the total amount of memory freed by each component, in bytes. You might want to start paying attention to components with a SUM_NUMBER_OF_BYTES_FREE value that exceeds a few gigabytes, as these components may be freeing a large amount of memory and may be causing memory fragmentation or other issues. However, the specific threshold will depend on the available memory on your server and the performance requirements of your application.
+
+To determine the appropriate thresholds for your environment, you should monitor the performance_schema.memory_summary_by_instance table over time, and use the data to identify trends and potential memory-related issues.
+
+
 <h2 id="c1"> 1. Code Techniques Level </h2>
-
-
+pass
 
 <h2 id="c2"> 2. Web Framework Level </h2>
+There are several ways to check the performance of your Flask web app before and after adding a web server such as uWSGI or Gunicorn. Here are some steps you can follow:
+
+- Use a benchmarking tool: There are several benchmarking tools available that can help you measure the performance of your web app, such as ApacheBench, Siege, or wrk. These tools allow you to send a large number of requests to your web app and measure the response times and throughput. You can use these tools to benchmark your web app before and after adding a web server to see if there is any improvement in performance.
+
+- Monitor your web server: Once you have added a web server such as uWSGI or Gunicorn, you can use monitoring tools such as New Relic or AppDynamics to monitor the performance of your web server. These tools can help you identify any bottlenecks or performance issues and optimize your web server configuration accordingly.
+
+- Use profiling tools: Profiling tools such as cProfile or Pyflame can help you identify any performance bottlenecks in your Flask app code. You can use these tools to profile your code before and after adding a web server to see if there is any improvement in performance.
+
+- Use load testing tools: Load testing tools such as Locust or Gatling can help you simulate heavy traffic on your web app and measure its performance under load. You can use these tools to test your web app before and after adding a web server
+
+- By using a benchmarking or load testing tool to simulate heavy traffic on your web app, you can test its performance under high concurrency conditions and identify any issues that may arise, such as bottlenecks in your web server, database, or message queue. This can help you optimize your system to handle high traffic loads and improve its overall performance and reliability.
+
+- By observing the behavior of your web app under high concurrency conditions, you can identify potential issues and bottlenecks and take steps to address them, such as optimizing your database queries, adding caching layers, or scaling your infrastructure. This can help you avoid issues when you have real high concurrency traffic and ensure that your web app can handle the load without experiencing performance issues or downtime.
+
+In summary, using benchmarking and load testing tools can help you identify and address performance issues in your web app before they become a problem, and ensure that your app can handle high concurrency traffic with ease.
 
 
+Testing an API that involves multiple systems such as Redis, MySQL, and a message queue, you can use a single benchmarking tool to test the entire system and measure the overall performance. This can be more convenient and efficient than testing each system separately.
 
-<h2 id="c3"> 3. Architecture Level </h2>
-pass
+However, there are some cases where testing each system separately may be useful. For example, if you suspect that one of the systems is a performance bottleneck, testing it separately can help you identify the issue more quickly and accurately. It can also help you isolate the issue and avoid false positives or conflicting results.
+
+Additionally, testing each system separately can help you optimize each system independently and improve its performance. For example, if you find that your Redis cache is slow or unable to handle the load, you can optimize it separately from your message queue or MySQL database.

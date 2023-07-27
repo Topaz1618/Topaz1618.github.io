@@ -102,5 +102,3 @@ List the images that exist on the your Docker registry
 {% highlight bash %}
  $ docker search localhost:5000
 {% endhighlight %}
-
-Push

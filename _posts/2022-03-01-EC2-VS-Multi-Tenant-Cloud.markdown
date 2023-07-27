@@ -1,5 +1,5 @@
 ---
-title: "EC2 vs Multi-Tenant Cloud Computing"
+title: "EC2 vs Multi-Tenant Cloud Computing
 layout: post
 date: 2022-03-01 22:56
 tag:

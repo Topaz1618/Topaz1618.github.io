@@ -1,7 +1,7 @@
 ---
 title: "Flask Development Tips"
 layout: post
-date: 2022-04-20 18:59
+date: 2021-04-20 18:59
 tag:
  - Flask
  - Web Framework

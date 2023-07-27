@@ -1,5 +1,5 @@
 ---
-title: "Redis features and application scenarios"
+title: "Redis features and application scenarios
 layout: post
 date: 2021-12-24 16:41
 tag:
