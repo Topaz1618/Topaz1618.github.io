@@ -12,6 +12,8 @@ author: Topaz
 summary: "Requests Demo"
 permalink: Spiders-basis-01
 ---
+<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6621652007582709"
+     crossorigin="anonymous"></script></head>
 <h1 class="title"> 爬虫基础之 Requests 库  </h1>
 
 <h2> Table of Contents </h2>

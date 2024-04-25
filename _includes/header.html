@@ -1,20 +1,22 @@
+<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6621652007582709"
+     crossorigin="anonymous"></script></head>
 {% if page.title == "Home"%}{% assign showHeader = true %}{% endif %}
 
-{% if page.title == "Blog" 
-	or page.title == "Research" 
-	or page.title == "About" 
-	or page.title == "Teaching" 
+{% if page.title == "Blog"
+	or page.title == "Research"
+	or page.title == "About"
+	or page.title == "Teaching"
    	or page.title == "Tags"
     or page.title == "Projects"
 %}{% assign showMinHeader = true %}{% endif %}
 
-{% for post in site.posts %}	
+{% for post in site.posts %}
 	{% for tag in post.tags %}
 		{% if tag == page.tag %}
 			{% assign showMinHeader = true %}
 		{% endif %}
 	{% endfor %}
-{% endfor %}			
+{% endfor %}
 
 {% if showHeader == true %}
     <header class="header-home {% if site.animation %}animated{% endif %}">
