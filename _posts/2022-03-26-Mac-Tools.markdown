@@ -52,6 +52,55 @@ Google Chrome:
 
 <h2 id="c2"> 3. 其它 </h2>
 
+查看 Python 包安装路径，替换 speech_recognition 为实际包
+```
+python -c "import speech_recognition as sr, os.path as p; print(p.dirname(sr.__file__))"
+```
+
+Python 查看
+```
+class A(object):
+    print("A")
+
+
+class B(A):
+    print("B")
+
+
+class C(object):
+    print("C")
+
+
+class D(B, C):
+    def __init__(self, age):
+        self.age = age
+
+    CITY = "bj"
+
+    def func(self):
+        pass
+
+    print("D")
+
+
+# 可以查看类 D 及其父类的方法解析顺序
+print(D.__mro__, "\n")
+# (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.A'>, <class '__main__.C'>, <class 'object'>)
+
+
+# 类的所有属性
+print("All class attr")
+print(D.__dict__, "\n")
+# {'__module__': '__main__', '__init__': <function D.__init__ at 0x7f06409a10e0>, 'CITY': 'bj', 'func': <function D.func at 0x7f06409a1170>, '__doc__': None}
+
+obj = D(1)
+# 查看对象属性
+print("All obj attr:")
+print(obj.__dict__)
+# {'age': 1}
+```
+
+
 临时更换 brew 源
 ```
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
