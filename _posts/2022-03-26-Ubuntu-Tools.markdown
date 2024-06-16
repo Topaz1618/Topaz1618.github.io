@@ -8,7 +8,7 @@ tag:
 blog: true
 author: Topaz
 summary: "Explore how to use Docker's features and tools such as Swarm, NGINX, and Prometheus to achieve Kubernetes-like reliability, scalability, and availability for your applications."
-permalink: mac-tools
+permalink: ubuntu-tools
 ---
 <h1 class="title"> Ubuntu 配置工具 </h1>
 
