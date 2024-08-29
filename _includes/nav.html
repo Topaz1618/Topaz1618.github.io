@@ -30,7 +30,13 @@
             {% endif %}
         {% endif %}
 
-
+        {% if site.tales == true %}
+            {% if page.title != "Tales" %}
+                <li class="item">
+                    <a class="link" href="{{ site.url }}/tales">tales</a>
+                </li>
+            {% endif %}
+        {% endif %}
 
         {% if site.tutorials == true %}
             {% if page.title != "Tutorials" %}
@@ -39,8 +45,6 @@
                 </li>
             {% endif %}
         {% endif %}
-
-
 
         {% if site.projects == true %}
             {% if page.title != "Projects" %}
