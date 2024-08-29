@@ -1,0 +1,27 @@
+---
+# tutorial page must be named index.html and in its own folder to support pagination
+# https://jekyllrb.com/docs/pagination/
+layout: page
+title: Tutorials
+---
+<section class="list">
+	{% assign tutorialPostIndex = 0 %}
+	{% if site.posts.size == 0 %}
+		<p class="text-center">Nothing published yet!</p>
+	{% elsif site.paginate %}
+		{% for post in paginator.posts %}
+
+			{% include tutorial-post.html %}
+			{% assign tutorialPostIndex = tutorialPostIndex | plus: 1 %}
+		{% endfor %}
+
+		{% include pagination.html%}
+	{% else %}
+		{% for post in site.posts %}
+			{% include tutorial-post.html %}
+			{% assign tutorialPostIndex = tutorialPostIndex | plus: 1 %}
+
+		{% endfor %}
+	{% endif %}
+
+</section>
