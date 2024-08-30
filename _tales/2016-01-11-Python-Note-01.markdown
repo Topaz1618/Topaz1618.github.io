@@ -7,6 +7,7 @@ tag:
  - Note
  - CN
 tale: true
+draft: false
 author: Topaz
 summary: "Python 学习笔记"
 permalink: Python-Learn-note01
