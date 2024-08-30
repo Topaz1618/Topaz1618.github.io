@@ -6,22 +6,25 @@ title: Tales
 ---
 <section class="list">
 	{% assign talePostIndex = 0 %}
-	{% if site.posts.size == 0 %}
+	
+	{% if site.tales.size == 0 %}
 		<p class="text-center">Nothing published yet!</p>
 	{% elsif site.paginate %}
-		{% for post in paginator.posts %}
 
+		{% for post in paginator.tales %}
 			{% include tale-post.html %}
 			{% assign talePostIndex = talePostIndex | plus: 1 %}
 		{% endfor %}
 
 		{% include pagination.html%}
+
 	{% else %}
-		{% for post in site.posts %}
+
+		{% for post in site.tales %}
 			{% include tale-post.html %}
 			{% assign talePostIndex = talePostIndex | plus: 1 %}
-
 		{% endfor %}
+
 	{% endif %}
-	
+
 </section>
