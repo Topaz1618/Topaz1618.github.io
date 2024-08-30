@@ -20,7 +20,7 @@ title: Tales
 
 	{% else %}
 
-		{% for post in site.posts %}
+		{% for post in site.tales %}
 			{% include tale-post.html %}
 			{% assign talePostIndex = talePostIndex | plus: 1 %}
 		{% endfor %}

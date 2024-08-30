@@ -99,6 +99,13 @@ gems:
   - jekyll-github-metadata
   - posts
 
+
+collections:
+  tales:
+    output: true
+    permalink: /tales/:name/
+
+
 jekyll-mentions:
     base_url: https://github.com
     # base_url: http://artiannaswamy.com
