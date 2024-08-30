@@ -5,16 +5,22 @@ permalink: /tales/
 ---
 
 <section class="list">
+    {% assign talePostIndex = 0 %}
     {% if site.tales.size == 0 %}
         <p class="text-center">Nothing published yet!</p>
+
+    {% elsif site.paginate %}
+        {% for tale in paginator.tales %}
+            {% include tale-post.html %}
+            {% assign talePostIndex = talePostIndex | plus: 1 %}
+        {% endfor %}
+
+        {% include pagination.html %}
+
     {% else %}
         {% for tale in site.tales %}
-            <div class="item">
-                <a href="{{ site.baseurl }}{{ tale.url }}">
-                    <h2>{{ tale.title }}</h2>
-                </a>
-                <span class="date">{{ tale.date | date: "%B %d, %Y" }}</span>
-            </div>
+            {% include tale-post.html %}
+            {% assign talePostIndex = talePostIndex | plus: 1 %}
         {% endfor %}
     {% endif %}
 </section>
