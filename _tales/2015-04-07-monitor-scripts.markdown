@@ -1,6 +1,6 @@
 ---
 title: "[CN] Python 监控脚本实例"
-layout: tale
+layout: post
 date: 2015-04-07 13:15
 tag:
  - Monitor

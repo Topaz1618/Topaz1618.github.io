@@ -1,6 +1,6 @@
 ---
 title: "[CN] Python 学习笔记 01"
-layout: tale
+layout: post
 date: 2016-01-11 11:11
 tag:
  - Python
