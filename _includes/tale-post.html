@@ -6,12 +6,12 @@
 </div>
 
 
-{% if tale.tale == true %}
-{% if tale.draft == false %}
-    <div class="item {% if tale.star %}star{% endif %}">
-        <a class="url" href="{{ site.url }}{{ tale.url }}">
-            <aside class="date"><time datetime="{{ tale.date | date:"%d-%m-%Y" }}">{{ tale.date | date: "%b %d %Y" }}</time></aside>
-            <h3 class="title">{{ tale.title }}</h3>
+{% if post.tale == true %}
+{% if post.draft == false %}
+    <div class="item {% if post.star %}star{% endif %}">
+        <a class="url" href="{{ site.url }}{{ post.url }}">
+            <aside class="date"><time datetime="{{ post.date | date:"%d-%m-%Y" }}">{{ post.date | date: "%b %d %Y" }}</time></aside>
+            <h3 class="title">{{ post.title }}</h3>
         </a>
     </div>
 {% endif %}
